@@ -9,4 +9,7 @@ if fname in panties:
     origin = Image.open('body.png')
 
     origin.paste(pantie,(1018,828),pantie)
-    origin.save('test.png')
+    origin.save('patched.png')
+    print("Done. Please check patched.png.")
+else:
+    print("Cannot find it")
