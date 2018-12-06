@@ -2,7 +2,7 @@
 Treasure every pantie encounter as it may not come again.
 
 ## Update log
-2018/12/05 crop.py crops the pantie texture for pantie designer.
+2018/12/05 crop.py crops the pantie texture for pantie designer.  
 2018/12/06 patch.py support random pantie option '-r'. (`python patch.py -r`)
 
 # Pre-required
