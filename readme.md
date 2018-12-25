@@ -4,9 +4,9 @@ Treasure every pantie encounter as it may not come again.
 ## Update log
 2018/12/05 crop.py crops the pantie texture for pantie designer.  
 2018/12/06 patch.py support random pantie option '-r'. (`python patch.py -r`)  
-2018/12/18 convert_shaclo.py convert Quiche pantie to [Shaclo](https://booth.pm/ja/items/987296) pantie.  
-
-Currently, Shaclo pantie converter has an issue that it cannot convert a pantie which has a unique hip texture. It is caused by stitch correction of the hip. I will make an option to choose correction algorithm in the future.
+2018/12/18 convert_shaclo.py convert Quiche pantie to [Shaclo](https://tomori-hikage.booth.pm/items/987296) pantie.  
+2018/12/25 convert_shaclo.py support stitch correction switch.  
+2018/12/25 convert_anna.py convert Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
 
 # Pre-required
 If you have any paint or retouch software, you can override easily.  
@@ -14,14 +14,17 @@ However, I understand that you guys are lazy.
 Don't worry, I prepared a python script to override the body.png.  
 [Python(3 is recommended)](https://www.python.org/downloads/)
 
-For Shaclo pantie converter, scikit-image is required.  
-`pip install scikit-image`
+The patch require external packages.  
+I summarized them in the requirements.txt and you can install it easily.  
+`pip install -r requirements.txt`
 
 # Texture overriding
 1. Overwrite body.png
 2. Run patch.py `python patch.py`
 3. Put your favorite number (example: 0001.png)
 4. Enjoy
+
+The instructions can also be used for Shaclo and Anna patch.  
 
 # Your own dream panties overriding
 1. Overwrite body.png
@@ -32,9 +35,9 @@ For Shaclo pantie converter, scikit-image is required.
 
 # Any error?
 ## Windows
-Open your favorite terminal and then `pip install pillow`.
+Open your favorite terminal and then `pip install -r requirements.txt`.
 ## Linux/OSX
-`pip install pillow` or `sudo pip install pillow`
+`pip install -r requirements.txt` or `sudo pip install -r requirements.txt`
 
 # Special thanks
-[Quiche model](https://booth.pm/ja/items/954376)
+[Quiche model](https://mutachannel.booth.pm/items/954376)
