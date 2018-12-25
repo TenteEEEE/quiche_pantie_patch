@@ -45,3 +45,6 @@ def convert2anna(fname=None):
         io.imsave('anna_pantie.png',np.uint8(pantie*255))
     else:
         print("Cannot find it")
+        
+if __name__ == '__main__':
+    convert2anna()
