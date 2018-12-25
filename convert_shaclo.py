@@ -53,7 +53,12 @@ def convert2schaclo(fname=None, stitch_correction=False):
         pantie_inv = pantie[:,::-1,:]
         pantie_new[:r,:c,:] = pantie_inv
         pantie_new[:r,c-overlap:c*2-overlap,:] = pantie[:,overlap:,:]
-        out = skt.resize(pantie_new,(np.int(pantie_new.shape[0]*1.8),np.int(pantie_new.shape[1]*1.7)),anti_aliasing=True,mode='reflect')
+        if stitch_correction:
+            mag_c = 1.7
+        else:
+            mag_c = 1.72
+        mag_r = 1.8
+        out = skt.resize(pantie_new,(np.int(pantie_new.shape[0]*mag_r),np.int(pantie_new.shape[1]*mag_c)),anti_aliasing=True,mode='reflect')
         io.imsave('shaclo_pantie.png',np.uint8(out*255))
     else:
         print("Cannot find it")

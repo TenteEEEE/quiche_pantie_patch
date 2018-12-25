@@ -23,7 +23,10 @@ if fname in panties:
     cvt.convert2schaclo(fname, stitch_correction=stitch_correction)
     pantie = Image.open('./shaclo_pantie.png')
     origin = Image.open('body_shaclo.png')
-    origin.paste(pantie,(49,15),pantie)
+    if stitch_correction:
+        origin.paste(pantie,(49,16),pantie)
+    else:
+        origin.paste(pantie,(62,16),pantie)
     origin.save('patched_shaclo.png')
     print("Done. Please check patched.png.")
 else:
