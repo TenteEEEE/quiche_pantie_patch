@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 fdir = './data/'
-mask = Image.open('./mask.png')
+mask = Image.open('./mask/mask.png')
 
 panties = os.listdir(fdir)
 for fname in panties:
