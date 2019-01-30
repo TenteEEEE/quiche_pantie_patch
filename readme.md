@@ -1,3 +1,63 @@
+# キッシュパンツパッチ
+パンツは一期一会
+
+## 更新履歴
+現在(2019/01/30)、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃんの他に、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃんと[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんは変換スクリプトで対応しています。  
+ちなみに吸血鬼アンナちゃんは淫紋も刻めます。詳細はパンツコンバートにて。
+
+## 必要なもの
+ペイントもしくはレタッチソフトがある方はbody.pngの上に画像を重ねるだけでOKです。  
+それすらも面倒だという人の為に、Pythonスクリプトもあります。  
+[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、もしくは[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんをお使いの方は変換スクリプトを動かすためにPythonが必須です。  
+[Python(3系を推奨)](https://www.python.org/downloads/)
+
+必要な外部パッケージはコンソールからワン・コマンドでインストールできます。  
+`pip install -r requirements.txt`  
+
+このリポジトリは基本的に毎日更新されるので、最新のパンツを追いたい方はGitのインストール推奨です。  
+[Git for windows](https://git-scm.com/)  
+インストール後はコンソール(cmdもしくはpowershell)を開いて `git clone https://github.com/TenteEEEE/quiche_pantie_patch.git` でダウンロードできます。  
+とりあえず最新版にしたければクローンしたディレクトリで`git pull`でいい感じに更新してくれます。
+
+## パンツパッチ
+0. このリポジトリを[ダウンロード](https://github.com/TenteEEEE/quiche_pantie_patch/archive/master.zip)します (gitが分かる人はcloneを推奨)
+1. body.pngをあなたのbodyテクスチャで置き換えてください
+2. コンソールからpatch.pyを実行します `python patch.py`
+3. パンツ番号を聞かれるので好きな番号を入力します 例:0001.png
+4. patched.pngが上書き済みテクスチャです Enjoy!
+
+パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。
+
+## パンツコンバート
+すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、もしくは[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんのパンツに変換できます。  
+基本的にパンツパッチに使うコマンドを `python patch_[character].py` に変えるだけです。  
+変換画像だけ欲しいときは `python convert_[character].py`で作れます。  
+他にも使用者が多いアバターはできるだけ対応したいので、対応して欲しい人はテストユーザになる覚悟とともにテクスチャ画像を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)に送ってください。
+
+### 特殊オプション
+#### シャーロちゃん
+* -c: 縫い目の補正方法を変更できます。なんか変になったというときに書いてみてください。
+
+#### アンナちゃん
+* -s: 淫紋をお腹に刻みます。
+
+## スペシャルサンクス
+[Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)
+
+## 画像のライセンス
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> を著作者とするこの <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">作品</span> は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズの 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>で提供されています。  
+作品のクレジットの表示が必要なライセンスではありますが、アバターのテクスチャにクレジット表記という無粋なものは不要です！  
+どこかで再配布する場合などに別のテキストファイルなどで記載してください。  
+また、商用利用したい場合は[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)までご相談ください。  
+
+## ソフトウェアのライセンス
+MITライセンス(一行で:無料で自由に使える/変更できるが、なにか問題があっても作者は責任を負わない)に従います。  
+https://opensource.org/licenses/mit-license.php  
+Copyright (c) 2019 TenteEEEE  
+
+
+---
+**English**
 # Quiche Pantie Patch
 Treasure every pantie encounter as it may not come again.
 
@@ -41,3 +101,12 @@ Open your favorite terminal and then `pip install -r requirements.txt`.
 
 # Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)
+
+# License for my images
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.  
+When you want to use it on your business, please ask [@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc).
+
+# License for my scripts
+Released under the MIT license  
+https://opensource.org/licenses/mit-license.php  
+Copyright (c) 2019 TenteEEEE  
