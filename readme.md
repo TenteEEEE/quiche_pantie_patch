@@ -2,7 +2,8 @@
 パンツは一期一会
 
 ## 更新履歴
-現在(2019/01/30)、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃんの他に、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃんと[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんは変換スクリプトで対応しています。  
+2019/02/09: [ミルク](https://komado.booth.pm/items/1209496)ちゃんの変換に対応しました。また、dreamフォルダにあるパンツをすべて変換するスクリプトを追加しました。
+2019/01/30: [キッシュ](https://mutachannel.booth.pm/items/954376)ちゃんの他に、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃんと[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんは変換スクリプトで対応しています。  
 ちなみに吸血鬼アンナちゃんは淫紋も刻めます。詳細はパンツコンバートにて。
 
 ## 必要なもの
@@ -29,7 +30,7 @@
 パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。
 
 ## パンツコンバート
-すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、もしくは[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんのパンツに変換できます。  
+すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃんのパンツに変換できます。  
 基本的にパンツパッチに使うコマンドを `python patch_[character].py` に変えるだけです。  
 変換画像だけ欲しいときは `python convert_[character].py`で作れます。  
 他にも使用者が多いアバターはできるだけ対応したいので、対応して欲しい人はテストユーザになる覚悟とともにテクスチャ画像を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)に送ってください。
@@ -39,6 +40,9 @@
 * -c: 縫い目の補正方法を変更できます。なんか変になったというときに書いてみてください。
 
 #### アンナちゃん
+* -s: 淫紋をお腹に刻みます。
+
+#### ミルクちゃん
 * -s: 淫紋をお腹に刻みます。
 
 ## スペシャルサンクス
@@ -67,6 +71,7 @@ Treasure every pantie encounter as it may not come again.
 2018/12/18 convert_shaclo.py converts Quiche pantie to [Shaclo](https://tomori-hikage.booth.pm/items/987296) pantie.  
 2018/12/25 convert_shaclo.py supports stitch correction switch.  
 2018/12/25 convert_anna.py converts Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
+2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  

@@ -4,7 +4,7 @@ import skimage.io as io
 import skimage.transform as skt
 import numpy as np
 
-def convert2schaclo(fname=None, stitch_correction=False):
+def convert2shaclo(fname=None, stitch_correction=False):
     panties = os.listdir('./dream/')
     if fname is None:
         fname =  input("Type pantie name: ./dream/")
