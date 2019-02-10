@@ -20,7 +20,7 @@ else:
     fname =  input("Type pantie name: ./dream/")
 
 if fname in panties:
-    cvt.convert2schaclo(fname, stitch_correction=stitch_correction)
+    cvt.convert2shaclo(fname, stitch_correction=stitch_correction)
     pantie = Image.open('./shaclo_pantie.png')
     origin = Image.open('body_shaclo.png')
     if stitch_correction:
