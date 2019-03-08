@@ -2,6 +2,7 @@
 パンツは一期一会
 
 ## 更新履歴
+2019/03/08: [リンツ](https://mutachannel.booth.pm/items/1255264)ちゃんの変換に対応しました。patch.pyで-lオプションを指定してください。  
 2019/02/09: [ミルク](https://komado.booth.pm/items/1209496)ちゃんの変換に対応しました。また、dreamフォルダにあるパンツをすべて変換するスクリプトを追加しました。  
 2019/01/30: [キッシュ](https://mutachannel.booth.pm/items/954376)ちゃんの他に、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃんと[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんは変換スクリプトで対応しています。  
 ちなみに吸血鬼アンナちゃんは淫紋も刻めます。詳細はパンツコンバートにて。
@@ -20,14 +21,15 @@
 インストール後はコンソール(cmdもしくはpowershell)を開いて `git clone https://github.com/TenteEEEE/quiche_pantie_patch.git` でダウンロードできます。  
 とりあえず最新版にしたければクローンしたディレクトリで`git pull`でいい感じに更新してくれます。
 
-## パンツパッチ
+## パンツパッチ(キッシュ、リンツちゃん)
 0. このリポジトリを[ダウンロード](https://github.com/TenteEEEE/quiche_pantie_patch/archive/master.zip)します (gitが分かる人はcloneを推奨)
 1. body.pngをあなたのbodyテクスチャで置き換えてください
 2. コンソールからpatch.pyを実行します `python patch.py`
 3. パンツ番号を聞かれるので好きな番号を入力します 例:0001.png
 4. patched.pngが上書き済みテクスチャです Enjoy!
 
-パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。
+パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。  
+また、`-l`を追加するとリンツちゃん向けの微補正を加えます。
 
 ## パンツコンバート
 すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃんのパンツに変換できます。  
@@ -72,6 +74,7 @@ Treasure every pantie encounter as it may not come again.
 2018/12/25 convert_shaclo.py supports stitch correction switch.  
 2018/12/25 convert_anna.py converts Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
 2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.
+2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
