@@ -73,7 +73,7 @@ Treasure every pantie encounter as it may not come again.
 2018/12/18 convert_shaclo.py converts Quiche pantie to [Shaclo](https://tomori-hikage.booth.pm/items/987296) pantie.  
 2018/12/25 convert_shaclo.py supports stitch correction switch.  
 2018/12/25 convert_anna.py converts Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
-2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.
+2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.  
 2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py
 
 # Pre-requirements
