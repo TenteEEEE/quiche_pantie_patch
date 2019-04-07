@@ -2,6 +2,7 @@
 パンツは一期一会
 
 ## 更新履歴
+2019/04/06: [ルア](https://ficsnade.booth.pm/items/1255054)ちゃんの変換に対応しました。  
 2019/03/08: [リンツ](https://mutachannel.booth.pm/items/1255264)ちゃんの変換に対応しました。patch.pyで-lオプションを指定してください。  
 2019/02/09: [ミルク](https://komado.booth.pm/items/1209496)ちゃんの変換に対応しました。また、dreamフォルダにあるパンツをすべて変換するスクリプトを追加しました。  
 2019/01/30: [キッシュ](https://mutachannel.booth.pm/items/954376)ちゃんの他に、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃんと[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんは変換スクリプトで対応しています。  
@@ -74,7 +75,8 @@ Treasure every pantie encounter as it may not come again.
 2018/12/25 convert_shaclo.py supports stitch correction switch.  
 2018/12/25 convert_anna.py converts Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
 2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.  
-2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py
+2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py  
+2019/04/06 convert_lua.py converts Quiche pantie to [Lua](https://ficsnade.booth.pm/items/1255054) pantie.
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
