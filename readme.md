@@ -33,7 +33,7 @@
 また、`-l`を追加するとリンツちゃん向けの微補正を加えます。
 
 ## パンツコンバート
-すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃんのパンツに変換できます。  
+すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃんのパンツに変換できます。  
 基本的にパンツパッチに使うコマンドを `python patch_[character].py` に変えるだけです。  
 変換画像だけ欲しいときは `python convert_[character].py`で作れます。  
 他にも使用者が多いアバターはできるだけ対応したいので、対応して欲しい人はテストユーザになる覚悟とともにテクスチャ画像を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)に送ってください。
