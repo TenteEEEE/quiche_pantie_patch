@@ -20,7 +20,7 @@ if fname in panties:
     cvt.convert2ukon(fname)
     pantie = Image.open('./ukon_pantie.png')
     origin = Image.open('body_ukon.png')
-    origin.paste(pantie,(609,675),pantie)
+    origin.paste(pantie,(616,686),pantie)
     origin.save('patched_ukon.png')
     print("Done. Please check patched.png.")
 else:

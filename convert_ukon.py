@@ -17,12 +17,12 @@ def convert2ukon(fname=None):
         pantie = np.bitwise_and(pantie,mask)
 
 
-        front = pantie[:153,:178,:]
-        front = resize(front,[0.84,0.835])[:,:,:]
+        front = pantie[:159,:185,:]
+        front = resize(front,[0.592,0.72])[:,:,:]
 
-        back = pantie[:284,355:627,:]
+        back = pantie[:355,410:,:]
         back = skt.rotate(back, 180)
-        back = resize(back,[0.52,0.55])
+        back = resize(back,[0.47,0.59])
 
         [fr,fc,_] = front.shape
         [br,bc,_] = back.shape
