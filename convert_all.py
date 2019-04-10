@@ -7,12 +7,19 @@ import copy
 from PIL import Image
 
 parser = argparse.ArgumentParser(description='This script convert all the panties')
-parser.add_argument("character", choices=['anna', 'shaclo', 'milk', 'lua'])
+parser.add_argument("character", choices=['anna', 'shaclo', 'milk', 'lua', 'ukon'])
 parser.add_argument("--pad", action="store_true", help='Padding')
 parser.add_argument("--sign", action="store_true", help='Add sign')
 args = parser.parse_args()
 os.makedirs('converted',exist_ok=True)
 
+if args.character=='ukon':
+    from convert_ukon import *
+    converter = convert2ukon
+    fname = 'ukon_pantie.png'
+    if args.pad:
+        pos = (616,686)
+        base = Image.new('RGBA', (1024,1024))
 if args.character=='lua':
     from convert_lua import *
     converter = convert2lua

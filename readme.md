@@ -1,7 +1,10 @@
 # キッシュパンツパッチ
-パンツは一期一会
+パンツは一期一会  
+
+現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんです。
 
 ## 更新履歴
+2019/04/10: [右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんへの変換スクリプトを[thakyuu](https://github.com/thakyuu)さんが開発、本リポジトリにマージしました。  
 2019/04/06: [ルア](https://ficsnade.booth.pm/items/1255054)ちゃんの変換に対応しました。  
 2019/03/08: [リンツ](https://mutachannel.booth.pm/items/1255264)ちゃんの変換に対応しました。patch.pyで-lオプションを指定してください。  
 2019/02/09: [ミルク](https://komado.booth.pm/items/1209496)ちゃんの変換に対応しました。また、dreamフォルダにあるパンツをすべて変換するスクリプトを追加しました。  
@@ -11,7 +14,7 @@
 ## 必要なもの
 ペイントもしくはレタッチソフトがある方はbody.pngの上に画像を重ねるだけでOKです。  
 それすらも面倒だという人の為に、Pythonスクリプトもあります。  
-[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、もしくは[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんをお使いの方は変換スクリプトを動かすためにPythonが必須です。  
+他アバターへのパンツ変換をしたい方は変換スクリプトを動かすためにPythonが必須です。  
 [Python(3系を推奨)](https://www.python.org/downloads/)
 
 必要な外部パッケージはコンソールからワン・コマンドでインストールできます。  
@@ -33,7 +36,7 @@
 また、`-l`を追加するとリンツちゃん向けの微補正を加えます。
 
 ## パンツコンバート
-すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃんのパンツに変換できます。  
+すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんのパンツに変換できます。  
 基本的にパンツパッチに使うコマンドを `python patch_[character].py` に変えるだけです。  
 変換画像だけ欲しいときは `python convert_[character].py`で作れます。  
 他にも使用者が多いアバターはできるだけ対応したいので、対応して欲しい人はテストユーザになる覚悟とともにテクスチャ画像を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)に送ってください。
@@ -49,7 +52,8 @@
 * -s: 淫紋をお腹に刻みます。
 
 ## スペシャルサンクス
-[Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)
+[Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
+右近ちゃんパンツコンバータの作者:[thakyuuさん](https://github.com/thakyuu)
 
 ## 画像のライセンス
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> を著作者とするこの <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">作品</span> は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズの 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>で提供されています。  
@@ -76,7 +80,8 @@ Treasure every pantie encounter as it may not come again.
 2018/12/25 convert_anna.py converts Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
 2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.  
 2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py  
-2019/04/06 convert_lua.py converts Quiche pantie to [Lua](https://ficsnade.booth.pm/items/1255054) pantie.
+2019/04/06 convert_lua.py converts Quiche pantie to [Lua](https://ficsnade.booth.pm/items/1255054) pantie.  
+2019/04/10 [thakyuu](https://github.com/thakyuu) developed [Ukon](http://seiga.nicovideo.jp/seiga/im8378009) converter, and it was merged.
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
@@ -110,7 +115,8 @@ Open your favorite terminal and then `pip install -r requirements.txt`.
 `pip install -r requirements.txt` or `sudo pip install -r requirements.txt`
 
 # Special thanks
-[Quiche model](https://mutachannel.booth.pm/items/954376)
+[Quiche model](https://mutachannel.booth.pm/items/954376)  
+Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)
 
 # License for my images
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.  
