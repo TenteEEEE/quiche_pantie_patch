@@ -4,6 +4,7 @@
 現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんです。
 
 ## 更新履歴
+2019/04/12: [キッシュちゃん素体](https://mutachannel.booth.pm/items/1026956)用のオプションを追加。patch.pyで-nをオプションを指定してください。  
 2019/04/10: [右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんへの変換スクリプトを[thakyuu](https://github.com/thakyuu)さんが開発、本リポジトリにマージしました。  
 2019/04/06: [ルア](https://ficsnade.booth.pm/items/1255054)ちゃんの変換に対応しました。  
 2019/03/08: [リンツ](https://mutachannel.booth.pm/items/1255264)ちゃんの変換に対応しました。patch.pyで-lオプションを指定してください。  
@@ -33,7 +34,7 @@
 4. patched.pngが上書き済みテクスチャです Enjoy!
 
 パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。  
-また、`-l`を追加するとリンツちゃん向けの微補正を加えます。
+また、`-l`を追加するとリンツちゃん向けの微補正を加えます。`-n`はキッシュちゃん素体用のオプションです。
 
 ## パンツコンバート
 すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんのパンツに変換できます。  
@@ -82,6 +83,7 @@ Treasure every pantie encounter as it may not come again.
 2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py  
 2019/04/06 convert_lua.py converts Quiche pantie to [Lua](https://ficsnade.booth.pm/items/1255054) pantie.  
 2019/04/10 [thakyuu](https://github.com/thakyuu) developed [Ukon](http://seiga.nicovideo.jp/seiga/im8378009) converter, and it was merged.
+2019/03/08 patch.py supports [Quiche body](https://mutachannel.booth.pm/items/1026956). Please set -n option when you run the patch.py  
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
