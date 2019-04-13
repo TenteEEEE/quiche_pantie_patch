@@ -4,10 +4,12 @@ import random
 import argparse
 import shutil
 import copy
+import time
 from PIL import Image
 
 parser = argparse.ArgumentParser(description='This script convert all the panties')
 parser.add_argument("character", choices=['anna', 'shaclo', 'milk', 'lua', 'ukon', 'mishe'])
+parser.add_argument("--start", type=int, default=1, help='Start num')
 parser.add_argument("--pad", action="store_true", help='Padding')
 parser.add_argument("--sign", action="store_true", help='Add sign')
 args = parser.parse_args()
@@ -68,7 +70,7 @@ if args.character=='shaclo':
         base = Image.new('RGBA', (2229,727))
 
 panties = os.listdir('./dream/')
-for pantie in panties:
+for pantie in panties[args.start-1:]:
     print("Process: " + pantie)
     converter(pantie)
     if args.pad:
@@ -78,6 +80,7 @@ for pantie in panties:
             base_img.paste(sign,pos_sign,sign)
         base_img.paste(pantie_img,pos,pantie_img)
         base_img.save(fname)
+    time.sleep(0.5)
     os.rename(fname,pantie)
     shutil.move(pantie,'converted/'+pantie)
     
