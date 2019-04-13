@@ -64,4 +64,4 @@ def convert2shaclo(fname=None, stitch_correction=False):
         print("Cannot find it")
 
 if __name__ == '__main__':
-    convert2schaclo()
+    convert2shaclo()
