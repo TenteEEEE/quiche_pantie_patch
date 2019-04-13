@@ -18,7 +18,7 @@ def convert2mishe(fname=None):
         # move from hip to front
         patch = np.copy(pantie[-140:-5,546:,:])
         pantie[-115:,546:,:] = 0
-        patch = skt.resize(patch[::-1,::-1,:],(patch.shape[0],65),anti_aliasing=True,mode='reflect')
+        patch = skt.resize(patch[::-1,::-1,:],(patch.shape[0],63),anti_aliasing=True,mode='reflect')
         [pr,pc,d] = patch.shape
         pantie[127-5:127-5+pr,:pc,:] = np.uint8(patch*255)
 
@@ -32,7 +32,7 @@ def convert2mishe(fname=None):
         shifter_row[30:-30] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0])-np.pi/32)*100)[30:-30]
         shifter_row[:30] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0])+np.pi/2)*60)[:30]
         shifter_row[-30:] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0])-np.pi/2)*80)[-30:]
-        shifter_col[13:-30] = -(np.sin(np.linspace(0, 1 * np.pi, src.shape[0])+np.pi/8)*15)[13:-30]
+        shifter_col[13:-30] = -(np.sin(np.linspace(0, 1 * np.pi, src.shape[0])+np.pi/8)*22)[13:-30]
         
         shifter_row = np.convolve(shifter_row,np.ones(20)/20,mode='valid')
         shifter_col = np.convolve(shifter_col,np.ones(10)/10,mode='valid')
