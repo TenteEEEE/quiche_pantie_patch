@@ -129,11 +129,11 @@ The instructions can also be used for Shaclo and Anna patch.
 ## Converted examples
 |||
 |:-:|:-:|
-|[Shaclo](https://tomori-hikage.booth.pm/items/987296)ちゃん|[Anna](https://wakonoatorie.booth.pm/items/1067958)ちゃん|
+|[Shaclo](https://tomori-hikage.booth.pm/items/987296)|[Anna](https://wakonoatorie.booth.pm/items/1067958)|
 |![test](./sample/shaclo_pantie.png)|![test](./sample/anna_pantie.png)|
-|[Milk](https://komado.booth.pm/items/1209496)ちゃん|[Lua](https://ficsnade.booth.pm/items/1255054)ちゃん|
+|[Milk](https://komado.booth.pm/items/1209496)|[Lua](https://ficsnade.booth.pm/items/1255054)|
 |![test](./sample/milk_pantie.png)|![test](./sample/lua_pantie.png)|
-|[Ukon](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん|[Mishe](https://booth.pm/ja/items/1256087)ちゃん|
+|[Ukon](http://seiga.nicovideo.jp/seiga/im8378009)|[Mishe](https://booth.pm/ja/items/1256087)|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
 
 # Any error?
