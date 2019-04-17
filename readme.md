@@ -4,7 +4,7 @@
 現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
 
 ## 更新履歴
-2019/04/15: [ファジー](https://booth.pm/ja/items/1255283)ちゃんの変換に対応しました。
+2019/04/15: [ファジー](https://booth.pm/ja/items/1255283)ちゃんの変換に対応しました。  
 2019/04/13: [ミーシェ](https://booth.pm/ja/items/1256087)ちゃんの変換に対応しました。  
 2019/04/12: [キッシュちゃん素体](https://mutachannel.booth.pm/items/1026956)用のオプションを追加。patch.pyで-nをオプションを指定してください。  
 2019/04/10: [右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんへの変換スクリプトを[thakyuu](https://github.com/thakyuu)さんが開発、本リポジトリにマージしました。  
