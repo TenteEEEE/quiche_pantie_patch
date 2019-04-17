@@ -70,7 +70,7 @@
 |[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん|[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
 |[ファジー](https://booth.pm/ja/items/1255283)ちゃん||
-|![test](./sample/fuzzy_pantie.png)|)|
+|![test](./sample/fuzzy_pantie.png)||
 
 
 ## スペシャルサンクス
@@ -143,7 +143,7 @@ The instructions can also be used for Shaclo and Anna patch.
 |[Ukon](http://seiga.nicovideo.jp/seiga/im8378009)|[Mishe](https://booth.pm/ja/items/1256087)|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
 |[Fuzzy](https://booth.pm/ja/items/1255283)||
-|![test](./sample/fuzzy_pantie.png)|)|
+|![test](./sample/fuzzy_pantie.png)||
 
 # Any error?
 ## Windows
