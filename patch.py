@@ -27,6 +27,9 @@ if fname in panties:
         print("Apply LINZ Correction")
         pantie = pantie.resize((629,407))
         origin.paste(pantie,(1017,828),pantie)
+        origin_transparent = Image.new("RGBA", (origin.size))
+        origin_transparent.paste(pantie,(1017,828),pantie)
+        origin_transparent.save('patched_transparent.png')
     elif fnbody:        
         print("!nbody_mode!")
         cut = 7
@@ -42,6 +45,9 @@ if fname in panties:
         origin_transparent.save('patched_transparent.png')
     else:
         origin.paste(pantie,(1018,828),pantie)
+        origin_transparent = Image.new("RGBA", (origin.size))
+        origin_transparent.paste(pantie,(1018,828),pantie)
+        origin_transparent.save('patched_transparent.png')
     origin.save('patched.png')
     print("Done. Please check patched.png.")
 else:
