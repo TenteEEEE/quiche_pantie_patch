@@ -10,6 +10,7 @@ panties = os.listdir('./dream/')
 fname = None
 flinz = False
 fnbody = False
+flight = False
 fall = False
 
 if len(args)>1:
@@ -20,6 +21,8 @@ if len(args)>1:
         flinz = True
     if '-n' in args[1:]:
         fnbody = True
+    if '-L' in args[1:]:
+        flight = True
     if '-a' in args[1:]:
         fall= True
 if fname is None and fall is False:
@@ -36,6 +39,8 @@ if fall:
         fdir = 'converted/linz/'
     elif fnbody:
         fdir = 'converted/quiche_n/'
+    elif flight:
+        fdir = 'converted/quiche_light/'
     else:
         fdir = 'converted/quiche/'
     os.makedirs(fdir,exist_ok=True)
@@ -44,7 +49,10 @@ if fall:
     
 for fname in panties:
     pantie = Image.open('./dream/'+fname)
-    origin = Image.open('body.png')
+    if flight:
+        origin = Image.open('body_light.png')
+    else:
+        origin = Image.open('body.png')
     
     if flinz:
         print("Apply LINZ Correction")
@@ -65,6 +73,13 @@ for fname in panties:
         
         origin_transparent = Image.new("RGBA", (origin.size))
         origin_transparent.paste(npantie,(403,836),npantie)
+        origin_transparent.save('patched_transparent.png')
+    elif flight:
+        print("Apply Quiche_Light Conversion")
+        pantie = pantie.resize((236,157))
+        origin.paste(pantie,(532,385),pantie)
+        origin_transparent = Image.new("RGBA", (origin.size))
+        origin_transparent.paste(pantie,(532,385),pantie)
         origin_transparent.save('patched_transparent.png')
     else:
         origin.paste(pantie,(1018,828),pantie)
