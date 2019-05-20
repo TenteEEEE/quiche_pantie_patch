@@ -80,6 +80,7 @@ if args.character=='shaclo':
         base = Image.new('RGBA', (2229,727))
 
 panties = os.listdir('./dream/')
+os.makedirs('./converted/'+args.character,exist_ok=True)
 for pantie in panties[args.start-1:]:
     print("Process: " + pantie)
     if args.frill:
@@ -95,6 +96,6 @@ for pantie in panties[args.start-1:]:
         base_img.save(fname)
     time.sleep(0.5)
     os.rename(fname,pantie)
-    shutil.move(pantie,'converted/'+pantie)
+    shutil.move(pantie,'converted/'+args.character+'/'+pantie)
     
     

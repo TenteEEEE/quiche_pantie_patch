@@ -2,12 +2,16 @@ from PIL import Image, ImageOps
 import os
 import sys
 import random
+import time
+import shutil
 
 args = sys.argv
 panties = os.listdir('./dream/')
 fname = None
 flinz = False
 fnbody = False
+fall = False
+
 if len(args)>1:
     if '-r' in args[1:]:
         num = random.randint(0,len(panties))
@@ -16,10 +20,29 @@ if len(args)>1:
         flinz = True
     if '-n' in args[1:]:
         fnbody = True
-if fname is None:
+    if '-a' in args[1:]:
+        fall= True
+if fname is None and fall is False:
     fname =  input("Type pantie name: ./dream/")
+    if fname in panties:
+        panties = []
+        panties.append(fname)
+    else:
+        print("Cannot find it")
+        exit()
     
-if fname in panties:
+if fall:
+    if flinz:
+        fdir = 'converted/linz/'
+    elif fnbody:
+        fdir = 'converted/quiche_n/'
+    else:
+        fdir = 'converted/quiche/'
+    os.makedirs(fdir,exist_ok=True)
+    exists = len(os.listdir(fdir))
+    panties = panties[exists:]
+    
+for fname in panties:
     pantie = Image.open('./dream/'+fname)
     origin = Image.open('body.png')
     
@@ -49,6 +72,10 @@ if fname in panties:
         origin_transparent.paste(pantie,(1018,828),pantie)
         origin_transparent.save('patched_transparent.png')
     origin.save('patched.png')
-    print("Done. Please check patched.png.")
-else:
-    print("Cannot find it")
+    if fall:
+        print('Done ' + fname)
+        time.sleep(0.5)
+        os.rename('patched_transparent.png', fname)
+        shutil.move(fname,fdir+fname)
+    else:
+        print("Done. Please check patched.png.")
