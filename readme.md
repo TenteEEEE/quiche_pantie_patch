@@ -107,8 +107,8 @@ Treasure every pantie encounter as it may not come again.
 2019/04/10 [thakyuu](https://github.com/thakyuu) developed [Ukon](http://seiga.nicovideo.jp/seiga/im8378009) converter, and it was merged.  
 2019/04/12 patch.py supports [Quiche body](https://mutachannel.booth.pm/items/1026956). Please set -n option when you run the patch.py  
 2019/04/13 convert_mishe.py converts Quiche pantie to [Mishe](https://booth.pm/ja/items/1256087) pantie.  
-2019/04/15 convert_fuzzy.py converts Quiche pantie to [Fuzzy](https://booth.pm/ja/items/1255283) pantie.
-2019/05/20: Support [Quiche-Light](https://mutachannel.booth.pm/items/1379653). Please set -L option when you run the patch.py  
+2019/04/15 convert_fuzzy.py converts Quiche pantie to [Fuzzy](https://booth.pm/ja/items/1255283) pantie.  
+2019/05/20 Support [Quiche-Light](https://mutachannel.booth.pm/items/1379653). Please set -L option when you run the patch.py  
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
