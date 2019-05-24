@@ -3,6 +3,10 @@
 
 現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
 
+[siro_choco0621](https://twitter.com/siro_choco0621)さんが導入についての[メモ](https://twitter.com/siro_choco0621/status/1131587508238659585)をまとめてくださいました！  
+GitもPythonもはじめての方はぜひ一度チェックしてみてください。  
+URL: https://twitter.com/siro_choco0621/status/1131587508238659585
+
 ## 更新履歴
 2019/05/20: [キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)への変換に対応しました。patch.pyで-Lオプションを指定してください。  
 2019/04/15: [ファジー](https://booth.pm/ja/items/1255283)ちゃんの変換に対応しました。  
