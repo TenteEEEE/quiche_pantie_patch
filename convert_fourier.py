@@ -21,13 +21,15 @@ else:
 for fname in panties:
     print('Process: ' + fname + ', Mode:' + mode)
     pantie = Image.open('./dream/' + fname).convert(mode)
-    img = np.array(pantie)
+    img = np.array(pantie).astype(np.float64)/255.0
     fimg = np.log(np.abs(np.fft.fftshift(np.fft.ifft2(img, axes=(0, 1)))))
-    fimg -= np.min(fimg)
-    fimg /= np.max(fimg)
+    fmin = np.min(fimg)
+    fimg -= fmin
+    fmax = np.max(fimg)
+    fimg /= fmax
     if args.long and not args.rgb:
         fpantie = Image.fromarray(np.uint16(fimg * 65535))
     else:
         fpantie = Image.fromarray(np.uint8(fimg * 255))
-    fpantie.save('./converted/Fourier/' + fname)
+    fpantie.save('./converted/Fourier/' + fname[:-4] + '_' + str(fmin)[0:7] + '_' + str(fmax)[0:6] + '.png')
 print("Done. Please check patched.png.")
