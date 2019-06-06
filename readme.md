@@ -8,6 +8,7 @@ GitもPythonもはじめての方はぜひ一度チェックしてみてくだ�
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
 ## 更新履歴
+2019/06/05: フーリエ変換されたパンツ画像の逆変換に対応しました。phase_retrieval.pyでは[ERあるいはHIOアルゴリズム](https://en.wikipedia.org/wiki/Phase_retrieval)の選択、cupyがあればGPU上で実行できます。  
 2019/05/30: パンツ画像のフーリエ変換に対応しました。convert_fourier.pyではRGBモードと16bit出力がオプションで指定できます。  
 2019/05/20: [キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)への変換に対応しました。patch.pyで-Lオプションを指定してください。  
 2019/04/15: [ファジー](https://booth.pm/ja/items/1255283)ちゃんの変換に対応しました。  
@@ -115,6 +116,7 @@ Treasure every pantie encounter as it may not come again.
 2019/04/15 convert_fuzzy.py converts Quiche pantie to [Fuzzy](https://booth.pm/ja/items/1255283) pantie.  
 2019/05/20 Support [Quiche-Light](https://mutachannel.booth.pm/items/1379653). Please set -L option when you run the patch.py  
 2019/05/30 Support Fourier transform of the panties. convert_fourier.py has options that RGB mode and 16bit output mode.  
+2019/06/05 Support inverse Fourier transform from the intensity of the Fourier transformed panties. phase_retrieval.py handles [ER or HIO algorithm](https://en.wikipedia.org/wiki/Phase_retrieval). If you know cupy, it can run on GPUs.  
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
