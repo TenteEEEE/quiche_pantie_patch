@@ -8,7 +8,7 @@ import time
 from PIL import Image
 
 parser = argparse.ArgumentParser(description='This script convert all the panties')
-parser.add_argument("character", choices=['anna', 'shaclo', 'milk', 'lua', 'ukon', 'mishe','fuzzy'])
+parser.add_argument("character", choices=['anna', 'anna_light', 'shaclo', 'milk', 'lua', 'ukon', 'mishe','fuzzy'])
 parser.add_argument("--start", type=int, default=1, help='Start num')
 parser.add_argument("--pad", action="store_true", help='Padding')
 parser.add_argument("--sign", action="store_true", help='Add sign')
@@ -60,6 +60,13 @@ if args.character=='anna':
         if args.sign:
             sign = Image.open('./material/anna_sign.png')
             pos_sign = (37,861)
+if args.character=='anna_light':
+    from convert_anna_light import *
+    converter = convert2annalight
+    fname = 'anna_light_pantie.png'
+    if args.pad:
+        pos = (0,15)
+        base = Image.new('RGBA', (1024,1024))
 if args.character=='milk':
     from convert_milk import *
     converter = convert2milk

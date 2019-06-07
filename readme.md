@@ -1,13 +1,14 @@
 # キッシュパンツパッチ
 パンツは一期一会  
 
-現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
+現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
 
 [siro_choco0621](https://twitter.com/siro_choco0621)さんが導入についての[メモ](https://twitter.com/siro_choco0621/status/1131587508238659585)をまとめてくださいました！  
 GitもPythonもはじめての方はぜひ一度チェックしてみてください。  
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
 ## 更新履歴
+2019/06/07: [アンナ・ライト](https://wakonoatorie.booth.pm/items/1405336)への変換に対応しました。  
 2019/06/05: フーリエ変換されたパンツ画像の逆変換に対応しました。phase_retrieval.pyでは[ERあるいはHIOアルゴリズム](https://en.wikipedia.org/wiki/Phase_retrieval)の選択、cupyがあればGPU上で実行できます。  
 2019/05/30: パンツ画像のフーリエ変換に対応しました。convert_fourier.pyではRGBモードと16bit出力がオプションで指定できます。  
 2019/05/20: [キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)への変換に対応しました。patch.pyで-Lオプションを指定してください。  
@@ -76,8 +77,8 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 |![test](./sample/milk_pantie.png)|![test](./sample/lua_pantie.png)|
 |[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん|[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
-|[ファジー](https://booth.pm/ja/items/1255283)ちゃん||
-|![test](./sample/fuzzy_pantie.png)||
+|[ファジー](https://booth.pm/ja/items/1255283)ちゃん|[吸血鬼アンナ light](https://wakonoatorie.booth.pm/items/1405336)ちゃん|
+|![test](./sample/fuzzy_pantie.png)|![test](./sample/anna_light_pantie.png)|
 
 
 ## スペシャルサンクス
@@ -117,6 +118,7 @@ Treasure every pantie encounter as it may not come again.
 2019/05/20 Support [Quiche-Light](https://mutachannel.booth.pm/items/1379653). Please set -L option when you run the patch.py  
 2019/05/30 Support Fourier transform of the panties. convert_fourier.py has options that RGB mode and 16bit output mode.  
 2019/06/05 Support inverse Fourier transform from the intensity of the Fourier transformed panties. phase_retrieval.py handles [ER or HIO algorithm](https://en.wikipedia.org/wiki/Phase_retrieval). If you know cupy, it can run on GPUs.  
+2019/06/07: Support [Anna light version](https://wakonoatorie.booth.pm/items/1405336).  
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
@@ -152,8 +154,8 @@ The instructions can also be used for Shaclo and Anna patch.
 |![test](./sample/milk_pantie.png)|![test](./sample/lua_pantie.png)|
 |[Ukon](http://seiga.nicovideo.jp/seiga/im8378009)|[Mishe](https://booth.pm/ja/items/1256087)|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
-|[Fuzzy](https://booth.pm/ja/items/1255283)||
-|![test](./sample/fuzzy_pantie.png)||
+|[Fuzzy](https://booth.pm/ja/items/1255283)|[Anna light](https://wakonoatorie.booth.pm/items/1405336)|
+|![test](./sample/fuzzy_pantie.png)|![test](./sample/anna_light_pantie.png)|
 
 # Any error?
 ## Windows
