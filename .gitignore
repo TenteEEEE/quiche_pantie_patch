@@ -1,8 +1,5 @@
 data
-patched.png
-patched_anna.png
-patched_shaclo.png
+patched*.png
 config
 __pycache__
 converted
-patched_transparent.png
