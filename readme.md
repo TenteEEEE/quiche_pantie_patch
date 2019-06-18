@@ -1,7 +1,7 @@
 # キッシュパンツパッチ
 パンツは一期一会  
 
-現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
+現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
 
 ## 導入にあたって
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
@@ -10,6 +10,7 @@
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
 ## 更新履歴
+2019/06/18: キッシュ/リンツちゃん素体用のブラジャーへの変換に対応しました。  
 2019/06/12: [自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を公開しました。  
 2019/06/07: [アンナ・ライト](https://wakonoatorie.booth.pm/items/1405336)への変換に対応しました。  
 2019/06/05: フーリエ変換されたパンツ画像の逆変換に対応しました。phase_retrieval.pyでは[ERあるいはHIOアルゴリズム](https://en.wikipedia.org/wiki/Phase_retrieval)の選択、cupyがあればGPU上で実行できます。  
@@ -47,7 +48,28 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 4. patched.pngが上書き済みテクスチャです Enjoy!
 
 パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。  
-また、`-l`を追加するとリンツちゃん向けの微補正を加えます。`-n`はキッシュちゃん素体用のオプションです。
+また、`-l`を追加するとリンツちゃん向けの微補正を加えます。`-n`はキッシュ/リンツちゃん素体用のオプションです。
+
+## ブラコンバート(キッシュ、リンツちゃん素体用)
+convert_bra.pyでキッシュ/リンツちゃん素体用のブラジャーを自動生成できます。  
+`python convert_bra.py`  
+とすれば最新のパンツが変換されます。番号を指定したい場合は  
+`python convert_bra.py --num 101`  
+のようにします。また、上から重ねるだけの楽ちんテクスチャを作りたければ更に  
+`python convert_bra.py --num 101 --pad`  
+のように`--pad`オプションを併用すると良いです。
+
+### オプション
+* --num: 変換するパンツ番号を指定できます。何も入力しなければ最新のパンツが選ばれます。
+* --all: 全てのパンツを変換できます。numで指定するとその番号から最新まで変換します。
+* --pad: パディングを行い、上から重ねるだけの楽ちんテクスチャを作ります
+* --lace: デフォルトではフリルを貼り付けますが、レースにもできます
+
+以下はペイントソフトなどで手動調整する人向けのオプションです。
+* --disable_ribbon: リボンはデフォルトで取り付けられますが、付けたくない場合はこれを書くと良いです。
+* --disable_decoration: フリルやレースを貼り付けないようにします。
+* --disable_shading: 影の自動彩色をやめます。
+* --disable_texture: ブラの胸パッド部分以外の自動テクスチャをやめます。
 
 ## パンツコンバート
 すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんのパンツに変換できます。  
@@ -82,6 +104,8 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
 |[ファジー](https://booth.pm/ja/items/1255283)ちゃん|[吸血鬼アンナ light](https://wakonoatorie.booth.pm/items/1405336)ちゃん|
 |![test](./sample/fuzzy_pantie.png)|![test](./sample/anna_light_pantie.png)|
+|キッシュ/リンツ用のブラ(フリル)|キッシュ/リンツ用のブラ(レース)|
+|![test](./sample/bra_frill.png)|![test](./sample/bra_lace.png)|
 
 
 ## スペシャルサンクス
@@ -123,6 +147,11 @@ Treasure every pantie encounter as it may not come again.
 2019/06/05 Support inverse Fourier transform from the intensity of the Fourier transformed panties. phase_retrieval.py handles [ER or HIO algorithm](https://en.wikipedia.org/wiki/Phase_retrieval). If you know cupy, it can run on GPUs.  
 2019/06/07: Support [Anna light version](https://wakonoatorie.booth.pm/items/1405336).  
 2019/06/12: I published [the auto install batch file](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
+2019/06/18: Support bra conversion for Quiche and Linz body.  
+
+# Installation
+Please check it out [the automatic install batch](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
+You just run the batch file with administrator permission.
 
 # Pre-requirements
 If you have any paint or retouch software, you can override easily.  
@@ -149,6 +178,27 @@ The instructions can also be used for Shaclo and Anna patch.
 3. Put your pantie name
 4. Enjoy
 
+## Bra conversion for Quiche/Linz
+convert_bra.py generates a bra automatically. You just run the following command.  
+`python convert_bra.py`  
+It converts the latest pantie to bra. When you want to set the number which you want,  
+`python convert_bra.py --num 101`  
+That's it. Of course, there is a nice option to generate size and position optimized bra,  
+`python convert_bra.py --num 101 --pad`  
+You just set `--pad` option like this.
+
+### Options
+* --num: You can set the number which you want.
+* --all: It converts the all panties to bra. When you set num option, it is a start number.
+* --pad: Enable padding for easy overlaying.
+* --lace: It enables lace decoration instead of frill.
+
+The following options are made for designers who want to design by yourself.
+* --disable_ribbon: It disables ribbon pasting.
+* --disable_decoration: It disables race and frill decoration.
+* --disable_shading: It disables auto shading.
+* --disable_texture: It disables texture painting on the base of bra.
+
 ## Converted examples
 |||
 |:-:|:-:|
@@ -160,6 +210,8 @@ The instructions can also be used for Shaclo and Anna patch.
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
 |[Fuzzy](https://booth.pm/ja/items/1255283)|[Anna light](https://wakonoatorie.booth.pm/items/1405336)|
 |![test](./sample/fuzzy_pantie.png)|![test](./sample/anna_light_pantie.png)|
+|Bra for Quiche and Linz (Frill)|Bra for Quiche and Linz (Lace)|
+|![test](./sample/bra_frill.png)|![test](./sample/bra_lace.png)|
 
 # Any error?
 ## Windows
