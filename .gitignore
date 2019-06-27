@@ -1,5 +1,10 @@
-data
-patched*.png
-config
 __pycache__
+data
+config
 converted
+*.png
+!body*.png
+!dream/*.png
+!mask/*.png
+!material/*.png
+!sample/*.png
