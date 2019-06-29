@@ -4,36 +4,32 @@ import sys
 import random
 import time
 import shutil
+import argparse
 
-args = sys.argv
+argparser = argparse.ArgumentParser()
+argparser.add_argument('-r', '--random', help='ランダムでパンツが選ばれます', action='store_true')
+argparser.add_argument('-l', '--linz', help='リンツちゃん向けの微補正を加えます', action='store_true')
+argparser.add_argument('-n', '--nude', help='キッシュ/リンツちゃん素体用のオプションです', action='store_true')
+argparser.add_argument('-L', '--light', help='キッシュちゃんライト用のオプションです', action='store_true')
+argparser.add_argument('-a', '--all', help='全てのパンツを変換します', action='store_true')
+argparser.add_argument('-i', '--input', help='ベースとなるテクスチャを指定できます', type=str)
+argparser.add_argument('-o', '--output', help='変換後の名前を指定できます', type=str, default='patched.png')
+argparser.add_argument('-p', '--pantie', help='変換するパンツの番号を数値で指定できます', type=int)
+args = argparser.parse_args()
+
 panties = os.listdir('./dream/')
-fname = None
-flinz = False
-fnbody = False
-flight = False
-fall = False
 
-if len(args)>1:
-    if '-r' in args[1:]:
-        num = random.randint(0,len(panties))
-        fname = panties[num]
-    if '-l' in args[1:]:
-        flinz = True
-    if '-n' in args[1:]:
-        fnbody = True
-    if '-L' in args[1:]:
-        flight = True
-    if '-a' in args[1:]:
-        fall= True
-if fname is None and fall is False:
-    fname =  input("Type pantie name: ./dream/")
-    if fname in panties:
-        panties = []
-        panties.append(fname)
-    else:
-        print("Cannot find it")
-        exit()
-    
+if args.random:
+    num = random.randint(0,len(panties))
+    fname = panties[num]
+flinz = args.linz
+fnbody = args.nude
+flight = args.light
+fall= args.all
+fname = args.pantie
+fin = args.input
+fout = args.output
+
 if fall:
     if flinz:
         fdir = 'converted/linz/'
@@ -46,14 +42,30 @@ if fall:
     os.makedirs(fdir,exist_ok=True)
     exists = len(os.listdir(fdir))
     panties = panties[exists:]
-    
-for fname in panties:
-    pantie = Image.open('./dream/'+fname)
-    if flight:
-        origin = Image.open('body_light.png')
+else:
+    if fname is not None:
+        fname = "{:04}.png".format(fname)        
     else:
-        origin = Image.open('body.png')
+        fname =  input("Type pantie name: ./dream/")
     
+    if fname in panties:
+        panties = []
+        panties.append(fname)
+    else:
+        print("Cannot find it")
+        exit()
+
+if fin is not None and os.path.exists(fin):    
+    origin_fname = fin
+elif flight:
+    origin_fname = 'body_light.png'
+else:
+    origin_fname = 'body.png'
+    
+for fname in panties:    
+    pantie = Image.open('./dream/'+fname)
+    origin = Image.open(origin_fname)
+
     if flinz:
         print("Apply LINZ Correction")
         pantie = pantie.resize((629,407))
@@ -86,11 +98,13 @@ for fname in panties:
         origin_transparent = Image.new("RGBA", (origin.size))
         origin_transparent.paste(pantie,(1018,828),pantie)
         origin_transparent.save('patched_transparent.png')
-    origin.save('patched.png')
+
+    origin.save(fout)
+
     if fall:
         print('Done ' + fname)
         time.sleep(0.5)
         os.rename('patched_transparent.png', fname)
         shutil.move(fname,fdir+fname)
     else:
-        print("Done. Please check patched.png.")
+        print("Done. Please check {}.".format(fout))
