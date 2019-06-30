@@ -113,7 +113,8 @@ convert_bra.pyでキッシュ/リンツちゃん素体用のブラジャーを�
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
-右近ちゃんパンツコンバータの作者:[thakyuuさん](https://github.com/thakyuu)
+右近ちゃんパンツコンバータの作者:[thakyuuさん](https://github.com/thakyuu)  
+patch.pyのargparse対応:[4hiziriさん](https://github.com/4hiziri)  
 
 ## 画像のライセンス
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> を著作者とするこの <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">作品</span> は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズの 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>で提供されています。  
@@ -228,6 +229,7 @@ Open your favorite terminal and then `pip install -r requirements.txt`.
 # Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
 Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)
+Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 
 # License for my images
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.  
