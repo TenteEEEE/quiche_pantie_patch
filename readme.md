@@ -10,6 +10,7 @@
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
 ## 更新履歴
+2019/07/12: 似たようなパンツを検索するfind_similar_pantie.pyを追加しました。`python find_similar_pantie.py 1` とすれば1番に似たパンツがデフォルトで5枚表示されます。  
 2019/06/27: [ルア・クエスト](https://ficsnade.booth.pm/items/1414368)への変換に対応しました。  
 2019/06/18: キッシュ/リンツちゃん素体用のブラジャーへの変換に対応しました。  
 2019/06/12: [自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を公開しました。  
@@ -153,6 +154,7 @@ Treasure every pantie encounter as it may not come again.
 2019/06/12: I published [the auto install batch file](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
 2019/06/18: Support bra conversion for Quiche and Linz body.  
 2019/06/27: Support [Lua for Quest](https://ficsnade.booth.pm/items/1414368).  
+2019/07/12: find_similar_pantie.py find it. e.g. `python find_similar_pantie.py 1` it finds panties like 0001.png. 
 
 # Installation
 Please check it out [the automatic install batch](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
