@@ -8,7 +8,7 @@ import time
 from PIL import Image
 
 parser = argparse.ArgumentParser(description='This script convert all the panties')
-parser.add_argument("character", choices=['anna', 'anna_light', 'shaclo', 'milk', 'lua', 'lua_quest', 'ukon', 'mishe','fuzzy'])
+parser.add_argument("character", choices=['anna', 'anna_light', 'shaclo', 'milk', 'lua', 'lua_quest', 'ukon', 'mishe','fuzzy', 'tanu'])
 parser.add_argument("--start", type=int, default=1, help='Start num')
 parser.add_argument("--pad", action="store_true", help='Padding')
 parser.add_argument("--sign", action="store_true", help='Add sign')
@@ -16,6 +16,13 @@ parser.add_argument("--frill", action="store_true", help='Enable frill correctio
 args = parser.parse_args()
 os.makedirs('converted',exist_ok=True)
 
+if args.character=='tanu':
+    from convert_tanu import *
+    converter = convert2tanu
+    fname = 'tanu_pantie.png'
+    if args.pad:
+        pos = (55,35)
+        base = Image.new('RGBA', (2048,2048))
 if args.character=='fuzzy':
     from convert_fuzzy import *
     converter = convert2fuzzy
