@@ -1,7 +1,7 @@
 # キッシュパンツパッチ
 パンツは一期一会  
 
-現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんです。
+現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんです。
 
 ## 導入にあたって
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
@@ -10,6 +10,7 @@
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
 ## 更新履歴
+2019/07/14: [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんへの変換に対応しました。  
 2019/07/12: 似たようなパンツを検索するfind_similar_pantie.pyを追加しました。`python find_similar_pantie.py 1` とすれば1番に似たパンツがデフォルトで5枚表示されます。  
 2019/06/27: [ルア・クエスト](https://ficsnade.booth.pm/items/1414368)への変換に対応しました。  
 2019/06/18: キッシュ/リンツちゃん素体用のブラジャーへの変換に対応しました。  
@@ -18,8 +19,8 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 2019/06/05: フーリエ変換されたパンツ画像の逆変換に対応しました。phase_retrieval.pyでは[ERあるいはHIOアルゴリズム](https://en.wikipedia.org/wiki/Phase_retrieval)の選択、cupyがあればGPU上で実行できます。  
 2019/05/30: パンツ画像のフーリエ変換に対応しました。convert_fourier.pyではRGBモードと16bit出力がオプションで指定できます。  
 2019/05/20: [キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)への変換に対応しました。patch.pyで-Lオプションを指定してください。  
-2019/04/15: [ファジー](https://booth.pm/ja/items/1255283)ちゃんの変換に対応しました。  
-2019/04/13: [ミーシェ](https://booth.pm/ja/items/1256087)ちゃんの変換に対応しました。  
+2019/04/15: [ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃんの変換に対応しました。  
+2019/04/13: [ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃんの変換に対応しました。  
 2019/04/12: [キッシュちゃん素体](https://mutachannel.booth.pm/items/1026956)用のオプションを追加。patch.pyで-nをオプションを指定してください。  
 2019/04/10: [右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんへの変換スクリプトを[thakyuu](https://github.com/thakyuu)さんが開発、本リポジトリにマージしました。  
 2019/04/06: [ルア](https://ficsnade.booth.pm/items/1255054)ちゃんの変換に対応しました。  
@@ -74,7 +75,7 @@ convert_bra.pyでキッシュ/リンツちゃん素体用のブラジャーを�
 * --disable_texture: ブラの胸パッド部分以外の自動テクスチャをやめます。
 
 ## パンツコンバート
-すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん、[ファジー](https://booth.pm/ja/items/1255283)ちゃんのパンツに変換できます。  
+すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃんのパンツに変換できます。  
 基本的にパンツパッチに使うコマンドを `python patch_[character].py` に変えるだけです。  
 変換画像だけ欲しいときは `python convert_[character].py`で作れます。  
 他にも使用者が多いアバターはできるだけ対応したいので、対応して欲しい人はテストユーザになる覚悟とともにテクスチャ画像を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)に送ってください。
@@ -102,14 +103,14 @@ convert_bra.pyでキッシュ/リンツちゃん素体用のブラジャーを�
 |![test](./sample/shaclo_pantie.png)|![test](./sample/anna_pantie.png)|
 |[ミルク](https://komado.booth.pm/items/1209496)ちゃん|[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん|
 |![test](./sample/milk_pantie.png)|![test](./sample/lua_pantie.png)|
-|[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん|[ミーシェ](https://booth.pm/ja/items/1256087)ちゃん|
+|[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん|[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
-|[ファジー](https://booth.pm/ja/items/1255283)ちゃん|[吸血鬼アンナ light](https://wakonoatorie.booth.pm/items/1405336)ちゃん|
+|[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん|[吸血鬼アンナ light](https://wakonoatorie.booth.pm/items/1405336)ちゃん|
 |![test](./sample/fuzzy_pantie.png)|![test](./sample/anna_light_pantie.png)|
 |キッシュ/リンツ用のブラ(フリル)|キッシュ/リンツ用のブラ(レース)|
 |![test](./sample/bra_frill.png)|![test](./sample/bra_lace.png)|
-|[ルア・クエスト](https://ficsnade.booth.pm/items/1414368)ちゃん||
-|![test](./sample/lua_quest_pantie.png)||
+|[ルア・クエスト](https://ficsnade.booth.pm/items/1414368)ちゃん|[たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん|
+|![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
 
 
 ## スペシャルサンクス
@@ -145,8 +146,8 @@ Treasure every pantie encounter as it may not come again.
 2019/04/06 convert_lua.py converts Quiche pantie to [Lua](https://ficsnade.booth.pm/items/1255054) pantie.  
 2019/04/10 [thakyuu](https://github.com/thakyuu) developed [Ukon](http://seiga.nicovideo.jp/seiga/im8378009) converter, and it was merged.  
 2019/04/12 patch.py supports [Quiche body](https://mutachannel.booth.pm/items/1026956). Please set -n option when you run the patch.py  
-2019/04/13 convert_mishe.py converts Quiche pantie to [Mishe](https://booth.pm/ja/items/1256087) pantie.  
-2019/04/15 convert_fuzzy.py converts Quiche pantie to [Fuzzy](https://booth.pm/ja/items/1255283) pantie.  
+2019/04/13 convert_mishe.py converts Quiche pantie to [Mishe](https://ponderogen.booth.pm/items/1256087) pantie.  
+2019/04/15 convert_fuzzy.py converts Quiche pantie to [Fuzzy](https://nagatorokoyori.booth.pm/items/1255283) pantie.  
 2019/05/20 Support [Quiche-Light](https://mutachannel.booth.pm/items/1379653). Please set -L option when you run the patch.py  
 2019/05/30 Support Fourier transform of the panties. convert_fourier.py has options that RGB mode and 16bit output mode.  
 2019/06/05 Support inverse Fourier transform from the intensity of the Fourier transformed panties. phase_retrieval.py handles [ER or HIO algorithm](https://en.wikipedia.org/wiki/Phase_retrieval). If you know cupy, it can run on GPUs.  
@@ -155,6 +156,7 @@ Treasure every pantie encounter as it may not come again.
 2019/06/18: Support bra conversion for Quiche and Linz body.  
 2019/06/27: Support [Lua for Quest](https://ficsnade.booth.pm/items/1414368).  
 2019/07/12: find_similar_pantie.py find it. e.g. `python find_similar_pantie.py 1` it finds panties like 0001.png. 
+2019/07/14: Support [Tanu](https://udonfactory.booth.pm/items/1414433).  
 
 # Installation
 Please check it out [the automatic install batch](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
@@ -213,14 +215,14 @@ The following options are made for designers who want to design by yourself.
 |![test](./sample/shaclo_pantie.png)|![test](./sample/anna_pantie.png)|
 |[Milk](https://komado.booth.pm/items/1209496)|[Lua](https://ficsnade.booth.pm/items/1255054)|
 |![test](./sample/milk_pantie.png)|![test](./sample/lua_pantie.png)|
-|[Ukon](http://seiga.nicovideo.jp/seiga/im8378009)|[Mishe](https://booth.pm/ja/items/1256087)|
+|[Ukon](http://seiga.nicovideo.jp/seiga/im8378009)|[Mishe](https://ponderogen.booth.pm/items/1256087)|
 |![test](./sample/ukon_pantie.png)|![test](./sample/mishe_pantie.png)|
-|[Fuzzy](https://booth.pm/ja/items/1255283)|[Anna light](https://wakonoatorie.booth.pm/items/1405336)|
+|[Fuzzy](https://nagatorokoyori.booth.pm/items/1255283)|[Anna light](https://wakonoatorie.booth.pm/items/1405336)|
 |![test](./sample/fuzzy_pantie.png)|![test](./sample/anna_light_pantie.png)|
 |Bra for Quiche and Linz (Frill)|Bra for Quiche and Linz (Lace)|
 |![test](./sample/bra_frill.png)|![test](./sample/bra_lace.png)|
-|[Lua for Quest](https://ficsnade.booth.pm/items/1414368)||
-|![test](./sample/lua_quest_pantie.png)||
+|[Lua for Quest](https://ficsnade.booth.pm/items/1414368)|[Tanu](https://udonfactory.booth.pm/items/1414433)|
+|![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
 
 # Any error?
 ## Windows
