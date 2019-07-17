@@ -62,6 +62,3 @@ def convert2shaclo(fname=None, stitch_correction=False):
         io.imsave('shaclo_pantie.png',np.uint8(out*255))
     else:
         print("Cannot find it")
-
-if __name__ == '__main__':
-    convert2shaclo()

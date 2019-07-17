@@ -4,7 +4,7 @@ import skimage.io as io
 import skimage.transform as skt
 import skimage.morphology as skm
 import numpy as np
-from myutil import *
+from src.utils.imgproc import *
 
 def convert2annalight(fname=None):
     panties = os.listdir('./dream/')
@@ -27,6 +27,3 @@ def convert2annalight(fname=None):
         io.imsave('anna_light_pantie.png',np.uint8(pantie*255)[:,2:,:])
     else:
         print("Cannot find it")
-        
-if __name__ == '__main__':
-    convert2annalight()

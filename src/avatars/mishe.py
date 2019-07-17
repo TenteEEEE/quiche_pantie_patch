@@ -51,6 +51,3 @@ def convert2mishe(fname=None):
         io.imsave('mishe_pantie.png',np.uint8(pantie_*255))
     else:
         print("Cannot find it")
-        
-if __name__ == '__main__':
-    convert2mishe()

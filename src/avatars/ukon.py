@@ -5,7 +5,6 @@ import skimage as ski
 import skimage.transform as skt
 import skimage.morphology as skm
 import numpy as np
-from myutil import *
 
 def convert2ukon(fname=None):
     panties = os.listdir('./dream/')
@@ -35,6 +34,3 @@ def convert2ukon(fname=None):
 
     else:
         print("Cannot find it")
-        
-if __name__ == '__main__':
-    convert2ukon()

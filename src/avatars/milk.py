@@ -5,7 +5,7 @@ import skimage as ski
 import skimage.transform as skt
 import skimage.morphology as skm
 import numpy as np
-from myutil import *
+from src.utils.imgproc import *
 
 def affine_transform(img,mx,my,inv=False):
     [r,c,d] = img.shape
@@ -84,6 +84,3 @@ def convert2milk(fname=None):
         io.imsave('milk_pantie.png',np.uint8(pantie*255))
     else:
         print("Cannot find it")
-        
-if __name__ == '__main__':
-    convert2milk()

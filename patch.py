@@ -58,10 +58,10 @@ else:
 if fin is not None and os.path.exists(fin):    
     origin_fname = fin
 elif flight:
-    origin_fname = 'body_light.png'
+    origin_fname = './body/body_light.png'
 else:
-    origin_fname = 'body.png'
-    
+    origin_fname = './body/body.png'
+
 for fname in panties:    
     pantie = Image.open('./dream/'+fname)
     origin = Image.open(origin_fname)

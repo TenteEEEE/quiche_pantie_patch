@@ -5,9 +5,8 @@ import skimage as ski
 import skimage.transform as skt
 import skimage.morphology as skm
 import numpy as np
-from myutil import *
 import matplotlib.pyplot as plt
-
+from src.utils.imgproc import *
 
 def convert2tanu(fname=None, fwrite=True):
     panties = os.listdir('./dream/')
@@ -101,7 +100,3 @@ def convert2tanu(fname=None, fwrite=True):
         return pantie
     else:
         print("Cannot find it")
-
-
-if __name__ == '__main__':
-    convert2tanu()

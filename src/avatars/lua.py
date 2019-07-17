@@ -5,7 +5,7 @@ import skimage as ski
 import skimage.transform as skt
 import skimage.morphology as skm
 import numpy as np
-from myutil import *
+from src.utils.imgproc import *
 
 def convert2lua(fname=None):
     panties = os.listdir('./dream/')
