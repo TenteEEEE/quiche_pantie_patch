@@ -13,7 +13,7 @@ parser.add_argument('-a', '--all', help='If you set pantie number, it will be st
 parser.add_argument('-f', '--force', help='Overwrite the patched textures even if it exists',  action='store_true')
 parser.add_argument('-i', '--input', help='Name of the base texture', type=str)
 parser.add_argument('-o', '--output', help='Name of the patched texture', type=str, default='patched.png')
-parser.add_argument('-p', '--pantie', help='Choose pantie number', type=int, default=-1)
+parser.add_argument('-p', '--pantie', help='Choose pantie number', type=int, default=0)
 parser.add_argument('-t', '--transparent', help='Make transparent images for easy overlaying', action='store_true')
 args = parser.parse_args()
 
@@ -42,7 +42,7 @@ pantie_loader = image_loader(fdir='./dream/')
 
 if args.all:
     os.makedirs('./converted/' + args.model, exist_ok=True)
-    if args.pantie is not -1:
+    if args.pantie is not 0:
         pantie_loader.flist = pantie_loader.flist[args.pantie - 1:]
     else:
         if args.force:
@@ -50,7 +50,7 @@ if args.all:
         else:
             pantie_loader.flist = pantie_loader.flist[len(os.listdir('./converted/' + args.model)):]
 else:
-    pantie_loader.flist = [pantie_loader.flist[args.pantie]]
+    pantie_loader.flist = [pantie_loader.flist[args.pantie - 1]]
 
 pantie_loader.start()
 for i, fname in enumerate(pantie_loader.flist):

@@ -7,11 +7,21 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_milk.png'):
+    def __init__(self, body='./body/body_milk.png', add_sign=None, fsign='./material/anna_sign.png'):
         super().__init__('Milk', body=body, pantie_position=[741, 224])
         self.mask = io.imread('./mask/mask_milk.png')
         self.sign_position = [754, 113]
-
+        if add_sign is None:
+            ans = input('Add immoral sign? [default:no] (y/n):')
+            if ans is 'y':
+                self.add_sign = True
+                self.sign = Image.open(fsign)
+                self.sign.resize((int(self.sign.width * 0.6), int(self.sign.height * 0.6)))
+            else:
+                self.add_sign = False
+        else:
+            self.add_sign = add_sign
+            
     def convert(self, image):
         pantie = np.array(image)
         mask = io.imread('./mask/mask_milk.png')
@@ -63,3 +73,15 @@ class patcher(patcher):
         # Finalize
         pantie = np.uint8(pantie * 255)
         return Image.fromarray(pantie)
+        
+    def patch(self, image, transparent=False):
+        image = self.convert(image)
+        if transparent:
+            patched = Image.new("RGBA", self.body_size)
+        else:
+            patched = self.body.copy()
+        
+        if self.add_sign:
+            self.paste(patched, self.sign, self.sign_position)
+        patched = self.paste(patched, image, self.pantie_position)
+        return patched

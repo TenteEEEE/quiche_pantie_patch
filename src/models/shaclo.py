@@ -17,6 +17,7 @@ class patcher(patcher):
                 self.stitch_correction = False
         else:
             self.stitch_correction = stitch_correction
+
     def convert(self, image):
         pantie = np.array(image)
         [r, c, d] = pantie.shape

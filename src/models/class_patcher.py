@@ -11,6 +11,10 @@ class patcher():
 
     def convert(self, image):
         return image
+        
+    def paste(self, ref, image, position):
+        ref.paste(image, position, image)
+        return ref
 
     def patch(self, image, transparent=False):
         image = self.convert(image)
@@ -19,7 +23,7 @@ class patcher():
         else:
             patched = self.body.copy()
             
-        patched.paste(image, self.pantie_position, image)
+        patched = self.paste(patched, image, self.pantie_position)
         return patched
 
     def save(self, image, fname):
