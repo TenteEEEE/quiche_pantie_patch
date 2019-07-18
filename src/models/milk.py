@@ -16,7 +16,7 @@ class patcher(patcher):
             if ans is 'y':
                 self.add_sign = True
                 self.sign = Image.open(fsign)
-                self.sign.resize((int(self.sign.width * 0.6), int(self.sign.height * 0.6)))
+                self.sign = self.sign.resize((int(self.sign.width * 0.6), int(self.sign.height * 0.6)))
             else:
                 self.add_sign = False
         else:
