@@ -136,6 +136,8 @@ for fname in panties:
     if args.pad:
         padx = int((2048 - convined_texture.shape[1]) / 2)
         pady = 2048 - 430
+        print(padx)
+        print(pady)
         io.imsave('./converted/bra/' + fname, np.pad(convined_texture,[(0, pady), (padx,padx), (0, 0)], mode='constant'))
     else:
         io.imsave('./converted/bra/' + fname, convined_texture)
