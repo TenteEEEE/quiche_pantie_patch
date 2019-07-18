@@ -11,11 +11,11 @@ from class_patcher import patcher
 class patcher(patcher):
     def __init__(self):
         super().__init__('Anna', body='./body/body_anna.png', pantie_position=[31, 1115])
+        self.mask = io.imread('./mask/mask_anna.png')
 
     def convert(self, image):
         pantie = np.array(image)
-        mask = io.imread('./mask/mask_anna.png')
-        pantie = np.bitwise_and(pantie, mask)
+        pantie = np.bitwise_and(pantie, self.mask)
         [r, c, d] = pantie.shape
 
         # move from hip to front

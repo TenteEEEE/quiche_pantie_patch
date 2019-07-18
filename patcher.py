@@ -1,5 +1,6 @@
 import os
 import sys
+import numpy as np
 import argparse
 import importlib
 from src.image_loader import *
@@ -40,8 +41,8 @@ if args.all:
 else:
     pantie_loader.flist = [pantie_loader.flist[args.pantie]]
 
-for fname in pantie_loader.flist:
-    print('Process: ' + fname)
+for i, fname in enumerate(pantie_loader.flist):
+    print('\rProcess: ' + fname + ' [' + str(np.around((i + 1) / len(pantie_loader.flist) * 100, 2)) + '%]', end="")
     patched = patcher.patch(pantie_loader.read(fname), args.transparent)
     if args.all:
         patcher.save(patched, './converted/' + args.model + '/' + fname)
