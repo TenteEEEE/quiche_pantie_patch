@@ -1,4 +1,4 @@
-from src.avatars.class_patcher import patcher
+from src.models.class_patcher import patcher
 
 
 class patcher(patcher):

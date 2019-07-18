@@ -1,110 +1,50 @@
-from PIL import Image, ImageOps
 import os
 import sys
-import random
-import time
-import shutil
+import numpy as np
 import argparse
+import importlib
+from src.image_loader import *
+sys.path.append('./src/')
+import models
 
-argparser = argparse.ArgumentParser()
-argparser.add_argument('-r', '--random', help='ランダムでパンツが選ばれます', action='store_true')
-argparser.add_argument('-l', '--linz', help='リンツちゃん向けの微補正を加えます', action='store_true')
-argparser.add_argument('-n', '--nude', help='キッシュ/リンツちゃん素体用のオプションです', action='store_true')
-argparser.add_argument('-L', '--light', help='キッシュちゃんライト用のオプションです', action='store_true')
-argparser.add_argument('-a', '--all', help='全てのパンツを変換します', action='store_true')
-argparser.add_argument('-i', '--input', help='ベースとなるテクスチャを指定できます', type=str)
-argparser.add_argument('-o', '--output', help='変換後の名前を指定できます', type=str, default='patched.png')
-argparser.add_argument('-p', '--pantie', help='変換するパンツの番号を数値で指定できます', type=int)
-args = argparser.parse_args()
+parser = argparse.ArgumentParser()
+parser.add_argument('-m', '--model', help='Choose your model', choices=models.namelist)
+parser.add_argument('-a', '--all', help='If you set pantie number, it will be start number',  action='store_true')
+parser.add_argument('-i', '--input', help='Name of the base texture', type=str)
+parser.add_argument('-o', '--output', help='Name of the patched texture', type=str, default='patched.png')
+parser.add_argument('-p', '--pantie', help='Choose pantie number', type=int, default=-1)
+parser.add_argument('-t', '--transparent', help='Make transparent images for easy overlaying', action='store_true')
+args = parser.parse_args()
 
-panties = os.listdir('./dream/')
+if args.model is None:
+    for i, avatar in enumerate(models.namelist):
+        print(str(i + 1) + ':' + avatar, end=', ')
+    num = -1
+    while num > len(models.namelist) or num < 1:
+        print('\nSet your model number: ', end='')
+        try:
+            num = int(input())
+        except:
+            num = -1
+    args.model = models.namelist[num - 1]
 
-if args.random:
-    num = random.randint(0,len(panties))
-    fname = panties[num]
-flinz = args.linz
-fnbody = args.nude
-flight = args.light
-fall= args.all
-fname = args.pantie
-fin = args.input
-fout = args.output
+print('Loading ' + args.model + ' patcher...')
+module = importlib.import_module('models.' + args.model)
+patcher = module.patcher()
+print('Starting pantie loader...')
+pantie_loader = image_loader(fdir='./dream/')
 
-if fall:
-    if flinz:
-        fdir = 'converted/linz/'
-    elif fnbody:
-        fdir = 'converted/quiche_n/'
-    elif flight:
-        fdir = 'converted/quiche_light/'
-    else:
-        fdir = 'converted/quiche/'
-    os.makedirs(fdir,exist_ok=True)
-    exists = len(os.listdir(fdir))
-    panties = panties[exists:]
+if args.all:
+    os.makedirs('./converted/' + args.model, exist_ok=True)
+    if args.pantie is not -1:
+        pantie_loader.flist = pantie_loader.flist[args.pantie - 1:]
 else:
-    if fname is not None:
-        fname = "{:04}.png".format(fname)        
+    pantie_loader.flist = [pantie_loader.flist[args.pantie]]
+
+for i, fname in enumerate(pantie_loader.flist):
+    print('\rProcess: ' + fname + ' [' + str(np.around((i + 1) / len(pantie_loader.flist) * 100, 2)) + '%]', end="")
+    patched = patcher.patch(pantie_loader.read(fname), args.transparent)
+    if args.all:
+        patcher.save(patched, './converted/' + args.model + '/' + fname)
     else:
-        fname =  input("Type pantie name: ./dream/")
-    
-    if fname in panties:
-        panties = []
-        panties.append(fname)
-    else:
-        print("Cannot find it")
-        exit()
-
-if fin is not None and os.path.exists(fin):    
-    origin_fname = fin
-elif flight:
-    origin_fname = './body/body_light.png'
-else:
-    origin_fname = './body/body.png'
-
-for fname in panties:    
-    pantie = Image.open('./dream/'+fname)
-    origin = Image.open(origin_fname)
-
-    if flinz:
-        print("Apply LINZ Correction")
-        pantie = pantie.resize((629,407))
-        origin.paste(pantie,(1017,828),pantie)
-        origin_transparent = Image.new("RGBA", (origin.size))
-        origin_transparent.paste(pantie,(1017,828),pantie)
-        origin_transparent.save('patched_transparent.png')
-    elif fnbody:        
-        print("!nbody_mode!")
-        cut = 7
-        right_pantie = pantie.crop((cut,0,pantie.size[0],pantie.size[1]))
-        left_pantie = ImageOps.mirror(right_pantie)
-        npantie = Image.new("RGBA", (right_pantie.size[0]*2, right_pantie.size[1]))
-        npantie.paste(right_pantie,(right_pantie.size[0],0))
-        npantie.paste(left_pantie,(0,0))
-        origin.paste(npantie,(403,836),npantie)
-        
-        origin_transparent = Image.new("RGBA", (origin.size))
-        origin_transparent.paste(npantie,(403,836),npantie)
-        origin_transparent.save('patched_transparent.png')
-    elif flight:
-        print("Apply Quiche_Light Conversion")
-        pantie = pantie.resize((236,157))
-        origin.paste(pantie,(532,385),pantie)
-        origin_transparent = Image.new("RGBA", (origin.size))
-        origin_transparent.paste(pantie,(532,385),pantie)
-        origin_transparent.save('patched_transparent.png')
-    else:
-        origin.paste(pantie,(1018,828),pantie)
-        origin_transparent = Image.new("RGBA", (origin.size))
-        origin_transparent.paste(pantie,(1018,828),pantie)
-        origin_transparent.save('patched_transparent.png')
-
-    origin.save(fout)
-
-    if fall:
-        print('Done ' + fname)
-        time.sleep(0.5)
-        os.rename('patched_transparent.png', fname)
-        shutil.move(fname,fdir+fname)
-    else:
-        print("Done. Please check {}.".format(fout))
+        patcher.save(patched, args.output)

@@ -6,13 +6,13 @@ import os
 # import sys
 # sys.path.append('./src/namelist')
 
-namelist = os.listdir('./src/avatars/')
+namelist = os.listdir('./src/models/')
 try:
     namelist.remove('class_patcher.py')
     namelist.remove('__init__.py')
     namelist.remove('__pycache__')
 except:
     pass
-namelist = [avatar[:-3] for avatar in namelist]
+namelist = [model[:-3] for model in namelist]
 
 __all__ = namelist

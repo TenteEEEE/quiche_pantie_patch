@@ -2,11 +2,9 @@ import skimage.io as io
 import skimage.transform as skt
 import numpy as np
 from PIL import Image
-
-import sys
-sys.path.append('./src/avatars')
-from class_patcher import patcher
+from src.models.class_patcher import patcher
 from src.utils.imgproc import *
+
 
 class patcher(patcher):
     def __init__(self, body='./body/body_lua.png'):

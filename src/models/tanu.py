@@ -2,7 +2,7 @@ import skimage.io as io
 import skimage.transform as skt
 import numpy as np
 from PIL import Image
-from src.avatars.class_patcher import patcher
+from src.models.class_patcher import patcher
 from src.utils.imgproc import *
 
 
