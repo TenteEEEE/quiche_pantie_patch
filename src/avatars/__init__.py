@@ -4,15 +4,15 @@ import os
 # import skimage.morphology as skm
 # from PIL import Image
 # import sys
-# sys.path.append('./src/avatars')
+# sys.path.append('./src/namelist')
 
-avatars = os.listdir('./src/avatars/')
+namelist = os.listdir('./src/avatars/')
 try:
-    avatars.remove('class_patcher.py')
-    avatars.remove('__init__.py')
-    avatars.remove('__pycache__')
+    namelist.remove('class_patcher.py')
+    namelist.remove('__init__.py')
+    namelist.remove('__pycache__')
 except:
     pass
-avatars = [avatar[:-3] for avatar in avatars]
+namelist = [avatar[:-3] for avatar in namelist]
 
-__all__ = avatars
+__all__ = namelist
