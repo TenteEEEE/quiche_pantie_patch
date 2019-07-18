@@ -2,16 +2,15 @@ import skimage.io as io
 import skimage.transform as skt
 import numpy as np
 from PIL import Image
-
-import sys
-sys.path.append('./src/avatars')
-from class_patcher import patcher
+from src.avatars.class_patcher import patcher
+from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self):
-        super().__init__('Anna', body='./body/body_anna.png', pantie_position=[31, 1115])
+    def __init__(self, body='./body/body_anna.png'):
+        super().__init__('Anna', body=body, pantie_position=[31, 1115])
         self.mask = io.imread('./mask/mask_anna.png')
+        self.sign_position = [37, 861]
 
     def convert(self, image):
         pantie = np.array(image)

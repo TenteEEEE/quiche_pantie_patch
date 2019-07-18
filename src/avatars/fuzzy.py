@@ -9,10 +9,17 @@ from class_patcher import patcher
 
 
 class patcher(patcher):
-    def __init__(self, is_frill=False):
-        super().__init__('Fuzzy', body='./body/body_fuzzy.png', pantie_position=[845, 1593])
+    def __init__(self, body='./body/body_fuzzy.png', is_frill=None):
+        super().__init__('Fuzzy', body=body, pantie_position=[845, 1593])
         self.mask = io.imread('./mask/mask_fuzzy.png')
-        self.is_frill = is_frill
+        if is_frill is None:
+            ans = input('Is there a frill on the hip? [default:no] (y/n):')
+            if ans is 'y':
+                self.is_frill = True
+            else:
+                self.is_frill = False
+        else:
+            self.is_frill = is_frill
 
     def convert(self, image):
         pantie = np.array(image)

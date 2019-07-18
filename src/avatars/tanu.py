@@ -1,20 +1,17 @@
-import os
-import sys
 import skimage.io as io
-import skimage as ski
 import skimage.transform as skt
-import skimage.morphology as skm
 import numpy as np
-import matplotlib.pyplot as plt
+from PIL import Image
+from src.avatars.class_patcher import patcher
 from src.utils.imgproc import *
 
-def convert2tanu(fname=None, fwrite=True):
-    panties = os.listdir('./dream/')
-    if fname is None:
-        fname = input("Type pantie name: ./dream/")
-    if fname in panties:
-        pantie = io.imread('./dream/' + fname)
 
+class patcher(patcher):
+    def __init__(self, body='./body/body_tanu.png'):
+        super().__init__('Tanu', body=body, pantie_position=[55, 35])
+
+    def convert(self, image):
+        pantie = np.array(image)
         patch = np.copy(pantie[-180:-5, 546:, :])
         patch = skt.resize(patch[::-1, ::-1, :], (200, 65), anti_aliasing=True, mode='reflect')
         [pr, pc, d] = patch.shape
@@ -95,8 +92,4 @@ def convert2tanu(fname=None, fwrite=True):
 
         # Finalize
         pantie = np.uint8(pantie * 255)
-        if fwrite:
-            io.imsave('tanu_pantie.png', pantie)
-        return pantie
-    else:
-        print("Cannot find it")
+        return Image.fromarray(pantie)
