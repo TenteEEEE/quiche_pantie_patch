@@ -10,7 +10,7 @@ def norm_img(img):
     return img / np.max(img)
 
 
-parser = argparse.ArgumentParser(description='Phase restore for the Fourier transfromed panties')
+parser = argparse.ArgumentParser(description='Phase retrieval for the Fourier transfromed panties')
 parser.add_argument("--hio", action="store_true", help='Apply Hybrid-input-output algorithm (Default: Error Reduction Algorithm)')
 parser.add_argument("--itr", type=int, default=100, help='Number of iteration (Default:100)')
 parser.add_argument("--beta", type=float, default=0.9, help='Ratio of influence in HIO algorithm [Recommended: 0.5~1.0] (Default:0.9)')

@@ -1,100 +1,106 @@
-# キッシュパンツパッチ
+# キッシュちゃんパンツパッチ
 パンツは一期一会  
 
-現在対応アバターはパンツ変換を含め、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんです。
+キッシュちゃんパンツパッチはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
+キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんです。
 
-## 導入にあたって
+## 導入
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
+導入後はパンツパッチのフォルダでコマンドプロンプトを開き、`git pull`でいい感じにしてくれます。
 
 手動で導入する場合は、[siro_choco0621](https://twitter.com/siro_choco0621)さんが導入についての[メモ](https://twitter.com/siro_choco0621/status/1131587508238659585)をまとめてくださいましたので、こちらを参考に！  
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
-## 更新履歴
-2019/07/14: [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんへの変換に対応しました。  
-2019/07/12: 似たようなパンツを検索するfind_similar_pantie.pyを追加しました。`python find_similar_pantie.py 1` とすれば1番に似たパンツがデフォルトで5枚表示されます。  
-2019/06/27: [ルア・クエスト](https://ficsnade.booth.pm/items/1414368)への変換に対応しました。  
-2019/06/18: キッシュ/リンツちゃん素体用のブラジャーへの変換に対応しました。  
-2019/06/12: [自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を公開しました。  
-2019/06/07: [アンナ・ライト](https://wakonoatorie.booth.pm/items/1405336)への変換に対応しました。  
-2019/06/05: フーリエ変換されたパンツ画像の逆変換に対応しました。phase_retrieval.pyでは[ERあるいはHIOアルゴリズム](https://en.wikipedia.org/wiki/Phase_retrieval)の選択、cupyがあればGPU上で実行できます。  
-2019/05/30: パンツ画像のフーリエ変換に対応しました。convert_fourier.pyではRGBモードと16bit出力がオプションで指定できます。  
-2019/05/20: [キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)への変換に対応しました。patch.pyで-Lオプションを指定してください。  
-2019/04/15: [ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃんの変換に対応しました。  
-2019/04/13: [ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃんの変換に対応しました。  
-2019/04/12: [キッシュちゃん素体](https://mutachannel.booth.pm/items/1026956)用のオプションを追加。patch.pyで-nをオプションを指定してください。  
-2019/04/10: [右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃんへの変換スクリプトを[thakyuu](https://github.com/thakyuu)さんが開発、本リポジトリにマージしました。  
-2019/04/06: [ルア](https://ficsnade.booth.pm/items/1255054)ちゃんの変換に対応しました。  
-2019/03/08: [リンツ](https://mutachannel.booth.pm/items/1255264)ちゃんの変換に対応しました。patch.pyで-lオプションを指定してください。  
-2019/02/09: [ミルク](https://komado.booth.pm/items/1209496)ちゃんの変換に対応しました。また、dreamフォルダにあるパンツをすべて変換するスクリプトを追加しました。  
-2019/01/30: [キッシュ](https://mutachannel.booth.pm/items/954376)ちゃんの他に、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃんと[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃんは変換スクリプトで対応しています。  
-ちなみに吸血鬼アンナちゃん、ミルクちゃん、ミーシェちゃんは淫紋も刻めます。詳細はパンツコンバートにて。
+### プログラム起動の確認
+1. **パンツパッチのフォルダ直下(somewhere\quiche_pantie_patch`)でコンソールを起動する** [参考URL](https://www.lifehacker.jp/2013/03/130320windows_cmd.html)
+1. `python patch.py` でプログラムを起動する
+1. なにか動いてアバター一覧が表示されればOKです。
 
-## 必要なもの
-ペイントもしくはレタッチソフトがある方はbody.pngの上に画像を重ねるだけでOKです。  
-それすらも面倒だという人の為に、Pythonスクリプトもあります。  
-他アバターへのパンツ変換をしたい方は変換スクリプトを動かすためにPythonが必須です。  
-[Python(3系を推奨)](https://www.python.org/downloads/)
+パンツパッチに限らず多くのインストーラーが存在しないプログラムはプログラムフォルダ直下で動くようになっています。  
+**必ずパンツパッチのフォルダでコンソールを起動してください。**  
 
-必要な外部パッケージはコンソールからワン・コマンドでインストールできます。  
-`pip install -r requirements.txt`  
+## 使い方
+基本的にどのアバターであっても`python patch.py`としてパッチャーを起動するだけですが、主に2つの使い方を想定しています。
 
-このリポジトリは基本的に毎日更新されるので、最新のパンツを追いたい方はGitのインストール推奨です。  
-[Git for windows](https://git-scm.com/)  
-インストール後はコンソール(cmdもしくはpowershell)を開いて `git clone https://github.com/TenteEEEE/quiche_pantie_patch.git` でダウンロードできます。  
-とりあえず最新版にしたければクローンしたディレクトリで`git pull`でいい感じに更新してくれます。
+1. それぞれのアバターにパンツをパッチする (対話形式でのパッチ)
+1. よく使うアバターに同様の設定でパンツをパッチし続ける (jsonセットアップでのパッチ)
 
-## パンツパッチ(キッシュ、リンツちゃん)
-0. このリポジトリを[ダウンロード](https://github.com/TenteEEEE/quiche_pantie_patch/archive/master.zip)します (gitが分かる人はcloneを推奨)
-1. body.pngをあなたのbodyテクスチャで置き換えてください
-2. コンソールからpatch.pyを実行します `python patch.py`
-3. パンツ番号を聞かれるので好きな番号を入力します 例:0001.png
-4. patched.pngが上書き済みテクスチャです Enjoy!
+### 1. 対話形式の使い方
+1. bodyフォルダにアバターのテクスチャを置く (できればもともと配置されている名前に合わせたほうが楽)
+1. **パンツパッチのフォルダでコンソールを起動する** [参考URL](https://www.lifehacker.jp/2013/03/130320windows_cmd.html)
+1. `python patch.py` でプログラムを起動する
+1. アバター一覧が表示されるので番号を入力してEnter
+1. 適宜オプションについて聞かれるのでy/nで答える(Enterを打てばデフォルトの動作になる)
+1. patched.png がパンツパッチされたものです
 
-パッチを実行するときに `python patch.py -r` とすると、ランダムでパンツが選ばれます。  
-また、`-l`を追加するとリンツちゃん向けの微補正を加えます。`-n`はキッシュ/リンツちゃん素体用のオプションです。`-L`はキッシュちゃんライト用のオプションです。`-a`で全てのパンツの変換を行います。`-p`で変換するパンツを指定できます。`-i`でベースとなるテクスチャを指定できます。`-o`で変換後のファイルを指定できます。
+使い方がわからないときは`python patch.py -h`で説明が出力されます。  
 
-## ブラコンバート(キッシュ、リンツちゃん素体用)
-convert_bra.pyでキッシュ/リンツちゃん素体用のブラジャーを自動生成できます。  
-`python convert_bra.py`  
-とすれば最新のパンツが変換されます。番号を指定したい場合は  
-`python convert_bra.py --num 101`  
-のようにします。また、上から重ねるだけの楽ちんテクスチャを作りたければ更に  
-`python convert_bra.py --num 101 --pad`  
-のように`--pad`オプションを併用すると良いです。
+#### オプション
+* -m: モデル名を指定する。 (例: `python patch.py -m quiche`)
+* -a: すべてのパンツをパッチする。 パッチされたものはconvertedフォルダのモデル名のフォルダに作成されます。 (例: `python patch.py -m quiche -a`)
+* -f: -aは上書きをしません。 上書きするときはこちらも指定してください。 (例: `python patch.py -m quiche -a -f`)
+* -i: bodyテクスチャのファイル名を指定。 (例: `python patch.py -m quiche -i ./body/body.png`)
+* -o: 出力されるテクスチャのファイル名を指定。 (例: `python patch.py -m quiche -o patched.png`)
+* -d: -a時に出力されるディレクトリを指定。 (例: `python patch.py -m quiche -d linz`)
+* -p: パンツを指定。指定しなければ最新のものが適用される。 -a時は開始番号にもなる。 (例: `python patch.py -m quiche -p 101`)
+* -r: ランダムにパンツを選ぶ。 (例: `python patch.py -m quiche -r`)
+* -t: 透過PNGで作成。 配布するときに便利なオプションで、私以外に需要はおそらくない。 (例: `python patch.py -m quiche -t`)
+* -j: [favorite.json](favorite.json)の設定を読み込んでパッチする。 このとき他の引数は全て無効化されます。 (例: `python patch.py -j`)
 
-### オプション
-* --num: 変換するパンツ番号を指定できます。何も入力しなければ最新のパンツが選ばれます。
-* --all: 全てのパンツを変換できます。numで指定するとその番号から最新まで変換します。
-* --pad: パディングを行い、上から重ねるだけの楽ちんテクスチャを作ります
-* --lace: デフォルトではフリルを貼り付けますが、レースにもできます
+### 2. jsonに設定の自動読み込みでの使い方
+jsonによる設定読み込みに対応しました。対話形式がだるい/毎日最新のパンツをパッチするつもりの人には便利かも。  
+json読み込みによるパッチは `python patch.py -j` です。
 
-以下はペイントソフトなどで手動調整する人向けのオプションです。
-* --disable_ribbon: リボンはデフォルトで取り付けられますが、付けたくない場合はこれを書くと良いです。
-* --disable_decoration: フリルやレースを貼り付けないようにします。
-* --disable_shading: 影の自動彩色をやめます。
-* --disable_texture: ブラの胸パッド部分以外の自動テクスチャをやめます。
+jsonは開発者にはよく使われている形式のファイルですが、基本的に以下のようなただのテキストファイルです。  
+お気に入りのエディタで開いて設定してください。項目はなんとなく分かると思います。
+こちらのサンプルはリンツちゃん素体用の設定例です。  
+`git pull`で最新のパンツを取り込んだ後、この設定で`python patch.py -j`すれば、勝手に最新のパンツだけ変換されます。  
+``` json
+{
+  "":"-----Common Setup-----",
+  "model":"quiche_nbody",
+  "input":"./body/body_linz.png",
+  "output":"patched.png",
+  
+  "":"I guess normally true is confortable for you. When you set false, it patches a single pantie",
+  "all":true,
+  
+  "":"When you set all, you can define the directory name. default will be a model name",
+  "":"It may useful when you make Linz texture using quiche model",
+  "directory":"default",
 
-## パンツコンバート
-すべてきれいに変換できるわけではありませんが、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃんのパンツに変換できます。  
-基本的にパンツパッチに使うコマンドを `python patch_[character].py` に変えるだけです。  
-変換画像だけ欲しいときは `python convert_[character].py`で作れます。  
-他にも使用者が多いアバターはできるだけ対応したいので、対応して欲しい人はテストユーザになる覚悟とともにテクスチャ画像を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)に送ってください。
+  "":"Pantie number. 0 means the latest one. It may confort for you.",
+  "pantie":0,
 
-### 特殊オプション
-#### シャーロちゃん
-* -c: 縫い目の補正方法を変更できます。なんか変になったというときに書いてみてください。
+  "":"When you want to update all the converted texture, set true",
+  "force":false,
 
-#### アンナちゃん
-* -s: 淫紋をお腹に刻みます。
+  "":"When you want to make transparent textures, set true",
+  "transparent": false,
 
-#### ミルクちゃん
-* -s: 淫紋をお腹に刻みます。
+  "":"When you want to choose a pantie randomly, set true",
+  "random": false,
 
-#### ミーシェちゃん
-* -s: 淫紋をお腹に刻みます。
+  "":"-----Setup for Quiche and Linz bra-----",
+  "with_bra":true,
+  "is_lace":false,
+  "dis_ribbon":false,
+  "dis_shading":false,
+  "dis_decoration":false,
+  "dis_texturing":false,
 
-#### ファジーちゃん
-* -f: お尻側にフリルのあるパンツはこれを指定してください。
+  "":"-----Setup for immoral sign-----",
+  "add_sign":false,
+  "fsign":"./material/anna_sign.png",
+
+  "":"-----Setup for stitch correction for Shaclo-----",
+  "stitch_correction":false,
+  
+  "":"-----Setup for frill correction for Fuzzy-----",
+  "is_frill":false
+}
+```
 
 ## 変換サンプル
 |||
@@ -112,6 +118,9 @@ convert_bra.pyでキッシュ/リンツちゃん素体用のブラジャーを�
 |[ルア・クエスト](https://ficsnade.booth.pm/items/1414368)ちゃん|[たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん|
 |![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
 
+## 対応してほしいアバターがある/開発者の方へ
+未対応のアバターがあれば、テストユーザーになる覚悟とともにボディのテクスチャ(できればUVマップのあるもの)を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)まで送っていただければ何とかなるかも。  
+対応アバターのスクリプトを書いてみたい人はコードや[Wiki](https://github.com/TenteEEEE/quiche_pantie_patch/wiki)のFor Developersを読むと分かりやすいかも。
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -135,78 +144,35 @@ Copyright (c) 2019 TenteEEEE
 # Quiche Pantie Patch
 Treasure every pantie encounter as it may not come again.
 
-## Update log
-2018/12/05 crop.py crops the pantie texture for pantie designer.  
-2018/12/06 patch.py supports random pantie option '-r'. (`python patch.py -r`)  
-2018/12/18 convert_shaclo.py converts Quiche pantie to [Shaclo](https://tomori-hikage.booth.pm/items/987296) pantie.  
-2018/12/25 convert_shaclo.py supports stitch correction switch.  
-2018/12/25 convert_anna.py converts Quiche pantie to [Anna](https://wakonoatorie.booth.pm/items/1067958) pantie.  
-2019/02/09 convert_milk.py converts Quiche pantie to [Milk](https://komado.booth.pm/items/1209496) pantie.  
-2019/03/08 patch.py supports [Linz](https://mutachannel.booth.pm/items/1255264). Please set -l option when you run the patch.py  
-2019/04/06 convert_lua.py converts Quiche pantie to [Lua](https://ficsnade.booth.pm/items/1255054) pantie.  
-2019/04/10 [thakyuu](https://github.com/thakyuu) developed [Ukon](http://seiga.nicovideo.jp/seiga/im8378009) converter, and it was merged.  
-2019/04/12 patch.py supports [Quiche body](https://mutachannel.booth.pm/items/1026956). Please set -n option when you run the patch.py  
-2019/04/13 convert_mishe.py converts Quiche pantie to [Mishe](https://ponderogen.booth.pm/items/1256087) pantie.  
-2019/04/15 convert_fuzzy.py converts Quiche pantie to [Fuzzy](https://nagatorokoyori.booth.pm/items/1255283) pantie.  
-2019/05/20 Support [Quiche-Light](https://mutachannel.booth.pm/items/1379653). Please set -L option when you run the patch.py  
-2019/05/30 Support Fourier transform of the panties. convert_fourier.py has options that RGB mode and 16bit output mode.  
-2019/06/05 Support inverse Fourier transform from the intensity of the Fourier transformed panties. phase_retrieval.py handles [ER or HIO algorithm](https://en.wikipedia.org/wiki/Phase_retrieval). If you know cupy, it can run on GPUs.  
-2019/06/07: Support [Anna light version](https://wakonoatorie.booth.pm/items/1405336).  
-2019/06/12: I published [the auto install batch file](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
-2019/06/18: Support bra conversion for Quiche and Linz body.  
-2019/06/27: Support [Lua for Quest](https://ficsnade.booth.pm/items/1414368).  
-2019/07/12: find_similar_pantie.py find it. e.g. `python find_similar_pantie.py 1` it finds panties like 0001.png. 
-2019/07/14: Support [Tanu](https://udonfactory.booth.pm/items/1414433).  
+The puropse of the repository is applying various panties to various 3D models.  
 
-# Installation
+## Installation
 Please check it out [the automatic install batch](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
 You just run the batch file with administrator permission.
 
-# Pre-requirements
-If you have any paint or retouch software, you can override easily.  
-However, I understand that you guys are lazy.   
-Don't worry, I prepared a python script to override the body.png.  
-[Python(3 is recommended)](https://www.python.org/downloads/)
+## Usage
+1. Put your body texture in the body folder
+1. **Start a console in the pantie patch folder**
+1. Run the command `python patch.py`
+1. It ask about avatar, so type a number
+1. Some avatars have a special option. Please answer the question when you see it.
+1. patched.png is the patched texture. Enjoy!
 
-The patch require external packages.  
-I summarized them in the requirements.txt and you can install it easily.  
-`pip install -r requirements.txt`
+When you want to know the help, plese run `python patch.py -h`
 
-# Texture overriding
-1. Overwrite body.png
-2. Run patch.py `python patch.py`
-3. Put your favorite number (example: 0001.png)
-4. Enjoy
+#### Options
+* -m: Name of the model (e.g. `python patch.py -m quiche`)
+* -a: Convert all the panties. The patched textures will be exported to converted/modelname folder. (e.g. `python patch.py -m quiche -a`)
+* -f: -a doesn't overwrite. When you want to overwrite them, set it. (e.g. `python patch.py -m quiche -a -f`)
+* -i: Name of the body texture (e.g. `python patch.py -m quiche -i ./body/body.png`)
+* -o: Name of the output texture (e.g. `python patch.py -m quiche -o patched.png`)
+* -d: Name of the directory when you set -a (e.g. `python patch.py -m quiche -d linz`)
+* -p: Pantie number. The default is the latest pantie. When you set -a, it will be start number (e.g. `python patch.py -m quiche -p 101`)
+* -r: It chooses a pantie randomly (e.g. `python patch.py -m quiche -r`)
+* -t: Patched to transparent textures.  (e.g. `python patch.py -m quiche -t`)
+* -j: Load favorite.json for auto configuration (e.g. `python patch.py -j`)
 
-The instructions can also be used for Shaclo and Anna patch.  
-
-# Your own dream panties overriding
-1. Overwrite body.png
-1. Place your panties in the dream folder
-2. Run patch.py `python patch.py`
-3. Put your pantie name
-4. Enjoy
-
-## Bra conversion for Quiche/Linz
-convert_bra.py generates a bra automatically. You just run the following command.  
-`python convert_bra.py`  
-It converts the latest pantie to bra. When you want to set the number which you want,  
-`python convert_bra.py --num 101`  
-That's it. Of course, there is a nice option to generate size and position optimized bra,  
-`python convert_bra.py --num 101 --pad`  
-You just set `--pad` option like this.
-
-### Options
-* --num: You can set the number which you want.
-* --all: It converts the all panties to bra. When you set num option, it is a start number.
-* --pad: Enable padding for easy overlaying.
-* --lace: It enables lace decoration instead of frill.
-
-The following options are made for designers who want to design by yourself.
-* --disable_ribbon: It disables ribbon pasting.
-* --disable_decoration: It disables race and frill decoration.
-* --disable_shading: It disables auto shading.
-* --disable_texture: It disables texture painting on the base of bra.
+[favorite.json](favorite.json) is useful to run the program. Please check it out.
 
 ## Converted examples
 |||
@@ -224,15 +190,9 @@ The following options are made for designers who want to design by yourself.
 |[Lua for Quest](https://ficsnade.booth.pm/items/1414368)|[Tanu](https://udonfactory.booth.pm/items/1414433)|
 |![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
 
-# Any error?
-## Windows
-Open your favorite terminal and then `pip install -r requirements.txt`.
-## Linux/OSX
-`pip install -r requirements.txt` or `sudo pip install -r requirements.txt`
-
 # Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
-Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)
+Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)  
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 
 # License for my images
