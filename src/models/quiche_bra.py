@@ -9,8 +9,8 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_quiche_nbody.png', is_lace=None, dis_ribbon=False, dis_decoration=False, dis_shading=False, dis_texturing=False):
-        super().__init__('Quiche_bra', body=body, pantie_position=[404, 0])
+    def __init__(self, body='./body/body_quiche_nbody.png', **options):
+        super().__init__('Quiche_bra', body=body, pantie_position=[404, 0], **options)
         self.ribbon_mask = io.imread('./mask/ribbon.png')
         self.bra_mask = io.imread('./mask/bra.png')[:430, 1024:1024 + 620, :]
         self.bra_center = io.imread('./mask/bra_center.png')[:430, 1024:1024 + 620, :]
@@ -18,14 +18,21 @@ class patcher(patcher):
         self.frill = io.imread('./material/bra_frill.png')[:430, 1024 - 620:1024 + 620, :]
         self.lace = io.imread('./material/bra_lace.png')[:430, 1024 - 620:1024 + 620, :]
 
-        if is_lace is None:
+        try:
+            self.is_lace = self.options['is_lace']
+        except:
             self.is_lace = self.ask(question='Lace decoration?', default=False, default_msg='Frill')
-        else:
-            self.is_lace = is_lace
-        self.dis_ribbon = dis_ribbon
-        self.dis_decoration = dis_decoration
-        self.dis_shading = dis_shading
-        self.dis_texturing = dis_texturing
+
+        try:
+            self.dis_ribbon = self.options['dis_ribbon']
+            self.dis_shading = self.options['dis_shading']
+            self.dis_decoration = self.options['dis_decoration']
+            self.dis_texturing = self.options['dis_texturing']
+        except:
+            self.dis_ribbon = False
+            self.dis_decoration = False
+            self.dis_shading = False
+            self.dis_texturing = False
 
     def alpha_brend(self, ref, template):
         return ref * (1 - template[:, :, -1][:, :, None]) + template[:, :, :3] * template[:, :, -1][:, :, None]

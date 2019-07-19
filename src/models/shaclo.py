@@ -7,12 +7,12 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_shaclo.png', stitch_correction=None):
-        super().__init__('Shaclo', body=body, pantie_position=[62, 16])
-        if stitch_correction is None:
+    def __init__(self, body='./body/body_shaclo.png', **options):
+        super().__init__('Shaclo', body=body, pantie_position=[62, 16], **options)
+        try:
+            self.stitch_correction = self.options['stitch_correction']
+        except:
             self.stitch_correction = self.ask(question='Apply stitch correction? Usually not necessary.', default=False)
-        else:
-            self.stitch_correction = stitch_correction
 
     def convert(self, image):
         pantie = np.array(image)

@@ -7,8 +7,8 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_ukon.png'):
-        super().__init__('Ukon', body=body, pantie_position=[616, 686])
+    def __init__(self, body='./body/body_ukon.png', **options):
+        super().__init__('Ukon', body=body, pantie_position=[616, 686], **options)
         self.mask = io.imread('./mask/mask_ukon.png')
 
     def convert(self, image):

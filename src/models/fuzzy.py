@@ -7,13 +7,13 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_fuzzy.png', is_frill=None):
-        super().__init__('Fuzzy', body=body, pantie_position=[845, 1593])
+    def __init__(self, body='./body/body_fuzzy.png', **options):
+        super().__init__('Fuzzy', body=body, pantie_position=[845, 1593], **options)
         self.mask = io.imread('./mask/mask_fuzzy.png')
-        if is_frill is None:
+        try:
+            self.is_frill = self.options['is_frill']
+        except:
             self.is_frill = self.ask(question='Is there a frill on the hip?', default=False)
-        else:
-            self.is_frill = is_frill
 
     def convert(self, image):
         pantie = np.array(image)

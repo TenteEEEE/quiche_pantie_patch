@@ -2,12 +2,15 @@ from PIL import Image
 
 
 class patcher():
-    def __init__(self, name, body="./body/body.png", pantie_position=[0, 0], options=[]):
+    def __init__(self, name, body="./body/body.png", pantie_position=[0, 0], options=None):
         self.name = name
         self.body = Image.open(body)
         self.body_size = self.body.size
         self.pantie_position = pantie_position
-        self.options = options
+        try:
+            self.options = options['options']
+        except:
+            self.options = options
 
     def convert(self, image):
         return image

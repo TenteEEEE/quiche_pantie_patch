@@ -7,17 +7,20 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_anna.png', add_sign=None, fsign='./material/anna_sign.png'):
-        super().__init__('Anna', body=body, pantie_position=[31, 1115])
+    def __init__(self, body='./body/body_anna.png', **options):
+        super().__init__(name='Anna', body=body, pantie_position=[31, 1115], **options)
         self.mask = io.imread('./mask/mask_anna.png')
         self.sign_position = [37, 861]
-        if add_sign is None:
+        try:
+            self.add_sign = self.options['add_sign']
+        except:
             self.add_sign = self.ask(question='Add immoral sign?', default=False)
-        else:
-            self.add_sign = add_sign
         if self.add_sign:
-            self.sign = Image.open(fsign)
-            
+            try:
+                self.sign = Image.open(self.options['fsign'])
+            except:
+                self.sign = Image.open('./material/anna_sign.png')
+
     def convert(self, image):
         pantie = np.array(image)
         pantie = np.bitwise_and(pantie, self.mask)

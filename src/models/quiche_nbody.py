@@ -3,15 +3,15 @@ from src.models.class_patcher import patcher
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_quiche_nbody.png', with_bra=None):
-        super().__init__('Quiche-Nbody', body=body, pantie_position=[403, 836])
-        if with_bra is None:
+    def __init__(self, body='./body/body_quiche_nbody.png', **options):
+        super().__init__('Quiche-Nbody', body=body, pantie_position=[403, 836], **options)
+        try:
+            self.with_bra = self.options['with_bra']
+        except:
             self.with_bra = self.ask(question='With bra?', default=True)
-        else:
-            self.with_bra = with_bra
         if self.with_bra:
             import src.models.quiche_bra as bra
-            self.bra_patcher = bra.patcher()
+            self.bra_patcher = bra.patcher(options=options)
 
     def convert(self, image):
         cut = 7
