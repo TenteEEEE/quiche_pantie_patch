@@ -19,11 +19,7 @@ class patcher(patcher):
         self.lace = io.imread('./material/bra_lace.png')[:430, 1024 - 620:1024 + 620, :]
 
         if is_lace is None:
-            ans = input('Lace decoration? [default:frill] (y/n):')
-            if ans is 'y':
-                self.is_lace = True
-            else:
-                self.is_lace = False
+            self.is_lace = self.ask(question='Lace decoration?', default=False, default_msg='Frill')
         else:
             self.is_lace = is_lace
         self.dis_ribbon = dis_ribbon

@@ -6,15 +6,12 @@ class patcher(patcher):
     def __init__(self, body='./body/body_quiche_nbody.png', with_bra=None):
         super().__init__('Quiche-Nbody', body=body, pantie_position=[403, 836])
         if with_bra is None:
-            ans = input('Wear bra? [default:yes] (y/n):')
-            if ans is 'n':
-                self.with_bra = False
-            else:
-                self.with_bra = True
-                import src.models.quiche_bra as bra
-                self.bra_patcher = bra.patcher()
+            self.with_bra = self.ask(question='With bra?', default=True)
         else:
             self.with_bra = with_bra
+        if self.with_bra:
+            import src.models.quiche_bra as bra
+            self.bra_patcher = bra.patcher()
 
     def convert(self, image):
         cut = 7

@@ -10,11 +10,7 @@ class patcher(patcher):
     def __init__(self, body='./body/body_shaclo.png', stitch_correction=None):
         super().__init__('Shaclo', body=body, pantie_position=[62, 16])
         if stitch_correction is None:
-            ans = input('Apply stitch correction? [default:no] (y/n):')
-            if ans is 'y':
-                self.stitch_correction = True
-            else:
-                self.stitch_correction = False
+            self.stitch_correction = self.ask(question='Apply stitch correction? Usually not necessary.', default=False)
         else:
             self.stitch_correction = stitch_correction
 

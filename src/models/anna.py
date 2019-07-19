@@ -12,15 +12,12 @@ class patcher(patcher):
         self.mask = io.imread('./mask/mask_anna.png')
         self.sign_position = [37, 861]
         if add_sign is None:
-            ans = input('Add immoral sign? [default:no] (y/n):')
-            if ans is 'y':
-                self.add_sign = True
-                self.sign = Image.open(fsign)
-            else:
-                self.add_sign = False
+            self.add_sign = self.ask(question='Add immoral sign?', default=False)
         else:
             self.add_sign = add_sign
-
+        if self.add_sign:
+            self.sign = Image.open(fsign)
+            
     def convert(self, image):
         pantie = np.array(image)
         pantie = np.bitwise_and(pantie, self.mask)

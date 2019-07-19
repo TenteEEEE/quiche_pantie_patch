@@ -11,11 +11,7 @@ class patcher(patcher):
         super().__init__('Fuzzy', body=body, pantie_position=[845, 1593])
         self.mask = io.imread('./mask/mask_fuzzy.png')
         if is_frill is None:
-            ans = input('Is there a frill on the hip? [default:no] (y/n):')
-            if ans is 'y':
-                self.is_frill = True
-            else:
-                self.is_frill = False
+            self.is_frill = self.ask(question='Is there a frill on the hip?', default=False)
         else:
             self.is_frill = is_frill
 
