@@ -1,7 +1,7 @@
 # キッシュちゃんパンツパッチ
 パンツは一期一会  
 
-キッシュちゃんパンツパッチはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
+当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
 現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんです。
 
@@ -17,7 +17,7 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 1. `python patch.py` でプログラムを起動する
 1. なにか動いてアバター一覧が表示されればOKです。
 
-パンツパッチに限らず多くのインストーラーが存在しないプログラムはプログラムフォルダ直下で動くようになっています。  
+パンツパッチに限らず多くのプログラムはプログラムフォルダ直下で動くようになっています。  
 **必ずパンツパッチのフォルダでコンソールを起動してください。**  
 
 ## 使い方
@@ -48,7 +48,7 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 * -t: 透過PNGで作成。 配布するときに便利なオプションで、私以外に需要はおそらくない。 (例: `python patch.py -m quiche -t`)
 * -j: [favorite.json](favorite.json)の設定を読み込んでパッチする。 このとき他の引数は全て無効化されます。 (例: `python patch.py -j`)
 
-### 2. jsonに設定の自動読み込みでの使い方
+### 2. jsonによる設定の自動読み込みでの使い方
 jsonによる設定読み込みに対応しました。対話形式がだるい/毎日最新のパンツをパッチするつもりの人には便利かも。  
 json読み込みによるパッチは `python patch.py -j` です。
 
@@ -190,16 +190,16 @@ When you want to know the help, plese run `python patch.py -h`
 |[Lua for Quest](https://ficsnade.booth.pm/items/1414368)|[Tanu](https://udonfactory.booth.pm/items/1414433)|
 |![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
 
-# Special thanks
+## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
 Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)  
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 
-# License for my images
+## License for my images
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.  
 When you want to use it on your business, please ask [@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc).
 
-# License for my scripts
+## License for my scripts
 Released under the MIT license  
 https://opensource.org/licenses/mit-license.php  
 Copyright (c) 2019 TenteEEEE  
