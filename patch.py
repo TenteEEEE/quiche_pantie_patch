@@ -16,9 +16,10 @@ parser.add_argument('-f', '--force', help='Overwrite the patched textures even i
 parser.add_argument('-i', '--input', help='Name of the base texture', type=str)
 parser.add_argument('-o', '--output', help='Name of the patched texture', type=str, default='patched.png')
 parser.add_argument('-p', '--pantie', help='Choose pantie number [default: latest]', type=int, default=0)
+parser.add_argument('-d', '--directory', help='Output directory name when you set all flag', type=str, default='default')
 parser.add_argument('-t', '--transparent', help='Make transparent images for easy overlaying', action='store_true')
 parser.add_argument('-r', '--random', help='It chooses a pantie randomly', action='store_true')
-parser.add_argument('-j', '--json', help='Load favorite.json', action='store_true')
+parser.add_argument('-j', '--json', help='Load favorite.json When you set it, all arguments are ignored', action='store_true')
 args = parser.parse_args()
 
 if args.json:
@@ -33,7 +34,8 @@ if args.json:
     args.pantie = options['pantie']
     args.transparent = options['transparent']
     args.random = options['random']
-    
+    args.directory = options['directory']
+
 if args.model is None:
     for i, avatar in enumerate(models.models_namelist):
         print(str(i + 1) + ':' + avatar, end=', ')
@@ -64,14 +66,19 @@ print('Starting pantie loader...')
 pantie_loader = image_loader(fdir='./dream/')
 
 if args.all:
-    os.makedirs('./converted/' + args.model, exist_ok=True)
+    if args.directory == 'default':
+        outdir = './converted/' + args.model
+    else:
+        outdir = './converted/' + args.directory
+    os.makedirs(outdir, exist_ok=True)
+
     if args.pantie is not 0:
         pantie_loader.flist = pantie_loader.flist[args.pantie - 1:]
     else:
         if args.force:
             pass
         else:
-            pantie_loader.flist = pantie_loader.flist[len(os.listdir('./converted/' + args.model)):]
+            pantie_loader.flist = pantie_loader.flist[len(os.listdir(outdir)):]
 else:
     if args.random:
         pantie_loader.flist = [pantie_loader.flist[random.randint(0,len(pantie_loader.flist))]]
@@ -83,6 +90,6 @@ for i, fname in enumerate(pantie_loader.flist):
     print('\rProcess: ' + fname + ' [' + str(np.around((i + 1) / len(pantie_loader.flist) * 100, 2)) + '%]', end="")
     patched = patcher.patch(pantie_loader.read(), args.transparent)
     if args.all:
-        patcher.save(patched, './converted/' + args.model + '/' + fname)
+        patcher.save(patched, outdir + '/' + fname)
     else:
         patcher.save(patched, args.output)

@@ -1,12 +1,16 @@
 {
   "":"-----Common Setup-----",
   "model":"quiche_nbody",
-  "input":"./body/body.png",
+  "input":"./body/body_linz.png",
   "output":"patched.png",
-
-  "":"I guess normally true is confortable for you. When you set false, it patches a single pantie",
-  "all":false,
   
+  "":"I guess normally true is confortable for you. When you set false, it patches a single pantie",
+  "all":true,
+  
+  "":"When you set all, you can define the directory name. default will be a model name",
+  "":"It may useful when you make Linz texture using quiche model",
+  "directory":"default",
+
   "":"Pantie number. 0 means the latest one. It may confort for you.",
   "pantie":0,
 
