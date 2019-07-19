@@ -13,7 +13,7 @@
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 
 ### プログラム起動の確認
-1. **パンツパッチのフォルダ直下(somewhere\quiche_pantie_patch`)でコンソールを起動する** [参考URL](https://www.lifehacker.jp/2013/03/130320windows_cmd.html)
+1. **パンツパッチのフォルダ直下(somewhere\quiche_pantie_patch)でコンソールを起動する** [参考URL](https://www.lifehacker.jp/2013/03/130320windows_cmd.html)
 1. `python patch.py` でプログラムを起動する
 1. なにか動いてアバター一覧が表示されればOKです。
 
@@ -37,16 +37,26 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 使い方がわからないときは`python patch.py -h`で説明が出力されます。  
 
 #### オプション
-* -m: モデル名を指定する。 (例: `python patch.py -m quiche`)
-* -a: すべてのパンツをパッチする。 パッチされたものはconvertedフォルダのモデル名のフォルダに作成されます。 (例: `python patch.py -m quiche -a`)
-* -f: -aは上書きをしません。 上書きするときはこちらも指定してください。 (例: `python patch.py -m quiche -a -f`)
-* -i: bodyテクスチャのファイル名を指定。 (例: `python patch.py -m quiche -i ./body/body.png`)
-* -o: 出力されるテクスチャのファイル名を指定。 (例: `python patch.py -m quiche -o patched.png`)
-* -d: -a時に出力されるディレクトリを指定。 (例: `python patch.py -m quiche -d linz`)
-* -p: パンツを指定。指定しなければ最新のものが適用される。 -a時は開始番号にもなる。 (例: `python patch.py -m quiche -p 101`)
-* -r: ランダムにパンツを選ぶ。 (例: `python patch.py -m quiche -r`)
-* -t: 透過PNGで作成。 配布するときに便利なオプションで、私以外に需要はおそらくない。 (例: `python patch.py -m quiche -t`)
-* -j: [favorite.json](favorite.json)の設定を読み込んでパッチする。 このとき他の引数は全て無効化されます。 (例: `python patch.py -j`)
+* -m: モデル名を指定する。  
+例: `python patch.py -m quiche`
+* -a: すべてのパンツをパッチする。 パッチされたものはconvertedフォルダのモデル名のフォルダに作成されます。  
+例: `python patch.py -m quiche -a`
+* -f: -aは上書きをしません。 上書きするときはこちらも指定してください。  
+例: `python patch.py -m quiche -a -f`
+* -i: bodyテクスチャのファイル名を指定。  
+例: `python patch.py -m quiche -i ./body/body.png`
+* -o: 出力されるテクスチャのファイル名を指定。  
+例: `python patch.py -m quiche -o patched.png`
+* -d: -a時に出力されるディレクトリを指定。  
+例: `python patch.py -m quiche -d linz`
+* -p: パンツを指定。指定しなければ最新のものが適用される。 -a時は開始番号にもなる。  
+例: `python patch.py -m quiche -p 101`
+* -r: ランダムにパンツを選ぶ。  
+例: `python patch.py -m quiche -r`
+* -t: 透過PNGで作成。 配布するときに便利なオプションで、私以外に需要はおそらくない。  
+例: `python patch.py -m quiche -t`
+* -j: [favorite.json](favorite.json)の設定を読み込んでパッチする。 このとき他の引数は全て無効化されます。  
+例: `python patch.py -j`
 
 ### 2. jsonによる設定の自動読み込みでの使い方
 jsonによる設定読み込みに対応しました。対話形式がだるい/毎日最新のパンツをパッチするつもりの人には便利かも。  
@@ -63,14 +73,14 @@ jsonは開発者にはよく使われている形式のファイルですが、�
   "input":"./body/body_linz.png",
   "output":"patched.png",
   
-  "":"I guess normally true is confortable for you. When you set false, it patches a single pantie",
+  "":"I guess normally true is comfortable for you. When you set false, it patches a single pantie",
   "all":true,
   
   "":"When you set all, you can define the directory name. default will be a model name",
   "":"It may useful when you make Linz texture using quiche model",
   "directory":"default",
 
-  "":"Pantie number. 0 means the latest one. It may confort for you.",
+  "":"Pantie number. 0 means the latest one. It may comfort for you.",
   "pantie":0,
 
   "":"When you want to update all the converted texture, set true",
