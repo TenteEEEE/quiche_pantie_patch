@@ -3,7 +3,7 @@
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃんです。
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃんです。
 
 ## 導入
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
@@ -127,6 +127,8 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 |![test](./sample/bra_frill.png)|![test](./sample/bra_lace.png)|
 |[ルア・クエスト](https://ficsnade.booth.pm/items/1414368)ちゃん|[たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん|
 |![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
+|[ラムネ](https://komado.booth.pm/items/1411609)ちゃん||
+|![test](./sample/ramne_pantie.png)||
 
 ## 対応してほしいアバターがある/開発者の方へ
 未対応のアバターがあれば、テストユーザーになる覚悟とともにボディのテクスチャ(できればUVマップのあるもの)を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)まで送っていただければ何とかなるかも。  
@@ -199,6 +201,8 @@ When you want to know the help, plese run `python patch.py -h`
 |![test](./sample/bra_frill.png)|![test](./sample/bra_lace.png)|
 |[Lua for Quest](https://ficsnade.booth.pm/items/1414368)|[Tanu](https://udonfactory.booth.pm/items/1414433)|
 |![test](./sample/lua_quest_pantie.png)|![test](./sample/tanu_pantie.png)|
+|[Ramne](https://komado.booth.pm/items/1411609)||
+|![test](./sample/ramne_pantie.png)||
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
