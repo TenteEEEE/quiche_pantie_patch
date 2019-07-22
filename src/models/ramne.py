@@ -1,7 +1,7 @@
 import skimage.io as io
 import skimage.transform as skt
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 from src.models.class_patcher import patcher
 from src.utils.imgproc import *
 
@@ -10,6 +10,21 @@ class patcher(patcher):
     def __init__(self, body='./body/body_ramne.png', **options):
         super().__init__(name='Ramne', body=body, pantie_position=[412, 835], **options)
         self.mask = io.imread('./mask/mask_ramne.png')
+        self.sign_position = [844, 666]
+        try:
+            self.add_sign = self.options['add_sign']
+        except:
+            self.add_sign = self.ask(question='Add immoral sign?', default=False)
+        if self.add_sign:
+            try:
+                sign = Image.open(self.options['fsign'])
+            except:
+                sign = Image.open('./material/anna_sign.png')
+            left = ImageOps.mirror(sign)
+            margin = 25
+            self.sign = Image.new("RGBA", (sign.size[0] * 2 + margin, sign.size[1]))
+            self.sign.paste(sign, (sign.size[0] + int(margin/2), 0))
+            self.sign.paste(left, (0, 0))
 
     def convert(self, image):
         pantie = np.array(image)
@@ -54,3 +69,15 @@ class patcher(patcher):
         npantie[:, :c, :] = pantie[:, ::-1, :]
 
         return Image.fromarray(npantie)
+        
+    def patch(self, image, transparent=False):
+        image = self.convert(image)
+        if transparent:
+            patched = Image.new("RGBA", self.body_size)
+        else:
+            patched = self.body.copy()
+        
+        if self.add_sign:
+            self.paste(patched, self.sign, self.sign_position)
+        patched = self.paste(patched, image, self.pantie_position)
+        return patched
