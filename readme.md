@@ -7,7 +7,8 @@
 
 ## 導入
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
-導入後はパンツパッチのフォルダでコマンドプロンプトを開き、`git pull`でいい感じにしてくれます。
+導入後はパンツパッチのフォルダでコマンドプロンプトを開き、`git pull`でいい感じにしてくれます。  
+画像つきの導入手順は[**こちら**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/Installation-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)から！
 
 手動で導入する場合は、[siro_choco0621](https://twitter.com/siro_choco0621)さんが導入についての[メモ](https://twitter.com/siro_choco0621/status/1131587508238659585)をまとめてくださいましたので、こちらを参考に！  
 URL: https://twitter.com/siro_choco0621/status/1131587508238659585
@@ -154,9 +155,9 @@ Copyright (c) 2019 TenteEEEE
 ---
 **English**
 # Quiche Pantie Patch
-Treasure every pantie encounter as it may not come again.
+You look the pantie only once.
 
-The puropse of the repository is applying various panties to various 3D models.  
+The purpose of the repository is to apply various panties to various 3D models.  
 
 ## Installation
 Please check it out [the automatic install batch](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
@@ -166,11 +167,11 @@ You just run the batch file with administrator permission.
 1. Put your body texture in the body folder
 1. **Start a console in the pantie patch folder**
 1. Run the command `python patch.py`
-1. It ask about avatar, so type a number
+1. It asks about avatars, so type a number
 1. Some avatars have a special option. Please answer the question when you see it.
 1. patched.png is the patched texture. Enjoy!
 
-When you want to know the help, plese run `python patch.py -h`
+When you want to know the help, please run `python patch.py -h`
 
 #### Options
 * -m: Name of the model (e.g. `python patch.py -m quiche`)
