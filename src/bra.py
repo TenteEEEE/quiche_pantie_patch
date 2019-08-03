@@ -19,7 +19,7 @@ parser.add_argument("--disable_texture", action="store_true", default=False, hel
 args = parser.parse_args()
 os.makedirs('converted', exist_ok=True)
 
-panties = os.listdir('./dream/')
+panties = sorted(os.listdir('./dream/'))
 ribbon_mask = io.imread('./mask/ribbon.png')
 bra_mask = io.imread('./mask/bra.png')[:430, 1024:1024 + 620, :]
 bra_center = io.imread('./mask/bra_center.png')[:430, 1024:1024 + 620, :]

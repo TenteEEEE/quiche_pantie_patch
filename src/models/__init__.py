@@ -1,6 +1,6 @@
 import os
 
-models_namelist = os.listdir('./src/models/')
+models_namelist = sorted(os.listdir('./src/models/'))
 try:
     models_namelist.remove('class_patcher.py')
     models_namelist.remove('__init__.py')

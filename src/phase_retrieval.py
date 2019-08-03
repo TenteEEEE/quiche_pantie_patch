@@ -23,7 +23,7 @@ if args.gpu:
 else:
     import numpy as np
 
-fpanties = os.listdir('./converted/Fourier/')
+fpanties = sorted(os.listdir('./converted/Fourier/'))
 os.makedirs('./converted/Fourier_inv/', exist_ok=True)
 # fpanties = fpanties[len(os.listdir('./converted/Fourier_inv/')):]
 for fname in fpanties:

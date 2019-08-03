@@ -7,7 +7,7 @@ from threading import Thread
 class image_loader:
     def __init__(self, fdir, queuesize=10):
         self.fdir = fdir
-        self.flist = os.listdir(self.fdir)
+        self.flist = sorted(os.listdir(self.fdir))
         self.Q = Queue(maxsize=queuesize)
 
     def len(self):

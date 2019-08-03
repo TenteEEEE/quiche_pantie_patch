@@ -11,7 +11,7 @@ parser.add_argument('-e', '--edge', help='周辺エッジのトリミング数. 
 parser.add_argument('-s', '--ssim', help='SSIMで視覚的に近いもの探す. Calculate the cost by SSIM',action="store_true")
 args = parser.parse_args()
 
-panties = os.listdir('./dream/')
+panties = sorted(os.listdir('./dream/'))
 fname = panties[args.pantie-1]
 ref = io.imread('./dream/'+fname)[args.edge:-args.edge,args.edge:-args.edge,:]
 panties.pop(args.pantie-1)

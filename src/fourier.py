@@ -10,7 +10,7 @@ parser.add_argument("--rgb", action="store_true", help='Enable Full-Color Fourie
 parser.add_argument("--long", action="store_true", help='Enable 16bit PNG (Gray-scale mode only)')
 args = parser.parse_args()
 
-panties = os.listdir('./dream/')
+panties = sorted(os.listdir('./dream/'))
 os.makedirs('./converted/Fourier/', exist_ok=True)
 if args.rgb:
     mode = 'RGB'
