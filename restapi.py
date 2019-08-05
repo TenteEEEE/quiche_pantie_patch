@@ -43,4 +43,4 @@ api.add_resource(image, '/dream/<path>')
 api.add_resource(model, '/converted/<model>/<path>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
