@@ -11,7 +11,7 @@ sys.path.append('./src/')
 import models
 
 app = Flask(__name__)
-app.config['production'] = True
+# app.config['production'] = True
 api = Api(app)
 os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
@@ -36,6 +36,7 @@ class model(Resource):
             options['pantie'] = int(path.split('.')[0])-1
             patcher = module.patcher(options=options)
             patched = patcher.patch(Image.open('./dream/'+panties[options['pantie']]), transparent=True)
+            os.makedirs('./converted/'+model, exist_ok=True)
             patcher.save(patched, options['output'])
             # return abort(404, message=" {} doesn't exist".format('./converted/'+model+path))
         return send_from_directory('./converted/'+model, path)
