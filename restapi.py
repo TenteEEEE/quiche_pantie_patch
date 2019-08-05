@@ -11,6 +11,7 @@ sys.path.append('./src/')
 import models
 
 app = Flask(__name__)
+app.config['production'] = True
 api = Api(app)
 os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))

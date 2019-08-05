@@ -1,1 +1,1 @@
-pantiepatch: python restapi.py
+api: python restapi.py
