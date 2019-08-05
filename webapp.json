@@ -1,0 +1,43 @@
+{
+  "":"-----Common Setup-----",
+  "model":"quiche_nbody",
+  "input":"./body/body_linz.png",
+  "output":"patched.png",
+  
+  "":"I guess normally true is comfortable for you. When you set false, it patches a single pantie",
+  "all":false,
+  
+  "":"When you set all, you can define the directory name. default will be a model name",
+  "":"It may useful when you make Linz texture using quiche model",
+  "directory":"default",
+
+  "":"Pantie number. 0 means the latest one. It may comfort for you.",
+  "pantie":0,
+
+  "":"When you want to update all the converted texture, set true",
+  "force":false,
+
+  "":"When you want to make transparent textures, set true",
+  "transparent": true,
+
+  "":"When you want to choose a pantie randomly, set true",
+  "random": false,
+
+  "":"-----Setup for Quiche and Linz bra-----",
+  "with_bra":true,
+  "is_lace":false,
+  "dis_ribbon":false,
+  "dis_shading":false,
+  "dis_decoration":false,
+  "dis_texturing":false,
+
+  "":"-----Setup for immoral sign-----",
+  "add_sign":false,
+  "fsign":"./material/anna_sign.png",
+
+  "":"-----Setup for stitch correction for Shaclo-----",
+  "stitch_correction":false,
+  
+  "":"-----Setup for frill correction for Fuzzy-----",
+  "is_frill":false
+}
