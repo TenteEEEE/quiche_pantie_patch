@@ -2,3 +2,5 @@ numpy
 pillow
 scikit-image
 scipy
+flask
+flask-restful
