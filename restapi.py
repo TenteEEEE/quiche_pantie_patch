@@ -40,6 +40,10 @@ class model(Resource):
             # return abort(404, message=" {} doesn't exist".format('./converted/'+model+path))
         return send_from_directory('./converted/'+model, path)
 
+@app.route('/')
+def hello():
+    return f'Here is Quiche Pantie Patch Server!'
+
 api.add_resource(image, '/dream/<path>')
 api.add_resource(model, '/converted/<model>/<path>')
 

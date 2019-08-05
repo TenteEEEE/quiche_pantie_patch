@@ -1,1 +1,1 @@
-api: python restapi.py
+web: gunicorn restapi:app --log-file -
