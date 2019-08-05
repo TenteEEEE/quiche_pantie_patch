@@ -4,3 +4,4 @@ scikit-image
 scipy
 flask
 flask-restful
+gunicorn
