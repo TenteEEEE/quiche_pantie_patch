@@ -11,39 +11,41 @@ sys.path.append('./src/')
 import models
 
 app = Flask(__name__)
-# app.config['production'] = True
 api = Api(app)
 os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
 
+
 class image(Resource):
     def get(self, path):
         return send_from_directory('./dream/', path)
-        
+
+
 class model(Resource):
     def get(self, model, path):
-        if os.path.isfile('./dream/'+path) is False:
-            return abort(404, message=" {} doesn't exist".format('./dream/'+path))
+        if os.path.isfile('./dream/' + path) is False:
+            return abort(404, message=" {} doesn't exist".format('./dream/' + path))
         if model not in models.models_namelist:
             return abort(404, message=" {} doesn't exist".format(model))
-        if os.path.isfile('./converted/'+model+path) is False:
+        if os.path.isfile('./converted/' + model + path) is False:
             module = importlib.import_module('models.' + model)
-            f = open('./webapp.json',mode='r')
+            f = open('./webapp.json', mode='r')
             options = json.load(f)
             options['model'] = model
             options['input'] = './body/body_' + model + '.png'
-            options['output'] = './converted/'+model+'/'+path
-            options['pantie'] = int(path.split('.')[0])-1
+            options['output'] = './converted/' + model + '/' + path
+            options['pantie'] = int(path.split('.')[0]) - 1
             patcher = module.patcher(options=options)
-            patched = patcher.patch(Image.open('./dream/'+panties[options['pantie']]), transparent=True)
-            os.makedirs('./converted/'+model, exist_ok=True)
+            patched = patcher.patch(Image.open('./dream/' + panties[options['pantie']]), transparent=True)
+            os.makedirs('./converted/' + model, exist_ok=True)
             patcher.save(patched, options['output'])
-            # return abort(404, message=" {} doesn't exist".format('./converted/'+model+path))
-        return send_from_directory('./converted/'+model, path)
+        return send_from_directory('./converted/' + model, path)
+
 
 @app.route('/')
 def hello():
-    return f'Here is Quiche Pantie Patch Server!'
+    return f'Here is Quiche Pantie Patch Server! You can access the panties: https://pantie-patch.herokuapp.com/****.png. When you convert the panties: https://pantie-patch.herokuapp.com/converted/specify_avatar_name/****.png'
+
 
 api.add_resource(image, '/dream/<path>')
 api.add_resource(model, '/converted/<model>/<path>')
