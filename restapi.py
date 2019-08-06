@@ -16,6 +16,12 @@ os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
 database = {"models": models.models_namelist, "images": panties}
 
+
+class request_apps(Resource):
+    def get(self):
+        return json.dumps({"apps": ["dream", "converted"]})
+
+
 class request_pantie_list(Resource):
     def get(self):
         return json.dumps({"images": panties})
@@ -67,11 +73,12 @@ def hello():
     return f'Here is Quiche Pantie Patch Server! You can access the panties: https://pantie-patch.herokuapp.com/dream/****.png. When you convert the panties: https://pantie-patch.herokuapp.com/converted/specify_avatar_name/****.png'
 
 
-api.add_resource(request_pantie_list, '/dream/')
-api.add_resource(send_pantie, '/dream/<image>')
-api.add_resource(request_model_list, '/converted/')
-api.add_resource(request_model_option_list, '/converted/<model>/')
-api.add_resource(send_converted, '/converted/<model>/<image>')
+api.add_resource(request_apps, '/api/')
+api.add_resource(request_pantie_list, '/dream/', '/api/dream/')
+api.add_resource(send_pantie, '/dream/<image>', '/api/dream/<image>')
+api.add_resource(request_model_list, '/converted/', '/api/converted/')
+api.add_resource(request_model_option_list, '/converted/<model>/', '/api/converted/<model>/')
+api.add_resource(send_converted, '/converted/<model>/<image>', '/api/converted/<model>/<image>')
 
 if __name__ == '__main__':
     app.run(debug=False)
