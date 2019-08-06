@@ -6,6 +6,9 @@ import sys
 import json
 import random
 import importlib
+import numpy as np
+import skimage.io as io
+from skimage.measure import *
 from src.image_loader import image_loader
 sys.path.append('./src/')
 import models
@@ -19,7 +22,7 @@ database = {"models": models.models_namelist, "images": panties}
 
 class request_apps(Resource):
     def get(self):
-        return json.dumps({"apps": ["dream", "converted"]})
+        return json.dumps({"apps": ["dream", "convert", "suggest"]})
 
 
 class request_pantie_list(Resource):
@@ -37,6 +40,25 @@ class request_model_option_list(Resource):
 class request_model_list(Resource):
     def get(self):
         return json.dumps({"models": models.models_namelist})
+
+
+class request_suggest_list(Resource):
+    def get(self, image):
+        pantie = int(image[:-4]) - 1
+        edge = 100
+        panties = sorted(os.listdir('./dream/'))
+        ref = io.imread('./dream/' + image)[edge:-edge, edge:-edge, :]
+        panties.pop(pantie)
+        scores = []
+        for i, pantie in enumerate(panties):
+            tmp = io.imread('./dream/' + pantie)[edge:-edge, edge:-edge, :]
+            score = compare_mse(ref, tmp)
+            scores.append(score)
+        scores = np.array(scores)
+        rank = np.argsort(scores)
+        suggests = [panties[index] for index in rank]
+        scores = [scores[index] for index in rank]
+        return json.dumps({"suggests": suggests, "scores": scores})
 
 
 class send_pantie(Resource):
@@ -74,11 +96,12 @@ def hello():
 
 
 api.add_resource(request_apps, '/api/')
-api.add_resource(request_pantie_list, '/dream/', '/api/dream/')
+api.add_resource(request_pantie_list, '/dream/', '/api/dream/', '/api/suggest/')
 api.add_resource(send_pantie, '/dream/<image>', '/api/dream/<image>')
-api.add_resource(request_model_list, '/converted/', '/api/converted/')
-api.add_resource(request_model_option_list, '/converted/<model>/', '/api/converted/<model>/')
-api.add_resource(send_converted, '/converted/<model>/<image>', '/api/converted/<model>/<image>')
+api.add_resource(request_model_list, '/converted/', '/api/convert/')
+api.add_resource(request_model_option_list, '/converted/<model>/', '/api/convert/<model>/')
+api.add_resource(send_converted, '/converted/<model>/<image>', '/api/convert/<model>/<image>')
+api.add_resource(request_suggest_list, '/suggest/<image>', '/api/suggest/<image>')
 
 if __name__ == '__main__':
     app.run(debug=False)
