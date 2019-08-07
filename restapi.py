@@ -1,5 +1,6 @@
 from flask import Flask, send_from_directory
 from flask_restful import Resource, Api, abort
+from flask_cors import CORS
 from PIL import Image
 import os
 import sys
@@ -14,6 +15,7 @@ sys.path.append('./src/')
 import models
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 api = Api(app)
 os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
