@@ -1,4 +1,3 @@
-from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, send_from_directory
 from flask_restful import Resource, Api, abort
 from flask_cors import CORS
@@ -22,29 +21,6 @@ os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
 database = {"models": models.models_namelist, "images": panties}
 
-
-def calculate_scores(num):
-    edge = 100
-    remains = sorted(os.listdir('./dream/'))
-    [remains.pop(0) for i in range(num + 1)]
-    template_loader = image_loader(fdir='./dream/', queuesize=32)
-    template_loader.flist = remains
-    template_loader.start()
-    scores = []
-    ref = io.imread('./dream/%04d.png' % (num + 1))[50:-edge * 2, edge:-edge, :3]
-    for check_pantie in remains:
-        tmp = np.array(template_loader.read())[50:-edge * 2, edge:-edge, :3]
-        scores.append(compare_mse(ref, tmp))
-    return np.array(scores)
-
-
-with ThreadPoolExecutor(max_workers=8) as executor:
-    nums = len(os.listdir('./dream/'))
-    score_matrix = np.zeros((nums, nums))
-    scores = executor.map(calculate_scores, range(nums))
-    for row, score in enumerate(scores):
-        score_matrix[row, row + 1:] = score
-    score_matrix += score_matrix.T
 
 class request_apps(Resource):
     def get(self):
@@ -70,12 +46,20 @@ class request_model_list(Resource):
 
 class request_suggest_list(Resource):
     def get(self, image):
-        panties = sorted(os.listdir('./dream/'))
         pantie = int(image[:-4]) - 1
-        scores = score_matrix[pantie,:]
+        edge = 100
+        panties = sorted(os.listdir('./dream/'))
+        ref = io.imread('./dream/' + image)[edge:-edge, edge:-edge, :]
+        panties.pop(pantie)
+        scores = []
+        for i, pantie in enumerate(panties):
+            tmp = io.imread('./dream/' + pantie)[edge:-edge, edge:-edge, :]
+            score = compare_mse(ref, tmp)
+            scores.append(score)
+        scores = np.array(scores)
         rank = np.argsort(scores)
-        suggests = [panties[index] for index in rank[1:]]
-        scores = [scores[index] for index in rank[1:]]
+        suggests = [panties[index] for index in rank]
+        scores = [scores[index] for index in rank]
         return {"suggests": suggests, "scores": scores}
 
 
