@@ -24,24 +24,24 @@ database = {"models": models.models_namelist, "images": panties}
 
 class request_apps(Resource):
     def get(self):
-        return json.dumps({"apps": ["dream", "convert", "suggest"]})
+        return {"apps": ["dream", "convert", "suggest"]}
 
 
 class request_pantie_list(Resource):
     def get(self):
-        return json.dumps({"images": panties})
+        return {"images": panties}
 
 
 class request_model_option_list(Resource):
     def get(self, model):
         if model not in database['models']:
             return abort(404, message=" {} doesn't exist".format(model))
-        return json.dumps({"images": panties})
+        return {"images": panties}
 
 
 class request_model_list(Resource):
     def get(self):
-        return json.dumps({"models": models.models_namelist})
+        return {"models": models.models_namelist}
 
 
 class request_suggest_list(Resource):
@@ -60,7 +60,7 @@ class request_suggest_list(Resource):
         rank = np.argsort(scores)
         suggests = [panties[index] for index in rank]
         scores = [scores[index] for index in rank]
-        return json.dumps({"suggests": suggests, "scores": scores})
+        return {"suggests": suggests, "scores": scores}
 
 
 class send_pantie(Resource):
@@ -94,7 +94,7 @@ class send_converted(Resource):
 
 @app.route('/')
 def hello():
-    return f'Here is Quiche Pantie Patch Server! You can access the panties: https://pantie-patch.herokuapp.com/dream/****.png. When you convert the panties: https://pantie-patch.herokuapp.com/converted/specify_avatar_name/****.png'
+    return f'Here is Quiche Pantie Patch Server! You can access the panties: https://pantie-patch.herokuapp.com/api/dream/****.png. When you convert the panties: https://pantie-patch.herokuapp.com/api/convert/specify_avatar_name/****.png'
 
 
 api.add_resource(request_apps, '/api/')
