@@ -1,3 +1,5 @@
+from threading import Thread
+from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, send_from_directory
 from flask_restful import Resource, Api, abort
 from flask_cors import CORS
@@ -20,6 +22,58 @@ api = Api(app)
 os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
 database = {"models": models.models_namelist, "images": panties}
+
+
+class score_processor:
+    def __init__(self, workers=8):
+        self.panties = sorted(os.listdir('./dream/'))
+        self.score_matrix = np.zeros((len(self.panties), len(self.panties)))
+        self.workers = workers
+        self.done = False
+
+    # it is for triangular score matrix. when you set full, it calculate a line of the full matrix
+    def score_row(self, args):
+        num = args[0]
+        full = args[1]
+        edge = 100
+        remains = self.panties.copy()
+        if full:
+            remains.pop(num)
+        else:
+            [remains.pop(0) for i in range(num + 1)]
+        template_loader = image_loader(fdir='./dream/', queuesize=32)
+        template_loader.flist = remains
+        template_loader.start()
+        scores = []
+        ref = io.imread('./dream/%04d.png' % (num + 1))[50:-edge * 2, edge:-edge, :3]
+        for check_pantie in remains:
+            tmp = np.array(template_loader.read())[50:-edge * 2, edge:-edge, :3]
+            scores.append(compare_mse(ref, tmp))
+        return np.array(scores)
+
+    def argument_generator(self, num_pantie, flag=True):
+        for i in range(num_pantie):
+            yield (i, flag)
+
+    def start(self):
+        t = Thread(target=self.process, args=())
+        t.daemon = True
+        t.start()
+        return t
+
+    def process(self):
+        with ThreadPoolExecutor(max_workers=self.workers) as executor:
+            nums = len(os.listdir('./dream/'))
+            # score_matrix = np.zeros((nums, nums))
+            scores = executor.map(self.score_row, self.argument_generator(nums, False))
+            for row, score in enumerate(scores):
+                self.score_matrix[row, row + 1:] = score
+            self.score_matrix += self.score_matrix.T
+        self.done = True
+
+
+sp = score_processor()
+sp_thred = sp.start()
 
 
 class request_apps(Resource):
@@ -46,20 +100,15 @@ class request_model_list(Resource):
 
 class request_suggest_list(Resource):
     def get(self, image):
-        pantie = int(image[:-4]) - 1
-        edge = 100
         panties = sorted(os.listdir('./dream/'))
-        ref = io.imread('./dream/' + image)[edge:-edge, edge:-edge, :]
-        panties.pop(pantie)
-        scores = []
-        for i, pantie in enumerate(panties):
-            tmp = io.imread('./dream/' + pantie)[edge:-edge, edge:-edge, :]
-            score = compare_mse(ref, tmp)
-            scores.append(score)
-        scores = np.array(scores)
+        pantie = int(image[:-4]) - 1
+        if sp.done:
+            scores = sp.score_matrix[pantie, :]
+        else:
+            scores = sp.score_row((pantie, True))
         rank = np.argsort(scores)
-        suggests = [panties[index] for index in rank]
-        scores = [scores[index] for index in rank]
+        suggests = [panties[index] for index in rank[1:]]
+        scores = [scores[index] for index in rank[1:]]
         return {"suggests": suggests, "scores": scores}
 
 

@@ -6,6 +6,9 @@
 現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃんです。
 
 ## 導入
+透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えば導入は不要です。  
+手物のテクスチャに全自動でパッチしたければ下記の導入を進めてください。
+
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
 導入後はパンツパッチのフォルダでコマンドプロンプトを開き、`git pull`でいい感じにしてくれます。  
 画像つきの導入手順は[**こちら**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/Installation-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)から！
@@ -137,8 +140,9 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
-右近ちゃんパンツコンバータの作者:[thakyuuさん](https://github.com/thakyuu)  
-patch.pyのargparse対応:[4hiziriさん](https://github.com/4hiziri)  
+右近ちゃんパンツコンバータの作者:[thakyuu](https://github.com/thakyuu)さん  
+patch.pyのargparse対応:[4hiziri](https://github.com/4hiziri)さん  
+[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)の開発者:[Joniburn](https://github.com/joniburn)さん  
 
 ## 画像のライセンス
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> を著作者とするこの <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">作品</span> は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズの 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>で提供されています。  
@@ -160,6 +164,10 @@ You look the pantie only once.
 The purpose of the repository is to apply various panties to various 3D models.  
 
 ## Installation
+If you just make the transparent textures, you don't have to install it.  
+You can make it by my DiscordBot in [my server](https://discord.gg/ad4Qsfa), or [web app](https://joniburn.github.io/quiche-pantie-patch-gui/).  
+When it is not enough, please follow the following instruction.
+
 Please check it out [the automatic install batch](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67).  
 You just run the batch file with administrator permission.
 
@@ -209,6 +217,7 @@ When you want to know the help, please run `python patch.py -h`
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
 Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)  
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
+Developer of the [web app](https://joniburn.github.io/quiche-pantie-patch-gui/): [Joniburn](https://github.com/joniburn)  
 
 ## License for my images
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.  
