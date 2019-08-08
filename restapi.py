@@ -25,7 +25,7 @@ database = {"models": models.models_namelist, "images": panties}
 
 
 class score_processor:
-    def __init__(self, workers=8):
+    def __init__(self, workers=2):
         self.panties = sorted(os.listdir('./dream/'))
         self.score_matrix = np.zeros((len(self.panties), len(self.panties)))
         self.workers = workers
