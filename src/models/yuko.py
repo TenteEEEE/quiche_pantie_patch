@@ -5,50 +5,93 @@ from PIL import Image
 from src.models.class_patcher import patcher
 from src.utils.imgproc import *
 
+import matplotlib.pyplot as plt
+
 class patcher(patcher):
     def __init__(self, body='./body/body_yuko.png', **options):
-        super().__init__('Yuko', body=body, pantie_position=[910, 1929], **options)
+            super().__init__('Yuko', body=body, pantie_position=[0, 0], **options)
+            
+    # def inpaint(self, image, mask):
+    def ribbon_inpaint(image):
+        mask = io.imread('./mask/ribbon4inpaint.png')
+        ribbon = image[19:58, 5:35, :3]
+        ribbon_mask = (mask[19:58, 5:35, 1]>0)[:,:,None]
+        removed = ribbon*(mask[19:58, 5:35, 1]<1)[:,:,None].astype(np.float)
+        search_area = image[60:100-1,:40,:3].astype(np.float)
+        [r,c,d] = ribbon_mask.shape
+        dx = search_area.shape[1] - ribbon.shape[1]
+        score = np.zeros(dx)
+        for x in range(dx):
+            inpainter = search_area[:,x:x+c,:]*ribbon_mask
+            inpainted = removed + inpainter
+            for vx in range(dx):
+                score[x] += np.mean((inpainted-search_area[:,vx:vx+c])**2)
+        optimum = np.argmin(score)
+        inpainter = search_area[:,optimum:optimum+c,:]*ribbon_mask
+        inpainted = removed + inpainter
+        image[19:58, 5:35, :3] = np.uint8(inpainted)
+        return image
 
     def convert(self, image):
         image = Image.open('./dream/0200.png')
         pantie = np.array(image)
+        [r,c,d] = pantie.shape
 
         # move from hip to front
         patch = np.copy(pantie[-140:-5, 546:, :])
-        patch = skt.resize(patch[::-1, ::-1, :], (230, 65), anti_aliasing=True, mode='reflect')
+        patch = skt.resize(patch[::-1, ::-1, :], (270, 60), anti_aliasing=True, mode='reflect')
         [pr, pc, d] = patch.shape
-        pantie[127 - 5:127 - 5 + pr, :pc, :] = np.uint8(patch * 255)
-
-        front = pantie[:350, :250, :]
+        pantie[125:125 + pr, :pc, :] = np.uint8(patch * 255)
+        
+        # Inpainting ribbon
+        # pantie = ribbon_inpaint(pantie)
+        # pantie = resize(pantie,[2.62,2.62])
+        # io.imshow(pantie)
+        
+        # Front transform
+        front = pantie[:390, :250, :]
+        front = front.transpose(1,0,2)
+        arrx = np.zeros((100))
+        arry = np.zeros((100))
+        arrx[30:] -= (np.linspace(0, 1 * np.pi, 70)**2)*5
+        front = affine_transform_by_arr(front,arrx,arry,smooth=True)
+        front = np.uint8(front.transpose(1,0,2)*255)
+        
+        # Back transform
         back = pantie[:350, 250:, :]
-        # front = np.pad(front, [(0, 0), (100, 130), (0, 0)], mode='constant')
+        back = (np.pad(back, [(0, 0), (0, 100), (0, 0)], mode='constant'))
+        back = back.transpose(1,0,2)
+        arrx = np.zeros((100))
+        arry = np.zeros((100))
+        arrx[10:] -= (np.linspace(0, 1 * np.pi, 90)**3)*14
+        back = affine_transform_by_arr(back,arrx,arry,smooth=True)
+        back = np.uint8(back.transpose(1,0,2)*255.0)[:,1:]
+        
+        pantie = np.zeros((r,c+99,d),dtype=np.uint8)
+        pantie[:front.shape[0],:front.shape[1]]=front
+        pantie[:back.shape[0],front.shape[1]:]=back
+        io.imshow(pantie)
+        
+        # main transform
+        arrx = np.zeros((100))
+        arry = np.zeros((100))
+        arrx[35:] += (np.cos(np.linspace(0, 1 * np.pi, 100) - np.pi) * -75)[35:]-30
+        arrx[:30] += (np.sin(np.linspace(0, 3 * np.pi, 100) - np.pi) * 15)[:30]
+        arrx[5:20] += (np.sin(np.linspace(0, 6 * np.pi, 100) - np.pi) * -10)[:15]
+        # arry += np.sin(np.linspace(0, 1 * np.pi, 100) + np.pi/2) * 40
+        plt.plot(arrx)
+        pantie_ = affine_transform_by_arr(pantie,arrx,arry, smooth=True)
+        pantie_ = skt.rotate(pantie_, 8.1, resize=True)
+        io.imsave('test.png',pantie_)
+        io.imshow(affine_transform_by_arr(pantie,arrx,arry,smooth=True))
+        
 
-        # Affine transform matrix
-        [r, c, d] = pantie.shape
-        src_cols = np.linspace(0, c, 10)
-        src_rows = np.linspace(0, r, 10)
-        src_rows, src_cols = np.meshgrid(src_rows, src_cols)
-        src = np.dstack([src_cols.flat, src_rows.flat])[0]
-        shifter_row = np.zeros(src.shape[0])
-        shifter_col = np.zeros(src.shape[0])
-        # shifter_row[30:-30] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 32) * 100)[30:-30]
-        # shifter_row[:30] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) + np.pi / 2) * 60)[:30]
-        # shifter_row[-30:] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 2) * 80)[-30:]
-        # shifter_col[13:-30] = -(np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) + np.pi / 8) * 22)[13:-30]
-
-        # shifter_row = np.convolve(shifter_row, np.ones(20) / 20, mode='valid')
-        # shifter_col = np.convolve(shifter_col, np.ones(10) / 10, mode='valid')
-        # shifter_row = skt.resize(shifter_row, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
-        # shifter_col = skt.resize(shifter_col, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
-
-        dst_rows = src[:, 1] + shifter_row
-        dst_cols = src[:, 0] + shifter_col
-        dst = np.vstack([dst_cols, dst_rows]).T
-        affin = skt.PiecewiseAffineTransform()
-        affin.estimate(src, dst)
-        # pantie = np.uint8(skt.warp(pantie, affin) * 255)[:310, :, :]
-        pantie_ = np.uint8(skt.warp(pantie, affin) * 255)
-        io.imshow(pantie_)
+        # front = pantie[:390, :250, :]
+        # back = pantie[:350, 250:, :]
+        io.imshow(front)
+        
+        io.imshow(front_)
+        io.imsave('test.png',front)
 
         # Finalize
         pantie_ = skt.resize(pantie, (np.int(pantie.shape[0] * 2.05), np.int(pantie.shape[1] * 2.05)), anti_aliasing=True, mode='reflect')
