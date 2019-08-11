@@ -14,7 +14,7 @@
   "":"Pantie number. 0 means the latest one. It may comfort for you.",
   "pantie":0,
 
-  "":"When you want to update all the converted texture, set true",
+  "":"When you want to update all converted textures, set true",
   "force":false,
 
   "":"When you want to make transparent textures, set true",
@@ -39,5 +39,8 @@
   "stitch_correction":false,
   
   "":"-----Setup for frill correction for Fuzzy-----",
-  "is_frill":false
+  "is_frill":false,
+  
+  "":"-----Setup for Yuko-----",
+  "use_ribbon_mesh":false
 }
