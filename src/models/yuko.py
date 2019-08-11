@@ -5,6 +5,7 @@ from PIL import Image
 from src.models.class_patcher import patcher
 from src.utils.imgproc import *
 from skimage.color import rgb2hsv, hsv2rgb, rgb2gray
+from skimage.filters import gaussian
 
 
 class patcher(patcher):
@@ -12,6 +13,7 @@ class patcher(patcher):
         super().__init__('Yuko', body=body, pantie_position=[1, 1130], **options)
         self.mask = io.imread('./mask/mask_yuko.png')
         self.ribbon_position = [1712, 1601]
+        self.bra_position = [298, 1301]
         try:
             self.use_ribbon_mesh = self.options['use_ribbon_mesh']
         except:
@@ -19,6 +21,14 @@ class patcher(patcher):
         if self.use_ribbon_mesh:
             self.ribbon_base = io.imread('./mask/ribbon_yuko.png')[:, :, :3] / 255
             self.ribbon_shade = io.imread('./material/ribbon_yuko.png')[:, :, 3] / 255
+
+        self.bra_base = io.imread('./mask/bra_yuko.png')[1300:, 300:-400] / 255
+        self.bra_mask = self.bra_base[:, :, 0] > 0
+        self.bra_center = io.imread('./mask/bra_yuko_center.png')[1300:, 300:-400, 0] > 0
+        self.bra_shade = io.imread('./material/bra_yuko_shade.png')[1300:, 300:-400, 3] / 255
+        self.frill = io.imread('./material/bra_yuko_frill.png')[1300:, 300:-400] / 255
+        self.lace = io.imread('./material/bra_yuko_lace.png')[1300:, 300:-400] / 255
+        self.ribbon_mask = io.imread('./mask/ribbon.png')
 
     def gen_ribbon(self, image):
         image = np.array(image)
@@ -33,6 +43,73 @@ class patcher(patcher):
         ribbon = np.dstack((ribbon, ribbon[:, :, 0] > 0))
         ribbon = np.clip(ribbon, 0, 1)
         return Image.fromarray(np.uint8(ribbon * 255))
+
+    def gen_bra(self, image):
+        # image = Image.open('./dream/0101.png')
+        pantie = np.array(image)
+        if self.use_ribbon_mesh:
+            pantie = ribbon_inpaint(pantie)
+        else:
+            ribbon = pantie.copy()
+            ribbon[:, :, 3] = self.ribbon_mask[:, :, 1]
+            ribbon = ribbon[19:58, 8:30] / 255.0
+
+        front = pantie[20:100, 30:80, :3] / 255
+        front_shade = pantie[100:150, 0:40, :3] / 255
+        center = pantie[20:170, -200:-15, :3] / 255
+        base_color = np.mean(np.mean(center, axis=0), axis=0)
+        front_color = np.mean(np.mean(front, axis=0), axis=0)
+        shade_color = np.mean(np.mean(front_shade, axis=0), axis=0)
+
+        # make seamless design
+        design = rgb2gray(center[:, :, :3])[::-1, ::-1]
+        design = (design - np.min(design)) / (np.max(design) - np.min(design))
+        edge = 3
+        design_seamless = gaussian(design, sigma=3)
+        design_seamless[edge:-edge, edge:-edge] = design[edge:-edge, edge:-edge]
+        [hr, hc, hd] = center.shape
+        y = np.arange(-hr / 2, hr / 2, dtype=np.int16)
+        x = np.arange(-hc / 2, hc / 2, dtype=np.int16)
+        design_seamless = (design_seamless[y, :])[:, x]  # rearrange pixels
+        design_seamless = resize(design_seamless, [1.65, 1.8])
+        design_seamless = np.tile(design_seamless, (3, 4))
+        posy = int((self.bra_center.shape[0] - design_seamless.shape[0]) / 2)
+        posx = int((self.bra_center.shape[1] - design_seamless.shape[1]) / 2)
+        sx = 0
+        sy = 0
+        design_seamless = (np.pad(design_seamless, [(posy + sy + 1, posy - sy), (posx + sx, posx - sx)], mode='constant'))
+
+        # Base shading
+        bra_base = self.bra_base[:, :, :3] * front_color
+        bra_base = bra_base - design_seamless[:, :, None] / 10
+        bra_shade = self.bra_shade[:, :, None] * shade_color
+
+        # Center painting
+        sx = -270
+        sy = -50
+        center = resize(center, [4, 4])
+        posy = int((self.bra_center.shape[0] - center.shape[0]) / 2)
+        posx = int((self.bra_center.shape[1] - center.shape[1]) / 2)
+        center = (np.pad(center, [(posy + sy, posy - sy), (posx + sx, posx - sx), (0, 0)], mode='constant'))
+        center = center * self.bra_center[:, :, None]
+
+        # Decoration painting
+        deco_shade = np.median(pantie[5, :, :3], axis=0) / 255
+        frill = np.dstack((self.frill[:, :, :3] * deco_shade, self.frill[:, :, 3]))
+        lace = np.dstack((self.lace[:, :, :3] * shade_color, self.lace[:, :, 3]))
+
+        # Finalize
+        textured = bra_base * (1 - self.bra_center[:, :, None]) + center * self.bra_center[:, :, None]
+        textured = textured - bra_shade
+        textured = textured * (1 - lace[:, :, 3])[:, :, None] + lace[:, :, :3] * lace[:, :, 3][:, :, None]
+        textured = textured * (1 - frill[:, :, 3])[:, :, None] + frill[:, :, :3] * frill[:, :, 3][:, :, None]
+        textured = np.dstack((textured, self.bra_mask))
+        if self.use_ribbon_mesh is False:
+            ribbon = skt.rotate(ribbon, 8, resize=True)
+            ribbon = resize(ribbon, [1.5, 1.5])
+            [r, c, d] = ribbon.shape
+            textured[460:460 + r, 35:35 + c] = textured[460:460 + r, 35:35 + c] * (1 - ribbon[:, :, 3][:, :, None]) + ribbon * ribbon[:, :, 3][:, :, None]
+        return Image.fromarray(np.uint8(np.clip(textured, 0, 1) * 255))
 
     def convert(self, image):
         pantie = np.array(image)
@@ -84,10 +161,10 @@ class patcher(patcher):
         arry[:30] += (np.sin(np.linspace(0, 3 * np.pi, 100) - np.pi) * 35)[:30]
         pantie = affine_transform_by_arr(pantie, arrx, arry, smooth=True)
         pantie = skt.rotate(pantie, 8.1, resize=True)
-        pantie = resize(pantie, [2.31, 2.31])
-        pantie = pantie[140:-80, 72:]
 
         # Finalize
+        pantie = resize(pantie, [2.31, 2.31])
+        pantie = pantie[140:-80, 72:]
         pantie = np.uint8(pantie * 255)
         pantie = np.bitwise_and(pantie, self.mask)
         return Image.fromarray(pantie)
@@ -101,6 +178,7 @@ class patcher(patcher):
         if self.use_ribbon_mesh:
             ribbon = self.gen_ribbon(image)
             self.paste(patched, ribbon, self.ribbon_position)
-
+        bra = self.gen_bra(image)
+        patched = self.paste(patched, bra, self.bra_position)
         patched = self.paste(patched, pantie, self.pantie_position)
         return patched
