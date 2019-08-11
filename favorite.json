@@ -39,5 +39,8 @@
   "stitch_correction":false,
   
   "":"-----Setup for frill correction for Fuzzy-----",
-  "is_frill":false
+  "is_frill":false,
+  
+  "":"-----Setup for Yuko-----",
+  "use_ribbon_mesh":false
 }

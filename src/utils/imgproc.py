@@ -1,3 +1,4 @@
+import skimage.io as io
 import skimage.transform as skt
 import skimage.morphology as skm
 import numpy as np
@@ -36,6 +37,7 @@ def affine_transform(img, mx, my, phix=0, phiy=0, divx=2, divy=2, inv=False):
     affin.estimate(src, dst)
     return skt.warp(img, affin)
 
+
 def affine_transform_by_arr(img, arrx, arry, smooth=False):
     [r, c, d] = img.shape
     src_cols = np.linspace(0, c, 10)
@@ -47,10 +49,31 @@ def affine_transform_by_arr(img, arrx, arry, smooth=False):
         arryy = np.convolve(arry, np.ones(10) / 10, mode='valid')
         arrx = skt.resize(arrx, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
         arry = skt.resize(arry, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
-    
+
     dst_rows = src[:, 1] + arrx
     dst_cols = src[:, 0] + arry
     dst = np.vstack([dst_cols, dst_rows]).T
     affin = skt.PiecewiseAffineTransform()
     affin.estimate(src, dst)
     return skt.warp(img, affin)
+
+
+def ribbon_inpaint(image):
+    mask = io.imread('./mask/ribbon4inpaint.png')
+    ribbon = image[19:58, 5:35, :3]
+    ribbon_mask = (mask[19:58, 5:35, 1] > 0)[:, :, None]
+    removed = ribbon * (mask[19:58, 5:35, 1] < 1)[:, :, None].astype(np.float)
+    search_area = image[60:100 - 1, :40, :3].astype(np.float)
+    [r, c, d] = ribbon_mask.shape
+    dx = search_area.shape[1] - ribbon.shape[1]
+    score = np.zeros(dx)
+    for x in range(dx):
+        inpainter = search_area[:, x:x + c, :] * ribbon_mask
+        inpainted = removed + inpainter
+        for vx in range(dx):
+            score[x] += np.mean((inpainted - search_area[:, vx:vx + c])**2)
+    optimum = np.argmin(score)
+    inpainter = search_area[:, optimum:optimum + c, :] * ribbon_mask
+    inpainted = removed + inpainter
+    image[19:58, 5:35, :3] = np.uint8(inpainted)
+    return image
