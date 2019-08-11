@@ -4,16 +4,35 @@ import numpy as np
 from PIL import Image
 from src.models.class_patcher import patcher
 from src.utils.imgproc import *
+from skimage.color import rgb2hsv, hsv2rgb, rgb2gray
 
 
 class patcher(patcher):
     def __init__(self, body='./body/body_yuko.png', **options):
         super().__init__('Yuko', body=body, pantie_position=[1, 1130], **options)
         self.mask = io.imread('./mask/mask_yuko.png')
+        self.ribbon_position = [1712, 1601]
         try:
             self.use_ribbon_mesh = self.options['use_ribbon_mesh']
         except:
             self.use_ribbon_mesh = self.ask(question='Use Yuko ribbon mesh?', default=False)
+        if self.use_ribbon_mesh:
+            self.ribbon_base = io.imread('./mask/ribbon_yuko.png')[:, :, :3] / 255
+            self.ribbon_shade = io.imread('./material/ribbon_yuko.png')[:, :, 3] / 255
+
+    def gen_ribbon(self, image):
+        image = np.array(image)
+        ribbon = image[19:58, 5:35, :3]
+        base_color = np.mean(np.mean(ribbon[5:12, 16:20], axis=0), axis=0) / 255
+        shade_color = np.mean(np.mean(ribbon[8:14, 7:15], axis=0), axis=0) / 255
+        ribbon_base = io.imread('./mask/ribbon_yuko.png')[:, :, :3] / 255
+        ribbon_shade = io.imread('./material/ribbon_yuko.png')[:, :, 3] / 255
+        ribbon_base = (self.ribbon_base > 0) * base_color
+        ribbon_shade = self.ribbon_shade[:, :, None] * (1 - shade_color)
+        ribbon = ribbon_base - ribbon_shade
+        ribbon = np.dstack((ribbon, ribbon[:, :, 0] > 0))
+        ribbon = np.clip(ribbon, 0, 1)
+        return Image.fromarray(np.uint8(ribbon * 255))
 
     def convert(self, image):
         pantie = np.array(image)
@@ -72,3 +91,16 @@ class patcher(patcher):
         pantie = np.uint8(pantie * 255)
         pantie = np.bitwise_and(pantie, self.mask)
         return Image.fromarray(pantie)
+
+    def patch(self, image, transparent=False):
+        pantie = self.convert(image)
+        if transparent:
+            patched = Image.new("RGBA", self.body_size)
+        else:
+            patched = self.body.copy()
+        if self.use_ribbon_mesh:
+            ribbon = self.gen_ribbon(image)
+            self.paste(patched, ribbon, self.ribbon_position)
+
+        patched = self.paste(patched, pantie, self.pantie_position)
+        return patched
