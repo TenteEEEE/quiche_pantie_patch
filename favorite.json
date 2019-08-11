@@ -14,7 +14,7 @@
   "":"Pantie number. 0 means the latest one. It may comfort for you.",
   "pantie":0,
 
-  "":"When you want to update all the converted texture, set true",
+  "":"When you want to update all converted textures, set true",
   "force":false,
 
   "":"When you want to make transparent textures, set true",

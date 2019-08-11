@@ -82,7 +82,14 @@ class patcher(patcher):
         # Base shading
         bra_base = self.bra_base[:, :, :3] * front_color
         bra_base = bra_base - design_seamless[:, :, None] / 10
-        bra_shade = self.bra_shade[:, :, None] * shade_color
+
+        shade = rgb2hsv(np.tile((self.bra_shade)[:, :, None], [1, 1, 3]) * base_color)
+        shade[:, :, 0] -= 1
+        shade[:, :, 1] *= 0.5 + np.mean(base_color) / 3
+        shade[:, :, 2] /= 1 + 1 * np.mean(base_color)
+        bra_shade = hsv2rgb(shade)
+
+        # bra_shade = bra_shade[:, :, None] * shade_color
 
         # Center painting
         sx = -270
