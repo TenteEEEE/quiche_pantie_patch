@@ -1,6 +1,6 @@
 from threading import Thread
 from concurrent.futures import ThreadPoolExecutor
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, request
 from flask_restful import Resource, Api, abort
 from flask_cors import CORS
 from PIL import Image
@@ -87,10 +87,13 @@ class request_pantie_list(Resource):
 
 
 class request_model_option_list(Resource):
+    def __init__(self):
+        f = open('./webapp.json', mode='r')
+        self.options = json.load(f)
     def get(self, model):
         if model not in database['models']:
             return abort(404, message=" {} doesn't exist".format(model))
-        return {"images": panties}
+        return {"images": panties, "options": self.options}
 
 
 class request_model_list(Resource):
@@ -120,24 +123,38 @@ class send_pantie(Resource):
 
 
 class send_converted(Resource):
+    def __init__(self):
+        f = open('./webapp.json', mode='r')
+        self.options = json.load(f)
+        
+    def option_parser(self):
+        options = self.options.copy()
+        for key in options.keys():
+            if request.args.get(key) is not None:
+                print(key + ':' + request.args.get(key))
+                if request.args.get(key) == 'true':
+                    options[key] = True
+                else:
+                    options[key] = False
+        return options
+
     def get(self, model, image):
         # if os.path.isfile('./dream/' + path) is False:
         if image not in database['images']:
             return abort(404, message=" {} doesn't exist".format('./dream/' + image))
         if model not in database['models']:
             return abort(404, message=" {} doesn't exist".format(model))
-        if os.path.isfile('./converted/' + model + '/' + image) is False:
-            module = importlib.import_module('models.' + model)
-            f = open('./webapp.json', mode='r')
-            options = json.load(f)
-            options['model'] = model
-            options['input'] = './body/body_' + model + '.png'
-            options['output'] = './converted/' + model + '/' + image
-            options['pantie'] = int(image.split('.')[0]) - 1
-            patcher = module.patcher(options=options)
-            patched = patcher.patch(Image.open('./dream/' + panties[options['pantie']]), transparent=True)
-            os.makedirs('./converted/' + model, exist_ok=True)
-            patcher.save(patched, options['output'])
+        # if os.path.isfile('./converted/' + model + '/' + image) is False:
+        module = importlib.import_module('models.' + model)
+        options = self.option_parser()
+        options['model'] = model
+        options['input'] = './body/body_' + model + '.png'
+        options['output'] = './converted/' + model + '/' + image
+        options['pantie'] = int(image.split('.')[0]) - 1
+        patcher = module.patcher(options=options)
+        patched = patcher.patch(Image.open('./dream/' + panties[options['pantie']]), transparent=True)
+        os.makedirs('./converted/' + model, exist_ok=True)
+        patcher.save(patched, options['output'])
         return send_from_directory('./converted/' + model, image)
 
 
@@ -147,12 +164,12 @@ def hello():
 
 
 api.add_resource(request_apps, '/api/')
-api.add_resource(request_pantie_list, '/dream/', '/api/dream/', '/api/suggest/')
-api.add_resource(send_pantie, '/dream/<image>', '/api/dream/<image>')
-api.add_resource(request_model_list, '/converted/', '/api/convert/')
-api.add_resource(request_model_option_list, '/converted/<model>/', '/api/convert/<model>/')
-api.add_resource(send_converted, '/converted/<model>/<image>', '/api/convert/<model>/<image>')
-api.add_resource(request_suggest_list, '/suggest/<image>', '/api/suggest/<image>')
+api.add_resource(request_pantie_list, '/api/dream/', '/api/suggest/')
+api.add_resource(send_pantie, '/api/dream/<image>')
+api.add_resource(request_model_list, '/api/convert/')
+api.add_resource(request_model_option_list, '/api/convert/<model>/')
+api.add_resource(send_converted, '/api/convert/<model>/<image>')
+api.add_resource(request_suggest_list, '/api/suggest/<image>')
 
 if __name__ == '__main__':
     app.run(debug=False)

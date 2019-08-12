@@ -1,33 +1,13 @@
 {
-  "model":"quiche_nbody",
-  "input":"./body/body_linz.png",
-  "output":"patched.png",
-  
-  "all":false,
-  "directory":"default",
-  "pantie":0,
-  "force":false,
-  "transparent": true,
-  "random": false,
-
-  "":"-----Setup for Quiche and Linz bra-----",
   "with_bra":true,
   "is_lace":false,
   "dis_ribbon":false,
   "dis_shading":false,
   "dis_decoration":false,
   "dis_texturing":false,
-
-  "":"-----Setup for immoral sign-----",
   "add_sign":false,
   "fsign":"./material/anna_sign.png",
-
-  "":"-----Setup for stitch correction for Shaclo-----",
   "stitch_correction":false,
-  
-  "":"-----Setup for frill correction for Fuzzy-----",
   "is_frill":false,
-  
-  "":"-----Setup for Yuko-----",
   "use_ribbon_mesh":false
 }
