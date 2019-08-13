@@ -38,15 +38,15 @@ def affine_transform(img, mx, my, phix=0, phiy=0, divx=2, divy=2, inv=False):
     return skt.warp(img, affin)
 
 
-def affine_transform_by_arr(img, arrx, arry, smooth=False):
+def affine_transform_by_arr(img, arrx, arry, smooth=False, mv=10):
     [r, c, d] = img.shape
     src_cols = np.linspace(0, c, 10)
     src_rows = np.linspace(0, r, 10)
     src_rows, src_cols = np.meshgrid(src_rows, src_cols)
     src = np.dstack([src_cols.flat, src_rows.flat])[0]
     if smooth:
-        arrx = np.convolve(arrx, np.ones(10) / 10, mode='valid')
-        arryy = np.convolve(arry, np.ones(10) / 10, mode='valid')
+        arrx = np.convolve(arrx, np.ones(mv) / mv, mode='valid')
+        arryy = np.convolve(arry, np.ones(mv) / mv, mode='valid')
         arrx = skt.resize(arrx, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
         arry = skt.resize(arry, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
 
