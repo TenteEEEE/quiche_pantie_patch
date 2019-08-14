@@ -6,9 +6,10 @@
 現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃんです。
 
 ## 導入
-透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えば導入は不要です。  
-手物のテクスチャに全自動でパッチしたければ下記の導入を進めてください。
+透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えばこのツールの導入は不要です。  
+ウェブアプリの方は手元のテクスチャへのパッチに対応したようなので、それで十分であれば以下のインストールは不要です。
 
+こちらの導入のメリットは、Unityに反映するまで完全自動化できるという点ですので、それが必要であれば下記の導入を進めてください。
 2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
 導入後はパンツパッチのフォルダでコマンドプロンプトを開き、`git pull`でいい感じにしてくれます。  
 画像つきの導入手順は[**こちら**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/Installation-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)から！
