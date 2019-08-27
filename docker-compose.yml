@@ -1,0 +1,8 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "9999:5000"
+    # When you want to override the default setup, modify the following command
+    # command: gunicorn --bind 0.0.0.0:5000 restapi:app
