@@ -140,7 +140,7 @@ class patcher(patcher):
         arry = np.zeros((100))
         arrx[40:] -= (np.linspace(0, 1 * np.pi, 60)**2) * 4
         arrx[28:70] += (np.sin(np.linspace(0, 1 * np.pi, 100)) * 10)[28:70]
-        front = affine_transform_by_arr(front, arrx, arry, smooth=False)
+        front = affine_transform_by_arr(front, arrx, arry)
         front = np.uint8(front.transpose(1, 0, 2) * 255)[:, 38:]
 
         # Back transform
@@ -150,7 +150,7 @@ class patcher(patcher):
         arrx = np.zeros((100))
         arry = np.zeros((100))
         arrx[10:] -= (np.linspace(0, 1 * np.pi, 90)**3) * 14
-        back = affine_transform_by_arr(back, arrx, arry, smooth=True)
+        back = affine_transform_by_arr(back, arrx, arry, smoothx=True)
         back = np.uint8(back.transpose(1, 0, 2) * 255.0)[:, 1:]
 
         # Merge front and back
@@ -166,7 +166,7 @@ class patcher(patcher):
         arrx[50:80] += (np.sin(np.linspace(0, 3 * np.pi, 100) - np.pi) * 11)[:30]
         arry += np.linspace(0, 1, 100) * -50
         arry[:30] += (np.sin(np.linspace(0, 3 * np.pi, 100) - np.pi) * 35)[:30]
-        pantie = affine_transform_by_arr(pantie, arrx, arry, smooth=True)
+        pantie = affine_transform_by_arr(pantie, arrx, arry, smoothx=True)
         pantie = skt.rotate(pantie, 8.1, resize=True)
 
         # Finalize

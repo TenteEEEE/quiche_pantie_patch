@@ -29,7 +29,7 @@ class patcher(patcher):
         arrx[00:10] -= (np.sin(np.linspace(0, 1 * np.pi, 100))[50:60] * 35)
         arry = (np.sin(np.linspace(0, 0.5 * np.pi, 100)) * 70)
         arry[10:30] -= (np.sin(np.linspace(0, 1 * np.pi, 100)) * 20)[50:70]
-        pantie = affine_transform_by_arr(pantie, arrx, arry, smooth=True, mv=30)
+        pantie = affine_transform_by_arr(pantie, arrx, arry, smoothx=True, mvx=30)
         pantie = np.uint8(pantie * 255)[60:430, 16:-80]
         pantie = np.bitwise_and(pantie, self.mask)
 
