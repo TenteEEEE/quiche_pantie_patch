@@ -8,7 +8,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_mishe.png', **options):
-        super().__init__('Mishe', body=body, pantie_position=[910, 1929], **options)
+        super().__init__('ミーシェ', body=body, pantie_position=[910, 1929], **options)
         self.mask = io.imread('./mask/mask_mishe.png')
         self.sign_position = [933, 1482]
         try:

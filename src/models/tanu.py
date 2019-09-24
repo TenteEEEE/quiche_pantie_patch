@@ -8,7 +8,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_tanu.png', **options):
-        super().__init__('Tanu', body=body, pantie_position=[55, 35], **options)
+        super().__init__('たぬ', body=body, pantie_position=[55, 35], **options)
 
     def convert(self, image):
         pantie = np.array(image)

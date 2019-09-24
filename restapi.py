@@ -1,6 +1,6 @@
 from threading import Thread
 from concurrent.futures import ThreadPoolExecutor
-from flask import Flask, send_from_directory, request
+from flask import Flask, send_from_directory, request, jsonify
 from flask_restful import Resource, Api, abort
 from flask_cors import CORS
 from PIL import Image
@@ -17,11 +17,22 @@ sys.path.append('./src/')
 import models
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 api = Api(app)
 os.makedirs('./converted/', exist_ok=True)
 panties = sorted(os.listdir('./dream'))
 database = {"models": models.models_namelist, "images": panties}
+
+
+def make_display_names():
+    f = open('./webapp.json', mode='r')
+    options = json.load(f)['all']
+    display_names = [importlib.import_module('models.' + model).patcher(options=options).name for model in models.models_namelist]
+    return display_names
+
+
+display_names = make_display_names()
 
 
 class score_processor:
@@ -90,15 +101,17 @@ class request_model_option_list(Resource):
     def __init__(self):
         f = open('./webapp.json', mode='r')
         self.options = json.load(f)
+
     def get(self, model):
         if model not in database['models']:
             return abort(404, message=" {} doesn't exist".format(model))
-        return {"images": panties, "options": self.options}
+        display_name = display_names[database['models'].index(model)]
+        return jsonify({"display_name": display_name, "images": panties, "options": self.options[model]})
 
 
 class request_model_list(Resource):
     def get(self):
-        return {"models": models.models_namelist}
+        return jsonify({"models": models.models_namelist, "display_names": display_names})
 
 
 class request_suggest_list(Resource):
@@ -125,8 +138,8 @@ class send_pantie(Resource):
 class send_converted(Resource):
     def __init__(self):
         f = open('./webapp.json', mode='r')
-        self.options = json.load(f)
-        
+        self.options = json.load(f)['all']
+
     def option_parser(self):
         options = self.options.copy()
         for key in options.keys():

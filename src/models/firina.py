@@ -7,7 +7,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_firina.png', **options):
-        super().__init__('Firina', body=body, pantie_position=[31, 54], **options)
+        super().__init__('フィリナ', body=body, pantie_position=[31, 54], **options)
         self.mask = io.imread('./mask/mask_firina.png')
         try:
             self.is_frill = self.options['is_frill']

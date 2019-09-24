@@ -8,7 +8,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_shaclo.png', **options):
-        super().__init__('Shaclo', body=body, pantie_position=[62, 16], **options)
+        super().__init__('シャーロ', body=body, pantie_position=[62, 16], **options)
         try:
             self.stitch_correction = self.options['stitch_correction']
         except:

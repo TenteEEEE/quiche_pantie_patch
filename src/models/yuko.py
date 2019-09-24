@@ -10,7 +10,7 @@ from skimage.filters import gaussian
 
 class patcher(patcher):
     def __init__(self, body='./body/body_yuko.png', **options):
-        super().__init__('Yuko', body=body, pantie_position=[1, 1130], **options)
+        super().__init__('幽狐', body=body, pantie_position=[1, 1130], **options)
         self.mask = io.imread('./mask/mask_yuko.png')
         self.ribbon_position = [1712, 1601]
         self.bra_position = [298, 1301]

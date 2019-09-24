@@ -8,7 +8,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_lua_quest.png', **options):
-        super().__init__('Lua-Quest', body=body, pantie_position=[28, 3529], **options)
+        super().__init__('ルア(クエスト)', body=body, pantie_position=[28, 3529], **options)
         self.mask = io.imread('./mask/mask_lua_quest.png')
 
     def convert(self, image):

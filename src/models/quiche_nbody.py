@@ -4,7 +4,7 @@ from src.models.class_patcher import patcher
 
 class patcher(patcher):
     def __init__(self, body='./body/body_quiche_nbody.png', **options):
-        super().__init__('Quiche-Nbody', body=body, pantie_position=[403, 836], **options)
+        super().__init__('キッシュ(素体)', body=body, pantie_position=[403, 836], **options)
         try:
             self.with_bra = self.options['with_bra']
         except:

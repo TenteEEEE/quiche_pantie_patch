@@ -10,7 +10,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_quiche_nbody.png', **options):
-        super().__init__('Quiche_bra', body=body, pantie_position=[404, 0], **options)
+        super().__init__('キッシュ(ブラ)', body=body, pantie_position=[404, 0], **options)
         self.ribbon_mask = io.imread('./mask/ribbon.png')
         self.bra_mask = io.imread('./mask/bra.png')[:430, 1024:1024 + 620, :]
         self.bra_center = io.imread('./mask/bra_center.png')[:430, 1024:1024 + 620, :]
