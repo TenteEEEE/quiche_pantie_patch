@@ -106,7 +106,11 @@ class request_model_option_list(Resource):
         if model not in database['models']:
             return abort(404, message=" {} doesn't exist".format(model))
         display_name = display_names[database['models'].index(model)]
-        return jsonify({"display_name": display_name, "images": panties, "options": self.options[model]})
+        try:
+            options = self.options[model]
+        except:
+            options = []
+        return jsonify({"display_name": display_name, "images": panties, "options": options})
 
 
 class request_model_list(Resource):
