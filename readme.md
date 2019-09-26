@@ -1,9 +1,11 @@
+
 # キッシュちゃんパンツパッチ
-パンツは一期一会  
+![logo](./material/logo_256.png)  
+パンツは一期一会   
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)ちゃんです。
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃんです。
 
 ## 導入
 透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えばこのツールの導入は不要です。  
@@ -136,8 +138,8 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 |![test](./sample/ramne_pantie.png)|![test](./sample/yuko_pantie.png)|
 |[VRoid](https://vroid.com)ちゃん|[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん|
 |![test](./sample/vroid_pantie.png)|![test](./sample/noy_pantie.png)|
-|[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)ちゃん||
-|![test](./sample/firina_pantie.png)||
+|[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)ちゃん|[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん|
+|![test](./sample/firina_pantie.png)|![test](./sample/differe_pantie.png)|
 
 ## 対応してほしいアバターがある/開発者の方へ
 未対応のアバターがあれば、テストユーザーになる覚悟とともにボディのテクスチャ(できればUVマップのあるもの)を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)まで送っていただければ何とかなるかも。  
@@ -145,7 +147,7 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
-右近ちゃんパンツコンバータの作者:[thakyuu](https://github.com/thakyuu)さん  
+右近ちゃん、Differeちゃんパンツコンバータの作者:[thakyuu](https://github.com/thakyuu)さん  
 patch.pyのargparse対応:[4hiziri](https://github.com/4hiziri)さん  
 [ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)の開発者:[Joniburn](https://github.com/joniburn)さん  
 
@@ -219,12 +221,12 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/ramne_pantie.png)|![test](./sample/yuko_pantie.png)|
 |[VRoid](https://vroid.com)|[Noy](https://ficsnade.booth.pm/items/1572406)|
 |![test](./sample/vroid_pantie.png)|![test](./sample/noy_pantie.png)|
-|[Firina](https://nagatorokoyori.booth.pm/items/1577042)||
-|![test](./sample/firina_pantie.png)||
+|[Firina](https://nagatorokoyori.booth.pm/items/1577042)|[Differe](https://tyubaki.booth.pm/items/1580267)|
+|![test](./sample/firina_pantie.png)|![test](./sample/differe_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
-Developer of the Ukon pantie converter: [thakyuu](https://github.com/thakyuu)  
+Developer of the Ukon and Differe pantie converter: [thakyuu](https://github.com/thakyuu)  
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 Developer of the [web app](https://joniburn.github.io/quiche-pantie-patch-gui/): [Joniburn](https://github.com/joniburn)  
 
