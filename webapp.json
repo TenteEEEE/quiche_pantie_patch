@@ -10,7 +10,8 @@
     "fsign":"./material/anna_sign.png",
     "stitch_correction":false,
     "is_frill":false,
-    "use_ribbon_mesh":false
+    "use_ribbon_mesh":false,
+    "is_4k":false
   },
   "anna":[
     "add_sign"
@@ -34,6 +35,9 @@
   ],
   "fuzzy":[
     "is_frill"
+  ],
+  "i-s":[
+    "is_4k"
   ],
   "linz_nbody":[
     "with_bra",

@@ -23,7 +23,7 @@
   "":"When you want to choose a pantie randomly, set true",
   "random": false,
 
-  "":"-----Setup for Quiche and Linz bra-----",
+  "":"-----Setup for Quiche, Linz, Cornet bra-----",
   "with_bra":true,
   "is_lace":false,
   "dis_ribbon":false,
@@ -38,9 +38,12 @@
   "":"-----Setup for stitch correction for Shaclo-----",
   "stitch_correction":false,
   
-  "":"-----Setup for frill correction for Fuzzy-----",
+  "":"-----Setup for frill correction for Fuzzy, and Firina-----",
   "is_frill":false,
   
   "":"-----Setup for Yuko-----",
-  "use_ribbon_mesh":false
+  "use_ribbon_mesh":false,
+  
+  "":"-----Setup for I-s-----",
+  "is_4k":false
 }
