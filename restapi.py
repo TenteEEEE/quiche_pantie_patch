@@ -10,34 +10,56 @@ import json
 import random
 import importlib
 import numpy as np
+from datetime import datetime
 import skimage.io as io
 from skimage.measure import *
 from src.image_loader import image_loader
 sys.path.append('./src/')
 import models
 
+### Parameters #################################################
+pantie_dir = './dream/'
+converted_dir = './converted/'
+log_dir = './logs/'
+################################################################
+
+
+def make_display_names():
+    with open('./webapp.json', mode='r') as f:
+        options = json.load(f)['all']
+    display_names = [importlib.import_module('models.' + model).patcher(options=options).name for model in models.models_namelist]
+    return display_names
+
+def update_log(model, image, flags):
+    log.update({str(len(log)):{'model':model, 'image':image,'flag':flags}})
+    try:
+        with open(log_dir+logfile, 'r+') as f:
+            json.dump(log,f,indent=2,separators=(',', ':'))
+    except:
+        pass
+
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 api = Api(app)
-os.makedirs('./converted/', exist_ok=True)
+
+os.makedirs(converted_dir, exist_ok=True)
+os.makedirs(log_dir, exist_ok=True)
 panties = sorted(os.listdir('./dream'))
 database = {"models": models.models_namelist, "images": panties}
-
-
-def make_display_names():
-    f = open('./webapp.json', mode='r')
-    options = json.load(f)['all']
-    display_names = [importlib.import_module('models.' + model).patcher(options=options).name for model in models.models_namelist]
-    return display_names
-
-
 display_names = make_display_names()
+logfile = datetime.today().strftime('%Y_%m_%d_%H_%M') + '.json'
+log = {}
+try:
+    with open(log_dir+logfile, 'w') as f:
+        json.dump(log,f)
+except:
+    pass
 
 
 class score_processor:
     def __init__(self, workers=2):
-        self.panties = sorted(os.listdir('./dream/'))
+        self.panties = sorted(os.listdir(pantie_dir))
         self.score_matrix = np.zeros((len(self.panties), len(self.panties)))
         self.workers = workers
         self.done = False
@@ -52,7 +74,7 @@ class score_processor:
             remains.pop(num)
         else:
             [remains.pop(0) for i in range(num + 1)]
-        template_loader = image_loader(fdir='./dream/', queuesize=32)
+        template_loader = image_loader(fdir=pantie_dir, queuesize=32)
         template_loader.flist = remains
         template_loader.start()
         scores = []
@@ -74,7 +96,7 @@ class score_processor:
 
     def process(self):
         with ThreadPoolExecutor(max_workers=self.workers) as executor:
-            nums = len(os.listdir('./dream/'))
+            nums = len(os.listdir(pantie_dir))
             # score_matrix = np.zeros((nums, nums))
             scores = executor.map(self.score_row, self.argument_generator(nums, False))
             for row, score in enumerate(scores):
@@ -99,8 +121,8 @@ class request_pantie_list(Resource):
 
 class request_model_option_list(Resource):
     def __init__(self):
-        f = open('./webapp.json', mode='r')
-        self.options = json.load(f)
+        with open('./webapp.json', mode='r') as f:
+            self.options = json.load(f)
 
     def get(self, model):
         if model not in database['models']:
@@ -120,7 +142,7 @@ class request_model_list(Resource):
 
 class request_suggest_list(Resource):
     def get(self, image):
-        panties = sorted(os.listdir('./dream/'))
+        panties = sorted(os.listdir(pantie_dir))
         pantie = int(image[:-4]) - 1
         if sp.done:
             scores = sp.score_matrix[pantie, :]
@@ -135,44 +157,55 @@ class request_suggest_list(Resource):
 class send_pantie(Resource):
     def get(self, image):
         if image not in database['images']:
-            return abort(404, message=" {} doesn't exist".format('./dream/' + image))
-        return send_from_directory('./dream/', image)
+            return abort(404, message=" {} doesn't exist".format(pantie_dir + image))
+        return send_from_directory(pantie_dir, image)
 
 
 class send_converted(Resource):
     def __init__(self):
-        f = open('./webapp.json', mode='r')
-        self.options = json.load(f)['all']
+        with open('./webapp.json', mode='r') as f:
+            self.options = json.load(f)['all']
 
     def option_parser(self):
         options = self.options.copy()
+        flags = []
         for key in options.keys():
             if request.args.get(key) is not None:
                 print(key + ':' + request.args.get(key))
+                tmp = options[key]
                 if request.args.get(key) == 'true':
                     options[key] = True
                 else:
                     options[key] = False
-        return options
+                if tmp != options[key]:
+                    flags.append(key)
+        return options, flags
 
     def get(self, model, image):
-        # if os.path.isfile('./dream/' + path) is False:
         if image not in database['images']:
-            return abort(404, message=" {} doesn't exist".format('./dream/' + image))
+            return abort(404, message=" {} doesn't exist".format(pantie_dir + image))
         if model not in database['models']:
             return abort(404, message=" {} doesn't exist".format(model))
-        # if os.path.isfile('./converted/' + model + '/' + image) is False:
-        module = importlib.import_module('models.' + model)
-        options = self.option_parser()
-        options['model'] = model
-        options['input'] = './body/body_' + model + '.png'
-        options['output'] = './converted/' + model + '/' + image
-        options['pantie'] = int(image.split('.')[0]) - 1
-        patcher = module.patcher(options=options)
-        patched = patcher.patch(Image.open('./dream/' + panties[options['pantie']]), transparent=True)
-        os.makedirs('./converted/' + model, exist_ok=True)
-        patcher.save(patched, options['output'])
-        return send_from_directory('./converted/' + model, image)
+        options, flags = self.option_parser()
+        fdir = f'{converted_dir}{model}/'
+        if len(flags) == 0:
+            fdir += 'default/'
+        elif len(flags) == 1:
+            fdir += f'{flags[0]}/'
+        else:
+            fdir += 'others/'
+        if not os.path.exists(fdir + image) or 'others' in fdir:
+            os.makedirs(fdir, exist_ok=True)
+            module = importlib.import_module('models.' + model)
+            options['model'] = model
+            options['input'] = './body/body_' + model + '.png'
+            options['output'] = fdir + image
+            options['pantie'] = int(image.split('.')[0]) - 1
+            patcher = module.patcher(options=options)
+            patched = patcher.patch(Image.open(pantie_dir + panties[options['pantie']]), transparent=True)
+            patcher.save(patched, options['output'])
+        update_log(model, image, flags)
+        return send_from_directory(fdir, image)
 
 
 @app.route('/')
