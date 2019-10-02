@@ -2,6 +2,7 @@ __pycache__
 data
 config
 converted
+logs
 *.png
 !body*.png
 !dream/*.png
