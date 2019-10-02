@@ -4,5 +4,5 @@ services:
     build: .
     ports:
       - "9999:5000"
-    # When you want to override the default setup, modify the following command
-    # command: gunicorn --bind 0.0.0.0:5000 restapi:app
+    # If you want to do pre-conversion, please use the following command
+    # command: bash -c "git pull ; python3 update_all.py & gunicorn --bind 0.0.0.0:5000 restapi:app"

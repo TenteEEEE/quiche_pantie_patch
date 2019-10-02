@@ -6,4 +6,4 @@ ADD https://api.github.com/repos/TenteEEEE/quiche_pantie_patch/git/refs/heads/ma
 RUN git clone https://github.com/TenteEEEE/quiche_pantie_patch.git --depth 1
 WORKDIR /quiche_pantie_patch
 RUN pip3 install -r requirements.txt
-CMD git pull && gunicorn --bind 0.0.0.0:5000 restapi:app
+CMD git pull ; gunicorn --bind 0.0.0.0:5000 restapi:app
