@@ -6,3 +6,4 @@ flask
 flask-restful
 flask-cors
 gunicorn
+tqdm
