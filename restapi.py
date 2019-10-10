@@ -1,13 +1,17 @@
+# Start command
+# uvicorn restapi:app
+# gunicorn restapi:app -k uvicorn.workers.UvicornWorker
+
 from threading import Thread
 from concurrent.futures import ThreadPoolExecutor
-from flask import Flask, send_from_directory, request, jsonify
-from flask_restful import Resource, Api, abort
-from flask_cors import CORS
+from fastapi import FastAPI, HTTPException
+from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import FileResponse
+from starlette.requests import Request
 from PIL import Image
 import os
 import sys
 import json
-import random
 import importlib
 import numpy as np
 from datetime import datetime
@@ -30,18 +34,30 @@ def make_display_names():
     display_names = [importlib.import_module('models.' + model).patcher(options=options).name for model in models.models_namelist]
     return display_names
 
+
 def update_log(model, image, flags):
-    log.update({str(len(log)):{'model':model, 'image':image,'flag':flags}})
+    log.update({str(len(log)): {'model': model, 'image': image, 'flag': flags}})
     try:
-        with open(log_dir+logfile, 'r+') as f:
-            json.dump(log,f,indent=2,separators=(',', ':'))
+        with open(log_dir + logfile, 'r') as f:
+            json.dump(log, f, indent=2, separators=(',', ':'))
     except:
         pass
 
-app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-api = Api(app)
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+
+@app.get("/")
+def home():
+    return f'Here is Quiche Pantie Patch Server! You can access the panties: https://pantie-patch.herokuapp.com/api/dream/****.png. When you convert the panties: https://pantie-patch.herokuapp.com/api/convert/specify_avatar_name/****.png'
+
 
 os.makedirs(converted_dir, exist_ok=True)
 os.makedirs(log_dir, exist_ok=True)
@@ -51,8 +67,8 @@ display_names = make_display_names()
 logfile = datetime.today().strftime('%Y_%m_%d_%H_%M') + '.json'
 log = {}
 try:
-    with open(log_dir+logfile, 'w') as f:
-        json.dump(log,f)
+    with open(log_dir + logfile, 'w') as f:
+        json.dump(log, f)
 except:
     pass
 
@@ -109,71 +125,79 @@ sp = score_processor()
 sp_thred = sp.start()
 
 
-class request_apps(Resource):
-    def get(self):
-        return {"apps": ["dream", "convert", "suggest"]}
+@app.get("/api/")
+async def request_apps():
+    return {"apps": ["dream", "convert", "suggest"]}
 
 
-class request_pantie_list(Resource):
-    def get(self):
-        return {"images": panties}
+@app.get("/api/dream/")
+async def request_pantie_list():
+    return {"images": panties}
 
 
-class request_model_option_list(Resource):
-    def __init__(self):
-        with open('./webapp.json', mode='r') as f:
-            self.options = json.load(f)
-
-    def get(self, model):
-        if model not in database['models']:
-            return abort(404, message=" {} doesn't exist".format(model))
-        display_name = display_names[database['models'].index(model)]
-        try:
-            options = self.options[model]
-        except:
-            options = []
-        return jsonify({"display_name": display_name, "images": panties, "options": options})
+@app.get("/api/dream/{image}")
+async def send_pantie(image: str):
+    if image not in database['images']:
+        raise HTTPException(status_code=404, detail=f"{image} doesn't exist")
+    return FileResponse(pantie_dir + image, media_type="image/png")
 
 
-class request_model_list(Resource):
-    def get(self):
-        return jsonify({"models": models.models_namelist, "display_names": display_names})
+@app.get("/api/convert/")
+async def request_model_list():
+    return {"display_names": display_names, "models": models.models_namelist}
 
 
-class request_suggest_list(Resource):
-    def get(self, image):
-        panties = sorted(os.listdir(pantie_dir))
-        pantie = int(image[:-4]) - 1
-        if sp.done:
-            scores = sp.score_matrix[pantie, :]
-        else:
-            scores = sp.score_row((pantie, True))
-        rank = np.argsort(scores)
-        suggests = [panties[index] for index in rank[1:]]
-        scores = [scores[index] for index in rank[1:]]
-        return {"suggests": suggests, "scores": scores}
+@app.get("/api/convert/{model}")
+async def request_model_option_list(model: str):
+    with open('./webapp.json', mode='r') as f:
+        options = json.load(f)
+    if model not in database['models']:
+        raise HTTPException(status_code=404, detail=f"{model} doesn't exist")
+    display_name = display_names[database['models'].index(model)]
+    try:
+        options = options[model]
+    except:
+        options = []
+    return {"display_name": display_name, "images": panties, "options": options}
 
 
-class send_pantie(Resource):
-    def get(self, image):
-        if image not in database['images']:
-            return abort(404, message=" {} doesn't exist".format(pantie_dir + image))
-        return send_from_directory(pantie_dir, image)
+@app.get("/api/suggest/")
+async def request_pantie_list():
+    return {"images": panties}
 
 
-class send_converted(Resource):
-    def __init__(self):
-        with open('./webapp.json', mode='r') as f:
-            self.options = json.load(f)['all']
+@app.get("/api/suggest/{image}")
+async def request_suggest_list(image: str):
+    if image not in database['images']:
+        raise HTTPException(status_code=404, detail=f"{image} doesn't exist")
+    pantie = int(image[:-4]) - 1
+    if sp.done:
+        scores = sp.score_matrix[pantie, :]
+    else:
+        scores = sp.score_row((pantie, True))
+    rank = np.argsort(scores)
+    suggests = [database['images'][index] for index in rank[1:]]
+    scores = [scores[index] for index in rank[1:]]
+    return {"suggests": suggests, "scores": scores}
 
-    def option_parser(self):
-        options = self.options.copy()
+
+@app.get("/api/convert/{model}/{image}")
+async def send_converted(model: str, image: str, request: Request):
+    if image not in database['images']:
+        raise HTTPException(status_code=404, detail=f"{image} doesn't exist")
+    if model not in database['models']:
+        raise HTTPException(status_code=404, detail=f"{model} doesn't exist")
+
+    with open('./webapp.json', mode='r') as f:
+        options = json.load(f)['all']
+
+    def option_parser(options):
         flags = []
         for key in options.keys():
-            if request.args.get(key) is not None:
-                print(key + ':' + request.args.get(key))
+            if request.query_params.get(key) is not None:
+                print(key + ':' + request.query_params.get(key))
                 tmp = options[key]
-                if request.args.get(key) == 'true':
+                if request.query_params.get(key) in ['true', 'True', 'yes', 'Yes']:
                     options[key] = True
                 else:
                     options[key] = False
@@ -181,45 +205,23 @@ class send_converted(Resource):
                     flags.append(key)
         return options, flags
 
-    def get(self, model, image):
-        if image not in database['images']:
-            return abort(404, message=" {} doesn't exist".format(pantie_dir + image))
-        if model not in database['models']:
-            return abort(404, message=" {} doesn't exist".format(model))
-        options, flags = self.option_parser()
-        fdir = f'{converted_dir}{model}/'
-        if len(flags) == 0:
-            fdir += 'default/'
-        elif len(flags) == 1:
-            fdir += f'{flags[0]}/'
-        else:
-            fdir += 'others/'
-        if not os.path.exists(fdir + image) or 'others' in fdir:
-            os.makedirs(fdir, exist_ok=True)
-            module = importlib.import_module('models.' + model)
-            options['model'] = model
-            options['input'] = './body/body_' + model + '.png'
-            options['output'] = fdir + image
-            options['pantie'] = int(image.split('.')[0]) - 1
-            patcher = module.patcher(options=options)
-            patched = patcher.patch(Image.open(pantie_dir + panties[options['pantie']]), transparent=True)
-            patcher.save(patched, options['output'])
-        update_log(model, image, flags)
-        return send_from_directory(fdir, image)
-
-
-@app.route('/')
-def hello():
-    return f'Here is Quiche Pantie Patch Server! You can access the panties: https://pantie-patch.herokuapp.com/api/dream/****.png. When you convert the panties: https://pantie-patch.herokuapp.com/api/convert/specify_avatar_name/****.png'
-
-
-api.add_resource(request_apps, '/api/')
-api.add_resource(request_pantie_list, '/api/dream/', '/api/suggest/')
-api.add_resource(send_pantie, '/api/dream/<image>')
-api.add_resource(request_model_list, '/api/convert/')
-api.add_resource(request_model_option_list, '/api/convert/<model>/')
-api.add_resource(send_converted, '/api/convert/<model>/<image>')
-api.add_resource(request_suggest_list, '/api/suggest/<image>')
-
-if __name__ == '__main__':
-    app.run(debug=False)
+    options, flags = option_parser(options)
+    fdir = f'{converted_dir}{model}/'
+    if len(flags) == 0:
+        fdir += 'default/'
+    elif len(flags) == 1:
+        fdir += f'{flags[0]}/'
+    else:
+        fdir += 'others/'
+    if not os.path.exists(fdir + image) or 'others' in fdir:
+        os.makedirs(fdir, exist_ok=True)
+        module = importlib.import_module('models.' + model)
+        options['model'] = model
+        options['input'] = './body/body_' + model + '.png'
+        options['output'] = fdir + image
+        options['pantie'] = int(image.split('.')[0]) - 1
+        patcher = module.patcher(options=options)
+        patched = patcher.patch(Image.open(pantie_dir + panties[options['pantie']]), transparent=True)
+        patcher.save(patched, options['output'])
+    update_log(model, image, flags)
+    return FileResponse(fdir + image, media_type="image/png")

@@ -5,4 +5,4 @@ services:
     ports:
       - "9999:5000"
     # If you want to do pre-conversion, please use the following command
-    # command: bash -c "git pull ; python3 update_all.py & gunicorn --bind 0.0.0.0:5000 restapi:app"
+    # command: bash -c "git pull ; python3 update_all.py & gunicorn --bind 0.0.0.0:5000 restapi:app -k uvicorn.workers.UvicornWorker"

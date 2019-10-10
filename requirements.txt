@@ -2,8 +2,9 @@ numpy
 pillow
 scikit-image
 scipy
-flask
-flask-restful
-flask-cors
 gunicorn
+uvicorn
 tqdm
+fastapi
+email-validator
+aiofiles
