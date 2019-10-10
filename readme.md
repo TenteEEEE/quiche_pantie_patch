@@ -159,17 +159,8 @@ patch.pyのargparse対応:[4hiziri](https://github.com/4hiziri)さん
 [ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)の開発者:[Joniburn](https://github.com/joniburn)さん  
 [Unityの拡張エディタ](https://github.com/sansuke05/quiche-pantie-patch-unity-editor)の開発者:[Sansuke](https://github.com/sansuke05)さん  
 
-## 画像のライセンス
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> を著作者とするこの <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">作品</span> は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズの 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>で提供されています。  
-作品のクレジットの表示が必要なライセンスではありますが、アバターのテクスチャにクレジット表記という無粋なものは不要です！  
-どこかで再配布する場合などに別のテキストファイルなどで記載してください。  
-また、商用利用したい場合は[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)までご相談ください。  
-
-## ソフトウェアのライセンス
-MITライセンス(一行で:無料で自由に使える/変更できるが、なにか問題があっても作者は責任を負わない)に従います。  
-https://opensource.org/licenses/mit-license.php  
-Copyright (c) 2019 TenteEEEE  
-
+## ライセンス
+複雑になってきたので、[Wikiのライセンス](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)をご確認ください。
 
 ---
 **English**
@@ -244,11 +235,5 @@ Improvement of patch.py:[4hiziri](https://github.com/4hiziri)
 Developer of the [web app](https://joniburn.github.io/quiche-pantie-patch-gui/): [Joniburn](https://github.com/joniburn)  
 Developer of the [UnityEditor](https://github.com/sansuke05/quiche-pantie-patch-unity-editor): [Sansuke](https://github.com/sansuke05)  
 
-## License for my images
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/tenteeeee_vrc" property="cc:attributionName" rel="cc:attributionURL">TenteEEEE</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.  
-When you want to use it on your business, please ask [@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc).
-
-## License for my scripts
-Released under the MIT license  
-https://opensource.org/licenses/mit-license.php  
-Copyright (c) 2019 TenteEEEE  
+## License
+See [Wiki/License](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
