@@ -22,9 +22,11 @@
 
   "":"When you want to choose a pantie randomly, set true",
   "random": false,
-
-  "":"-----Setup for Quiche, Linz, Cornet bra-----",
+  
+  "":"When you want to generate bra, set true",
   "with_bra":true,
+  
+  "":"-----Setup for Quiche, Linz, Cornet bra-----",
   "is_lace":false,
   "dis_ribbon":false,
   "dis_shading":false,
@@ -45,8 +47,5 @@
   "use_ribbon_mesh":false,
   
   "":"-----Setup for I-s-----",
-  "is_4k":false,
-  
-  "":"-----Setup for Shaclo(winter clothes)-----",
-  "with_bra":true  
+  "is_4k":false
 }
