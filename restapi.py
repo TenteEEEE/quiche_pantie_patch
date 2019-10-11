@@ -6,7 +6,7 @@ from threading import Thread
 from concurrent.futures import ThreadPoolExecutor
 from fastapi import FastAPI, HTTPException
 from starlette.middleware.cors import CORSMiddleware
-from starlette.responses import FileResponse
+from starlette.responses import FileResponse, RedirectResponse
 from starlette.requests import Request
 from PIL import Image
 import os
@@ -38,7 +38,7 @@ def make_display_names():
 def update_log(model, image, flags):
     log.update({str(len(log)): {'model': model, 'image': image, 'flag': flags}})
     try:
-        with open(log_dir + logfile, 'r') as f:
+        with open(log_dir + logfile, 'w') as f:
             json.dump(log, f, indent=2, separators=(',', ':'))
     except:
         pass
@@ -127,7 +127,10 @@ sp_thred = sp.start()
 
 @app.get("/api/")
 async def request_apps():
-    return {"apps": ["dream", "convert", "suggest"]}
+    if os.path.exists('./zips/sharelinks.json'):
+        return {"apps": ["dream", "convert", "suggest", "zip"]}
+    else:
+        return {"apps": ["dream", "convert", "suggest"]}
 
 
 @app.get("/api/dream/")
@@ -159,26 +162,6 @@ async def request_model_option_list(model: str):
     except:
         options = []
     return {"display_name": display_name, "images": panties, "options": options}
-
-
-@app.get("/api/suggest/")
-async def request_pantie_list():
-    return {"images": panties}
-
-
-@app.get("/api/suggest/{image}")
-async def request_suggest_list(image: str):
-    if image not in database['images']:
-        raise HTTPException(status_code=404, detail=f"{image} doesn't exist")
-    pantie = int(image[:-4]) - 1
-    if sp.done:
-        scores = sp.score_matrix[pantie, :]
-    else:
-        scores = sp.score_row((pantie, True))
-    rank = np.argsort(scores)
-    suggests = [database['images'][index] for index in rank[1:]]
-    scores = [scores[index] for index in rank[1:]]
-    return {"suggests": suggests, "scores": scores}
 
 
 @app.get("/api/convert/{model}/{image}")
@@ -225,3 +208,46 @@ async def send_converted(model: str, image: str, request: Request):
         patcher.save(patched, options['output'])
     update_log(model, image, flags)
     return FileResponse(fdir + image, media_type="image/png")
+
+
+@app.get("/api/suggest/")
+async def request_pantie_list():
+    return {"images": panties}
+
+
+@app.get("/api/suggest/{image}")
+async def request_suggest_list(image: str):
+    if image not in database['images']:
+        raise HTTPException(status_code=404, detail=f"{image} doesn't exist")
+    pantie = int(image[:-4]) - 1
+    if sp.done:
+        scores = sp.score_matrix[pantie, :]
+    else:
+        scores = sp.score_row((pantie, True))
+    rank = np.argsort(scores)
+    suggests = [database['images'][index] for index in rank[1:]]
+    scores = [scores[index] for index in rank[1:]]
+    return {"suggests": suggests, "scores": scores}
+
+
+@app.get("/api/zip/")
+async def request_zip_list():
+    try:
+        with open('./zips/sharelinks.json', mode='r') as f:
+            zips = json.load(f)
+    except:
+        raise HTTPException(status_code=404, detail=f"Zip doesn't exist")
+    return {"display_names": display_names, "zips": [k for k in sorted(zips.keys())]}
+
+
+@app.get("/api/zip/{zipname}")
+async def send_zip(zipname: str):
+    try:
+        with open('./zips/sharelinks.json', mode='r') as f:
+            zips = json.load(f)
+    except:
+        raise HTTPException(status_code=404, detail=f"Zip doesn't exist")
+    if zipname not in zips.keys():
+        raise HTTPException(status_code=404, detail=f"{zipname} doesn't exist")
+    update_log(zipname.split('.')[0], zipname, ['zip'])
+    return RedirectResponse(url=zips[zipname])

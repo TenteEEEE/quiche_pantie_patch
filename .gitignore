@@ -3,6 +3,7 @@ data
 config
 converted
 logs
+zips
 *.png
 !body*.png
 !dream/*.png
