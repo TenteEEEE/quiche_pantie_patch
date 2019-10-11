@@ -150,7 +150,7 @@ async def request_model_list():
     return {"display_names": display_names, "models": models.models_namelist}
 
 
-@app.get("/api/convert/{model}")
+@app.get("/api/convert/{model}/")
 async def request_model_option_list(model: str):
     with open('./webapp.json', mode='r') as f:
         options = json.load(f)
