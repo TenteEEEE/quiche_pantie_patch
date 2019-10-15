@@ -1,6 +1,6 @@
 import numpy as np
 import skimage.io as io
-from skimage.measure import *
+from skimage.metrics import *
 import os
 import argparse
 
@@ -22,9 +22,9 @@ for i,pantie in enumerate(panties):
     print('\rProcess: ' + pantie + ' [' + str(np.around((i+1)/len(panties)*100,2)) + '%]', end="")
     tmp = io.imread('./dream/'+pantie)[args.edge:-args.edge,args.edge:-args.edge,:]
     if args.ssim:
-        score = (1-compare_ssim(ref,tmp,multichannel=True))*100
+        score = (1-structural_similarity(ref,tmp,multichannel=True))*100
     else:
-        score = compare_mse(ref,tmp)
+        score = mean_squared_error(ref,tmp)
     scores.append(score)
 print("\nDone! Close the image window to show the next suggestion. (Lower score is better)")
 

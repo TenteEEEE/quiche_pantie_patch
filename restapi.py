@@ -16,7 +16,7 @@ import importlib
 import numpy as np
 from datetime import datetime
 import skimage.io as io
-from skimage.measure import *
+from skimage.metrics import *
 from src.image_loader import image_loader
 sys.path.append('./src/')
 import models
@@ -97,7 +97,7 @@ class score_processor:
         ref = io.imread('./dream/%04d.png' % (num + 1))[50:-edge * 2, edge:-edge, :3]
         for check_pantie in remains:
             tmp = np.array(template_loader.read())[50:-edge * 2, edge:-edge, :3]
-            scores.append(compare_mse(ref, tmp))
+            scores.append(mean_squared_error(ref, tmp))
         return np.array(scores)
 
     def argument_generator(self, num_pantie, flag=True):
