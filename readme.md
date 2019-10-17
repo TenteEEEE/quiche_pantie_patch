@@ -5,7 +5,7 @@
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃんです。
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さんです。
 
 ## 導入
 透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えばこのツールの導入は不要です。  
@@ -146,8 +146,8 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 |![test](./sample/i-s_pantie.png)|![test](./sample/blanca_pantie.png)|
 |[シャーロ(冬服)](https://atelier-alca.booth.pm/items/1572567)ちゃん|[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん|
 |![test](./sample/shaclo_winter_pantie.png)|![test](./sample/carti_pantie.png)|
-|[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん||
-|![test](./sample/aina_pantie.png)||
+|[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん|[受付嬢](https://mk22.booth.pm/items/1568317)さん|
+|![test](./sample/aina_pantie.png)|![test](./sample/uketsukejo_pantie.png)|
 
 
 ## 対応してほしいアバターがある/開発者の方へ
@@ -229,8 +229,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/i-s_pantie.png)|![test](./sample/blanca_pantie.png)|
 |[Shaclo(winter clothes)](https://atelier-alca.booth.pm/items/1572567)|[Carti](https://takewaka.booth.pm/items/1555399)|
 |![test](./sample/shaclo_winter_pantie.png)|![test](./sample/carti_pantie.png)|
-|[Aina](https://narazaka.booth.pm/items/1319390)||
-|![test](./sample/aina_pantie.png)||
+|[Aina](https://narazaka.booth.pm/items/1319390)|[Uketsukejo](https://mk22.booth.pm/items/1568317)|
+|![test](./sample/aina_pantie.png)|![test](./sample/uketsukejo_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
