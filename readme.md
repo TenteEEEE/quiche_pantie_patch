@@ -1,11 +1,15 @@
 
+[English](https://github.com/TenteEEEE/quiche_pantie_patch?#quiche-pantie-patch)
+
 # キッシュちゃんパンツパッチ
 ![logo](./material/logo_256.png)  
 パンツは一期一会   
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃんです。
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん、[ももねこ](https://noranjp.booth.pm/items/1630569)ちゃんです。  
+
+対応したいモデラーさんは[**CC0ぱんつ**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)**の利用を検討してください。**  
 
 ## 導入
 透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えばこのツールの導入は不要です。  
@@ -13,21 +17,7 @@
 [Sansuke](https://github.com/sansuke05)さんが[Unityの拡張エディタ](https://github.com/sansuke05/quiche-pantie-patch-unity-editor)をBoothにて[頒布](https://sansuke05.booth.pm/items/1582611)されています。  
 こちらも要チェックです！
 
-パンツパッチ本体の導入メリットは、Unityに反映するまで完全自動化できるという点ですので、それが必要であれば下記の導入を進めてください。
-2019/06/12以降は[自動インストールバッチファイル](https://gist.github.com/TenteEEEE/1ef33308bd841e3c5f1c8a1a8ab95d67)を実行するのが一番簡単です。  
-導入後はパンツパッチのフォルダでコマンドプロンプトを開き、`git pull`でいい感じにしてくれます。  
-画像つきの導入手順は[**こちら**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/Installation-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)から！
-
-手動で導入する場合は、[siro_choco0621](https://twitter.com/siro_choco0621)さんが導入についての[メモ](https://twitter.com/siro_choco0621/status/1131587508238659585)をまとめてくださいましたので、こちらを参考に！  
-URL: https://twitter.com/siro_choco0621/status/1131587508238659585
-
-### プログラム起動の確認
-1. **パンツパッチのフォルダ直下(somewhere\quiche_pantie_patch)でコンソールを起動する** [参考URL](https://www.lifehacker.jp/2013/03/130320windows_cmd.html)
-1. `python patch.py` でプログラムを起動する
-1. なにか動いてアバター一覧が表示されればOKです。
-
-パンツパッチに限らず多くのプログラムはプログラムフォルダ直下で動くようになっています。  
-**必ずパンツパッチのフォルダでコンソールを起動してください。**  
+パンツパッチ本体の導入メリットは、Unityに反映するまで完全自動化できるという点ですので、それが必要であればWikiの[インストール](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/Installation-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)を読んで下記の導入してください。
 
 ## 使い方
 基本的にどのアバターであっても`python patch.py`としてパッチャーを起動するだけですが、主に2つの使い方を想定しています。
@@ -35,91 +25,17 @@ URL: https://twitter.com/siro_choco0621/status/1131587508238659585
 1. それぞれのアバターにパンツをパッチする (対話形式でのパッチ)
 1. よく使うアバターに同様の設定でパンツをパッチし続ける (jsonセットアップでのパッチ)
 
-### 1. 対話形式の使い方
-1. bodyフォルダにアバターのテクスチャを置く (できればもともと配置されている名前に合わせたほうが楽)
-1. **パンツパッチのフォルダでコンソールを起動する** [参考URL](https://www.lifehacker.jp/2013/03/130320windows_cmd.html)
-1. `python patch.py` でプログラムを起動する
-1. アバター一覧が表示されるので番号を入力してEnter
-1. 適宜オプションについて聞かれるのでy/nで答える(Enterを打てばデフォルトの動作になる)
-1. patched.png がパンツパッチされたものです
+詳しくはWikiの[使い方](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/Usage-%E4%BD%BF%E3%81%84%E6%96%B9)をチェックしてください。  
 
-使い方がわからないときは`python patch.py -h`で説明が出力されます。  
+## 対応してほしいアバターがある
+* モデラー(著作者)  
+ぜひ[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)の利用を検討してください。  
+こちらはすでに変換プログラムがあり、ぱんつ位置は簡単に変更できます。  
+* モデル利用者  
+[対応モデルの拡充ガイドライン](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/%E5%AF%BE%E5%BF%9C%E3%83%A2%E3%83%87%E3%83%AB%E6%8B%A1%E5%85%85%E3%81%AE%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3)を読んでからお問い合わせください。  
 
-#### オプション
-* -m: モデル名を指定する。  
-例: `python patch.py -m quiche`
-* -a: すべてのパンツをパッチする。 パッチされたものはconvertedフォルダのモデル名のフォルダに作成されます。  
-例: `python patch.py -m quiche -a`
-* -f: -aは上書きをしません。 上書きするときはこちらも指定してください。  
-例: `python patch.py -m quiche -a -f`
-* -i: bodyテクスチャのファイル名を指定。  
-例: `python patch.py -m quiche -i ./body/body.png`
-* -o: 出力されるテクスチャのファイル名を指定。  
-例: `python patch.py -m quiche -o patched.png`
-* -d: -a時に出力されるディレクトリを指定。  
-例: `python patch.py -m quiche -d linz`
-* -p: パンツを指定。指定しなければ最新のものが適用される。 -a時は開始番号にもなる。  
-例: `python patch.py -m quiche -p 101`
-* -r: ランダムにパンツを選ぶ。  
-例: `python patch.py -m quiche -r`
-* -t: 透過PNGで作成。 配布するときに便利なオプションで、私以外に需要はおそらくない。  
-例: `python patch.py -m quiche -t`
-* -j: [favorite.json](favorite.json)の設定を読み込んでパッチする。 このとき他の引数は全て無効化されます。  
-例: `python patch.py -j`
-
-### 2. jsonによる設定の自動読み込みでの使い方
-jsonによる設定読み込みに対応しました。対話形式がだるい/毎日最新のパンツをパッチするつもりの人には便利かも。  
-json読み込みによるパッチは `python patch.py -j` です。
-
-jsonは開発者にはよく使われている形式のファイルですが、基本的に以下のようなただのテキストファイルです。  
-お気に入りのエディタで開いて設定してください。項目はなんとなく分かると思います。
-こちらのサンプルはリンツちゃん素体用の設定例です。  
-`git pull`で最新のパンツを取り込んだ後、この設定で`python patch.py -j`すれば、勝手に最新のパンツだけ変換されます。  
-``` json
-{
-  "":"-----Common Setup-----",
-  "model":"quiche_nbody",
-  "input":"./body/body_linz.png",
-  "output":"patched.png",
-  
-  "":"I guess normally true is comfortable for you. When you set false, it patches a single pantie",
-  "all":true,
-  
-  "":"When you set all, you can define the directory name. default will be a model name",
-  "":"It may useful when you make Linz texture using quiche model",
-  "directory":"default",
-
-  "":"Pantie number. 0 means the latest one. It may comfort for you.",
-  "pantie":0,
-
-  "":"When you want to update all converted textures, set true",
-  "force":false,
-
-  "":"When you want to make transparent textures, set true",
-  "transparent": false,
-
-  "":"When you want to choose a pantie randomly, set true",
-  "random": false,
-
-  "":"-----Setup for Quiche and Linz bra-----",
-  "with_bra":true,
-  "is_lace":false,
-  "dis_ribbon":false,
-  "dis_shading":false,
-  "dis_decoration":false,
-  "dis_texturing":false,
-
-  "":"-----Setup for immoral sign-----",
-  "add_sign":false,
-  "fsign":"./material/anna_sign.png",
-
-  "":"-----Setup for stitch correction for Shaclo-----",
-  "stitch_correction":false,
-  
-  "":"-----Setup for frill correction for Fuzzy-----",
-  "is_frill":false
-}
-```
+## 開発者の方へ
+対応アバターのスクリプトを書いてみたい人はコードや[Wiki](https://github.com/TenteEEEE/quiche_pantie_patch/wiki)のFor Developersを読むと分かりやすいかも。
 
 ## 変換サンプル
 |||
@@ -148,13 +64,9 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 |![test](./sample/shaclo_winter_pantie.png)|![test](./sample/carti_pantie.png)|
 |[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん|[受付嬢](https://mk22.booth.pm/items/1568317)さん|
 |![test](./sample/aina_pantie.png)|![test](./sample/uketsukejo_pantie.png)|
-|[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん||
-|![test](./sample/chronos_pantie.png)||
+|[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん|[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)|
+|![test](./sample/chronos_pantie.png)|![test](./sample/cc0_pantie.png)|
 
-
-## 対応してほしいアバターがある/開発者の方へ
-未対応のアバターがあれば、テストユーザーになる覚悟とともにボディのテクスチャ(できればUVマップのあるもの)を[@tenteeeee_vrc](https://twitter.com/tenteeeee_vrc)まで送っていただければ何とかなるかも。  
-対応アバターのスクリプトを書いてみたい人はコードや[Wiki](https://github.com/TenteEEEE/quiche_pantie_patch/wiki)のFor Developersを読むと分かりやすいかも。
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -162,6 +74,7 @@ jsonは開発者にはよく使われている形式のファイルですが、�
 patch.pyのargparse対応:[4hiziri](https://github.com/4hiziri)さん  
 [ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)の開発者:[Joniburn](https://github.com/joniburn)さん  
 [Unityの拡張エディタ](https://github.com/sansuke05/quiche-pantie-patch-unity-editor)の開発者:[Sansuke](https://github.com/sansuke05)さん  
+[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)のモデラー: [socho](https://twitter.com/socho_v)さんと[noran](https://twitter.com/noran256)さん  
 
 ## ライセンス
 複雑になってきたので、[Wikiのライセンス](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)をご確認ください。
@@ -233,8 +146,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/shaclo_winter_pantie.png)|![test](./sample/carti_pantie.png)|
 |[Aina](https://narazaka.booth.pm/items/1319390)|[Uketsukejo](https://mk22.booth.pm/items/1568317)|
 |![test](./sample/aina_pantie.png)|![test](./sample/uketsukejo_pantie.png)|
-|[Chronos](https://karekitsune.booth.pm/items/1542143)||
-|![test](./sample/chronos_pantie.png)||
+|[Chronos](https://karekitsune.booth.pm/items/1542143)|[CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)|
+|![test](./sample/chronos_pantie.png)|![test](./sample/cc0_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
@@ -242,6 +155,7 @@ Developer of the Ukon and Differe pantie converter: [thakyuu](https://github.com
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 Developer of the [web app](https://joniburn.github.io/quiche-pantie-patch-gui/): [Joniburn](https://github.com/joniburn)  
 Developer of the [UnityEditor](https://github.com/sansuke05/quiche-pantie-patch-unity-editor): [Sansuke](https://github.com/sansuke05)  
+Modeler of the [CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4): [socho](https://twitter.com/socho_v) and [noran](https://twitter.com/noran256)  
 
 ## License
 See [Wiki/License](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)

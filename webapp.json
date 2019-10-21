@@ -21,6 +21,9 @@
   "carti":[
     "with_bra"
   ],
+  "cc0":[
+    "is_4k"
+  ],
   "cornet_nbody":[
     "with_bra",
     "is_lace",
