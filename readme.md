@@ -7,7 +7,7 @@
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん、[ももねこ](https://noranjp.booth.pm/items/1630569)ちゃん、[ハティ](https://kokorobouzu.booth.pm/items/1451160)です。  
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん、[ももねこ](https://noranjp.booth.pm/items/1630569)ちゃん、[ハティ](https://kokorobouzu.booth.pm/items/1451160)ちゃんです。  
 
 対応したいモデラーさんは[**CC0ぱんつ**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)**の利用を検討してください。**  
 
@@ -29,7 +29,7 @@
 
 ## 対応してほしいアバターがある
 * モデラー(著作者)  
-ぜひ[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)の利用を検討してください。  
+ぜひ[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)のメッシュまたはUVの利用を検討してください。  
 こちらはすでに変換プログラムがあり、ぱんつ位置は簡単に変更できます。  
 * モデル利用者  
 [対応モデルの拡充ガイドライン](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/%E5%AF%BE%E5%BF%9C%E3%83%A2%E3%83%87%E3%83%AB%E6%8B%A1%E5%85%85%E3%81%AE%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3)を読んでからお問い合わせください。  
@@ -66,7 +66,7 @@
 |![test](./sample/aina_pantie.png)|![test](./sample/uketsukejo_pantie.png)|
 |[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん|[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)|
 |![test](./sample/chronos_pantie.png)|![test](./sample/cc0_pantie.png)|
-|[ハティ](https://kokorobouzu.booth.pm/items/1451160)||
+|[ハティ](https://kokorobouzu.booth.pm/items/1451160)ちゃん||
 |![test](./sample/hati_pantie.png)||
 
 
@@ -163,3 +163,4 @@ Modeler of the [CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wik
 
 ## License
 See [Wiki/License](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
+
