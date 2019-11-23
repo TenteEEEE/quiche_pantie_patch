@@ -45,5 +45,4 @@ class patcher(patcher):
         pantie = np.uint8(pantie*255)
         pantie = np.bitwise_and(pantie, self.mask)
         pantie = np.concatenate((pantie[::-1],pantie),axis=0)
-        io.imsave('test.png', pantie)
         return Image.fromarray(pantie)
