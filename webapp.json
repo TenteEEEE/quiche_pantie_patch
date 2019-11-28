@@ -11,7 +11,10 @@
     "stitch_correction":false,
     "is_frill":false,
     "use_ribbon_mesh":false,
-    "is_4k":false
+    "is_4k":false,
+    "with_skin":true,
+    "with_socks":true,
+    "is_knee":true
   },
   "anna":[
     "add_sign"
@@ -58,6 +61,11 @@
   "lua_quest":[
   ],
   "lua":[
+  ],
+  "masscat":[
+    "with_skin",
+    "with_socks",
+    "is_knee"
   ],
   "milk":[
     "add_sign"

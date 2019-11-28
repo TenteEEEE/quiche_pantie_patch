@@ -14,7 +14,7 @@ algorithm = 'sha256'
 hash_dict_name = './converted/hash_dict'
 converted_dir = './converted/'
 pantie_dir = './dream/'
-checkflags = {'default', 'with_bra', 'is_lace', 'add_sign', 'stitch_correction', 'is_frill', 'use_ribbon_mesh', 'is_4k'}
+checkflags = {'default', 'with_bra', 'is_lace', 'add_sign', 'stitch_correction', 'is_frill', 'use_ribbon_mesh', 'is_4k',  'is_knee'}
 ########################################
 
 

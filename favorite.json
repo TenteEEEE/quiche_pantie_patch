@@ -47,5 +47,10 @@
   "use_ribbon_mesh":false,
   
   "":"-----Setup for I-s-----",
-  "is_4k":false
+  "is_4k":false,
+  
+  "":"-----Setup for Masscat-----",
+  "with_skin":true,
+  "with_socks":true,
+  "is_knee":true
 }
