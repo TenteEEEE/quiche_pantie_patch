@@ -8,7 +8,7 @@ from src.utils.imgproc import *
 
 class patcher(patcher):
     def __init__(self, body='./body/body_masscat.png', **options):
-        super().__init__('量産型のらきゃっと', body=body, pantie_position=[2588, 1047], **options)
+        super().__init__('量産型のらきゃっと', body=body, pantie_position=[2590, 1047], **options)
         self.mask = io.imread('./mask/mask_masscat.png')
         try:
             self.with_skin = self.options['with_skin']
