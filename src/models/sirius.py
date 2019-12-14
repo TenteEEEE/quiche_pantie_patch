@@ -9,8 +9,8 @@ from src.utils.imgproc import affine_transform_by_arr, resize
 
 class patcher(patcher):
     def __init__(self, body='./body/body_sirius.png', **options):
-        super().__init__('シリウス', body=body, pantie_position=[414, 2000],
-                         **options)
+        super().__init__('シリウス', body=body, pantie_position=[414, 2000], 
+            **options)
         self.mask = io.imread('./mask/mask_sirius.png')
 
     def convert(self, image):
@@ -18,18 +18,13 @@ class patcher(patcher):
 
         # 前面下部を下に伸ばす
         patch = np.copy(pantie[-180:-5, 546:, :])
-        patch = skt.resize(patch[::-1, ::-1, :], (80, 65),
-                           anti_aliasing=True, mode='reflect')
+        patch = skt.resize(patch[::-1, ::-1, :], (80, 65), anti_aliasing=True, 
+            mode='reflect')
         [pr, pc, d] = patch.shape
         pantie[127 - 5:127 - 5 + pr, :pc, :] = np.uint8(patch * 255)
 
-        # 前面のアフィン変換
-        front = pantie[:, :300]
-        arrx = np.zeros(100)
-        arry = np.zeros(100)
-        # FIXME: なぜか0の配列でアフィン変換しないと表示されない。
-        front = affine_transform_by_arr(front, arrx, arry)
-        front = np.uint8(front[:-150, 8:-5] * 255)
+        # 前面
+        front = pantie[:-150, 8:295]
 
         # 後面のアフィン変換
         back = pantie[:, 300:]
@@ -50,37 +45,13 @@ class patcher(patcher):
         [br, bc, d] = back.shape
         shift_x = 0
         shift_y = 85
-        pantie = np.zeros((np.max([fr + shift_y, br]), fc + bc - shift_x, d),
-                          dtype=np.uint8)
+        pantie = np.zeros((np.max([fr + shift_y, br]), fc + bc - shift_x, d), 
+            dtype=np.uint8)
         pantie[shift_y:shift_y + fr, :fc] = front
         pantie[:br, fc - shift_x:] = back
+        pantie = np.uint8(resize(pantie, [2.3, 2.53]) * 255)
+        pantie = np.bitwise_and(pantie, self.mask)
 
         # mirroring
-        [r, c, d] = pantie.shape
-        npantie = np.zeros((r, c * 2, d), dtype=np.uint8)
-        npantie[:, c:, ] = pantie
-        npantie[:, :c, ] = pantie[:, ::-1]
-        pantie = npantie
-
-        # resizing
-        pantie = np.uint8(resize(pantie, [2.3, 2.53]) * 255)
+        pantie = np.concatenate((pantie[:, ::-1], pantie), axis=1)
         return Image.fromarray(pantie)
-
-    def patch(self, image, transparent=False):
-        image = self.convert(image)
-
-        # apply 4K mask
-        # 4K化してからマスクを適用することでスムーズにする。
-        empty = Image.new("RGBA", (4096, 4096))
-        image4k = self.paste(empty, image, self.pantie_position)
-        pantie = np.array(image4k)
-        pantie = np.bitwise_and(pantie, self.mask)
-        # マスクは左面しか作っていないので反転して適用する。
-        pantie = np.bitwise_and(pantie, np.fliplr(self.mask))
-        image4k_masked = Image.fromarray(pantie)
-
-        if transparent:
-            return image4k_masked
-        else:
-            patched = self.body.copy()
-            return self.paste(patched, image4k_masked, (0, 0))
