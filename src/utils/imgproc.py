@@ -79,3 +79,7 @@ def ribbon_inpaint(image):
     inpainted = removed + inpainter
     image[19:58, 5:35, :3] = np.uint8(inpainted)
     return image
+
+
+def alpha_brend(img1, img2, mask):
+    return img1 * mask[:, :, None] + img2 * (1 - mask)[:, :, None]
