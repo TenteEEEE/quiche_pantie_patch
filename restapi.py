@@ -20,6 +20,7 @@ from skimage.metrics import *
 from src.image_loader import image_loader
 sys.path.append('./src/')
 import models
+import secrets
 
 ### Parameters #################################################
 pantie_dir = './dream/'
@@ -128,9 +129,9 @@ sp_thred = sp.start()
 @app.get("/api/")
 async def request_apps():
     if os.path.exists('./zips/sharelinks.json'):
-        return {"apps": ["dream", "convert", "suggest", "zip"]}
+        return {"apps": ["dream", "convert", "suggest", "gacha", "zip"]}
     else:
-        return {"apps": ["dream", "convert", "suggest"]}
+        return {"apps": ["dream", "convert", "suggest", "gacha"]}
 
 
 @app.get("/api/dream/")
@@ -229,6 +230,17 @@ async def request_suggest_list(image: str):
     scores = [scores[index] for index in rank[1:]]
     return {"suggests": suggests, "scores": scores}
 
+@app.get("/api/gacha/")
+async def request_gacha_list():
+    return {"1ren", "10ren"}
+
+@app.get("/api/gacha/1ren")
+async def send_1ren_result():
+    return {panties[secrets.randbelow(len(panties))]}
+
+@app.get("/api/gacha/10ren")
+async def send_10ren_result():
+    return [panties[secrets.randbelow(len(panties))] for i in range(10)]
 
 @app.get("/api/zip/")
 async def request_zip_list():
