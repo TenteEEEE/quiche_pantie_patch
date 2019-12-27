@@ -82,7 +82,7 @@
 patch.pyのargparse対応:[4hiziri](https://github.com/4hiziri)さん  
 [ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)、シリウスちゃんコンバータの開発者:[Joniburn](https://github.com/joniburn)さん  
 [Unityの拡張エディタ](https://github.com/sansuke05/quiche-pantie-patch-unity-editor)の開発者:[Sansuke](https://github.com/sansuke05)さん  
-[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)のモデラー: [socho](https://twitter.com/socho_v)さんと[noran](https://twitter.com/noran256)さん  
+[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)のモデラー: [socho](https://twitter.com/socho_v)  
 
 ## ライセンス
 複雑になってきたので、[Wikiのライセンス](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)をご確認ください。
@@ -171,7 +171,7 @@ Developer of the Ukon and Differe pantie converter: [thakyuu](https://github.com
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 Developer of the [web app](https://joniburn.github.io/quiche-pantie-patch-gui/) and Sirius pantie converter: [Joniburn](https://github.com/joniburn)  
 Developer of the [UnityEditor](https://github.com/sansuke05/quiche-pantie-patch-unity-editor): [Sansuke](https://github.com/sansuke05)  
-Modeler of the [CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4): [socho](https://twitter.com/socho_v) and [noran](https://twitter.com/noran256)  
+Modeler of the [CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4): [socho](https://twitter.com/socho_v)  
 
 ## License
 See [Wiki/License](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
