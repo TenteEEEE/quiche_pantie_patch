@@ -10,7 +10,7 @@ from skimage.filters import gaussian
 
 class patcher(patcher):
     def __init__(self, body='./body/body_yuko.png', **options):
-        super().__init__('幽狐', body=body, pantie_position=[1, 1130], **options)
+        super().__init__('幽狐', body=body, pantie_position=[-2, 1130], **options)
         self.mask = io.imread('./mask/mask_yuko.png')
         self.ribbon_position = [1712, 1601]
         self.bra_position = [298, 1301]
@@ -124,9 +124,9 @@ class patcher(patcher):
 
         # move from hip to front
         patch = np.copy(pantie[-140:-5, 546:, :])
-        patch = skt.resize(patch[::-1, ::-1, :], (270, 60), anti_aliasing=True, mode='reflect')
+        patch = skt.resize(patch[::-1, ::-1, :], (270, 63), anti_aliasing=True, mode='reflect')
         [pr, pc, d] = patch.shape
-        pantie[125:125 + pr, :pc, :] = np.uint8(patch * 255)
+        pantie[123:123 + pr, :pc, :] = np.uint8(patch * 255)
 
         # Inpainting ribbon
         if self.use_ribbon_mesh:
@@ -170,7 +170,7 @@ class patcher(patcher):
         pantie = skt.rotate(pantie, 8.1, resize=True)
 
         # Finalize
-        pantie = resize(pantie, [2.31, 2.31])
+        pantie = resize(pantie, [2.31, 2.35])
         pantie = pantie[140:-80, 72:]
         pantie = np.uint8(pantie * 255)
         pantie = np.bitwise_and(pantie, self.mask)
