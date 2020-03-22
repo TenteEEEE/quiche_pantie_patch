@@ -7,7 +7,7 @@
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん、[ももねこ](https://noranjp.booth.pm/items/1630569)ちゃん、[ハティ](https://kokorobouzu.booth.pm/items/1451160)ちゃん、[カロナーフ](https://bbkktn.booth.pm/items/1651921)ちゃん、[量産型のらきゃっと](https://noracat.booth.pm/items/1216498)、[フィリ](https://regs.booth.pm/items/1629301)ちゃん、[いな屋さんのビキニ](https://inani.booth.pm/items/1422414)、[シリウス](https://hyuuganatu.booth.pm/items/1723127)ちゃん、[ろうちゃん](https://wancorp.booth.pm/items/1732127)、[コロナ](https://hirune-vr.booth.pm/items/1700848)ちゃん、[響狐リク](https://kar.booth.pm/items/1148939)ちゃん、[QuQuさんの着物](https://sonovr.booth.pm/items/1745708)、[スピカ](https://wakonoatorie.booth.pm/items/1808374)ちゃんです。  
+現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん、[ももねこ](https://noranjp.booth.pm/items/1630569)ちゃん、[ハティ](https://kokorobouzu.booth.pm/items/1451160)ちゃん、[カロナーフ](https://bbkktn.booth.pm/items/1651921)ちゃん、[量産型のらきゃっと](https://noracat.booth.pm/items/1216498)、[フィリ](https://regs.booth.pm/items/1629301)ちゃん、[いな屋さんのビキニ](https://inani.booth.pm/items/1422414)、[シリウス](https://hyuuganatu.booth.pm/items/1723127)ちゃん、[ろうちゃん](https://wancorp.booth.pm/items/1732127)、[コロナ](https://hirune-vr.booth.pm/items/1700848)ちゃん、[響狐リク](https://kar.booth.pm/items/1148939)ちゃん、[QuQuさんの着物](https://sonovr.booth.pm/items/1745708)、[スピカ](https://wakonoatorie.booth.pm/items/1808374)ちゃん、[みみの](https://lsw.booth.pm/items/1336133)ちゃんです。  
 
 対応したいモデラーさんは[**CC0ぱんつ**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)**の利用を検討してください。**  
 
@@ -70,12 +70,12 @@
 |![test](./sample/hati_pantie.png)|![test](./sample/caronauff_pantie.png)|
 |[量産型のらきゃっと](https://noracat.booth.pm/items/1216498)|[フィリ](https://regs.booth.pm/items/1629301)ちゃん|
 |![test](./sample/masscat_pantie.png)|![test](./sample/phyri_pantie.png)|
-|[いな屋さんのビキニ](https://inani.booth.pm/items/1422414)|[シリウス](https://hyuuganatu.booth.pm/items/1723127)|
+|[いな屋さんのビキニ](https://inani.booth.pm/items/1422414)|[シリウス](https://hyuuganatu.booth.pm/items/1723127)ちゃん|
 |![test](./sample/inabikini_pantie.png)|![test](./sample/sirius_pantie.png)|
 |[コロナ](https://hirune-vr.booth.pm/items/1700848)ちゃん|[響狐リク](https://kar.booth.pm/items/1148939)ちゃん|
 |![test](./sample/corona_pantie.png)|![test](./sample/liqu_pantie.png)|
-|[スピカ](https://wakonoatorie.booth.pm/items/1808374)||
-|![test](./sample/supica_pantie.png)||
+|[スピカ](https://wakonoatorie.booth.pm/items/1808374)ちゃん|[みみの](https://lsw.booth.pm/items/1336133)ちゃん|
+|![test](./sample/supica_pantie.png)|![test](./sample/mimino_pantie.png)|
 
 
 ## スペシャルサンクス
@@ -166,8 +166,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/inabikini_pantie.png)|![test](./sample/sirius_pantie.png)||
 |[Corona](https://hirune-vr.booth.pm/items/1700848)|[Liqu](https://kar.booth.pm/items/1148939)|
 |![test](./sample/corona_pantie.png)|![test](./sample/liqu_pantie.png)|
-|[Supica](https://wakonoatorie.booth.pm/items/1808374)||
-|![test](./sample/supica_pantie.png)||
+|[Supica](https://wakonoatorie.booth.pm/items/1808374)|[Mimino](https://lsw.booth.pm/items/1336133)ちゃん|
+|![test](./sample/supica_pantie.png)|![test](./sample/mimino_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
