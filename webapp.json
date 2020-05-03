@@ -51,6 +51,9 @@
   "i-s":[
     "is_4k"
   ],
+  "leeme":[
+    "with_bra"
+  ],
   "linz_nbody":[
     "with_bra",
     "is_lace",
@@ -101,6 +104,9 @@
   ],
   "ramne":[
     "add_sign"
+  ],
+  "reeva":[
+    "with_bra"
   ],
   "shaclo_winter":[
     "with_bra"
