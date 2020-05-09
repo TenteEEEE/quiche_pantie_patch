@@ -1,6 +1,6 @@
 numpy==1.18.3
 pillow
-scikit-image>0.17.1
+scikit-image>=0.17.1
 scipy
 gunicorn
 uvicorn
