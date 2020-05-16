@@ -19,8 +19,6 @@
   "anna":[
     "add_sign"
   ],
-  "anna_light":[
-  ],
   "carti":[
     "with_bra"
   ],
@@ -35,12 +33,8 @@
     "dis_decoration",
     "dis_texturing"
   ],
-  "cornet":[
-  ],
   "corona":[
     "use_ribbon_mesh"
-  ],
-  "differe":[
   ],
   "firina":[
     "is_frill"
@@ -62,12 +56,6 @@
     "dis_decoration",
     "dis_texturing"
   ],
-  "linz":[
-  ],
-  "lua_quest":[
-  ],
-  "lua":[
-  ],
   "masscat":[
     "with_skin",
     "with_socks",
@@ -79,18 +67,12 @@
   "mimino":[
     "with_bra"
   ],
-  "mishe":[
-  ],
-  "noy":[
-  ],
   "quiche_bra":[
     "is_lace",
     "dis_ribbon",
     "dis_shading",
     "dis_decoration",
     "dis_texturing"
-  ],
-  "quiche_light":[
   ],
   "quiche_nbody":[
     "with_bra",
@@ -99,8 +81,6 @@
     "dis_shading",
     "dis_decoration",
     "dis_texturing"
-  ],
-  "quiche":[
   ],
   "ramne":[
     "add_sign"
@@ -114,9 +94,8 @@
   "shaclo":[
     "stitch_correction"
   ],
-  "tanu":[
-  ],
-  "ukon":[
+  "shaon":[
+    "with_bra"
   ],
   "vroid":[
     "with_bra"
