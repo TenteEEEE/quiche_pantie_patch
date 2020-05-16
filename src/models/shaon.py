@@ -6,6 +6,7 @@ from src.models.class_patcher import patcher
 from src.utils.imgproc import *
 from skimage.color import rgb2hsv, hsv2rgb
 
+
 class patcher(patcher):
     def __init__(self, body='./body/body_shaon.png', **options):
         super().__init__('シャオン', body=body, pantie_position=[1312, 1435], **options)
@@ -25,7 +26,6 @@ class patcher(patcher):
             self.bra_frill_mask = self.bra_frill[:, :, -1] > 0
 
     def gen_bra(self, image):
-        # image = Image.open('./dream/0101.png')
         def pick_color(arr):
             return np.mean(np.mean(arr, axis=0), axis=0)
         pantie = np.array(image)
@@ -47,15 +47,12 @@ class patcher(patcher):
         ribbon_shade_color = pick_color(ribbon_shade)
 
         # making a center texture
-        center = pantie[20:170, -200:-15, :3][:,::-1]
+        center = pantie[20:170, -200:-15, :3][:, ::-1]
         center = resize(center, [2.3, 2.3])
-        # io.imsave('./test.png', center)
 
         # painting colors
-        # bra_center = io.imread('./mask/bra_shaon_center.png')
         bra_center = np.copy(self.bra_center)
         bra_center[504:504 + center.shape[0], 112:112 + center.shape[1], :3] = center * np.float32(bra_center[504:504 + center.shape[0], 112:112 + center.shape[1], :3] > 0)
-        # io.imshow(bra_center)
         bra = self.bra[:, :, :3] * front_color
         bra_shade = (self.bra_shade[:, :, -1])[:, :, None] * front_shade_color
         bra_frill = self.bra_frill[:, :, :3] * ribbon_color
@@ -67,7 +64,7 @@ class patcher(patcher):
         bra = np.dstack((bra, self.bra_alpha))
         io.imsave('test.png', np.uint8(np.clip(bra, 0, 1) * 255))
         return Image.fromarray(np.uint8(np.clip(bra, 0, 1) * 255))
-        
+
     def convert(self, image):
         pantie = np.array(image)
         patch = np.copy(pantie[-60:-5, 546:, :])
