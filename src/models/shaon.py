@@ -21,7 +21,7 @@ class patcher(patcher):
             self.bra_center = np.float32(io.imread('./mask/bra_shaon_center.png') / 255)
             self.bra_shade = np.float32(io.imread('./material/bra_shaon_shade.png') / 255)
             self.bra_frill = np.float32(io.imread('./material/bra_shaon_frill.png') / 255)
-            self.bra_alpha = self.bra[:, :, 0] > 0
+            self.bra_alpha = self.bra[:, :, 0] > 0.5
             self.bra_shade_alpha = self.bra_shade[:, :, -1]
             self.bra_frill_mask = self.bra_frill[:, :, -1] > 0
 
