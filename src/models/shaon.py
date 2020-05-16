@@ -62,7 +62,6 @@ class patcher(patcher):
         bra = alpha_brend(bra_frill, bra, self.bra_frill_mask)
         bra = alpha_brend(bra_shade, bra, self.bra_shade_alpha)
         bra = np.dstack((bra, self.bra_alpha))
-        io.imsave('test.png', np.uint8(np.clip(bra, 0, 1) * 255))
         return Image.fromarray(np.uint8(np.clip(bra, 0, 1) * 255))
 
     def convert(self, image):
