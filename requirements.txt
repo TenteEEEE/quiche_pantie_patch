@@ -1,6 +1,6 @@
-numpy
+numpy>=1.17
 pillow
-scikit-image
+scikit-image<0.17
 scipy
 gunicorn
 uvicorn
