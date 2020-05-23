@@ -75,11 +75,21 @@ except:
 
 
 class score_processor:
-    def __init__(self, workers=2):
+    def __init__(self, workers=6):
         self.panties = sorted(os.listdir(pantie_dir))
-        self.score_matrix = np.zeros((len(self.panties), len(self.panties)))
-        self.workers = workers
         self.done = False
+        self.startpoint = 0
+        try:
+            self.score_matrix = np.load(converted_dir + 'score_matrix.npy')
+            if self.score_matrix.shape[0] == len(panties):
+                self.done = True
+            else:
+                pad = len(panties) - self.score_matrix.shape[0]
+                self.startpoint = self.score_matrix.shape[0]
+                self.score_matrix = np.pad(self.score_matrix, [(0, pad), (0, pad)], mode='constant')
+        except:
+            self.score_matrix = np.zeros((len(self.panties), len(self.panties)))
+        self.workers = workers
 
     # it is for triangular score matrix. when you set full, it calculate a line of the full matrix
     def score_row(self, args):
@@ -95,30 +105,43 @@ class score_processor:
         template_loader.flist = remains
         template_loader.start()
         scores = []
-        ref = io.imread('./dream/%04d.png' % (num + 1))[50:-edge * 2, edge:-edge, :3]
+        ref = io.imread(pantie_dir + panties[num])[50:-edge * 2, edge:-edge, :3]
         for check_pantie in remains:
             tmp = np.array(template_loader.read())[50:-edge * 2, edge:-edge, :3]
             scores.append(mean_squared_error(ref, tmp))
+        if full:
+            scores = np.insert(scores, num, 0)
+        else:
+            scores = np.pad(scores, (num + 1, 0), mode='constant')
         return np.array(scores)
 
     def argument_generator(self, num_pantie, flag=True):
-        for i in range(num_pantie):
+        for i in range(self.startpoint, num_pantie):
             yield (i, flag)
 
     def start(self):
         t = Thread(target=self.process, args=())
         t.daemon = True
-        t.start()
+        if self.done is not True:
+            t.start()
         return t
 
     def process(self):
         with ThreadPoolExecutor(max_workers=self.workers) as executor:
-            nums = len(os.listdir(pantie_dir))
-            # score_matrix = np.zeros((nums, nums))
-            scores = executor.map(self.score_row, self.argument_generator(nums, False))
+            nums = len(panties)
+            if self.startpoint != 0:
+                scores = executor.map(self.score_row, self.argument_generator(nums, True))
+            else:
+                scores = executor.map(self.score_row, self.argument_generator(nums, False))
+
             for row, score in enumerate(scores):
-                self.score_matrix[row, row + 1:] = score
+                if self.startpoint != 0:
+                    self.score_matrix[:, row + self.startpoint] = score
+                else:
+                    self.score_matrix[row + self.startpoint, :] = score
+            self.score_matrix = np.triu(self.score_matrix)
             self.score_matrix += self.score_matrix.T
+        np.save(converted_dir + 'score_matrix.npy', self.score_matrix)
         self.done = True
 
 
@@ -230,17 +253,21 @@ async def request_suggest_list(image: str):
     scores = [scores[index] for index in rank[1:]]
     return {"suggests": suggests, "scores": scores}
 
+
 @app.get("/api/gacha/")
 async def request_gacha_list():
     return {"1ren", "10ren"}
+
 
 @app.get("/api/gacha/1ren")
 async def send_1ren_result():
     return {panties[secrets.randbelow(len(panties))]}
 
+
 @app.get("/api/gacha/10ren")
 async def send_10ren_result():
     return [panties[secrets.randbelow(len(panties))] for i in range(10)]
+
 
 @app.get("/api/zip/")
 async def request_zip_list():
