@@ -75,7 +75,7 @@ except:
 
 
 class score_processor:
-    def __init__(self, workers=6):
+    def __init__(self, workers=2):
         self.panties = sorted(os.listdir(pantie_dir))
         self.done = False
         self.startpoint = 0
