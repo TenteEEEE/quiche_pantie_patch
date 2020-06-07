@@ -7,8 +7,7 @@
 
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
-現在対応アバターは、[キッシュ](https://mutachannel.booth.pm/items/954376)ちゃん(素体はブラジャーも対応)、[キッシュ・ライト](https://mutachannel.booth.pm/items/1379653)ちゃん、[シャーロ](https://tomori-hikage.booth.pm/items/987296)ちゃん([冬服](https://tomori-hikage.booth.pm/items/1572472)も対応)、[吸血鬼アンナ](https://wakonoatorie.booth.pm/items/1067958)ちゃん([ライト](https://wakonoatorie.booth.pm/items/1405336))、[ミルク](https://komado.booth.pm/items/1209496)ちゃん、[リンツ](https://mutachannel.booth.pm/items/1255264)ちゃん(素体はブラジャーも対応)、[ルア](https://ficsnade.booth.pm/items/1255054)ちゃん([クエスト](https://ficsnade.booth.pm/items/1414368))、[右近](http://seiga.nicovideo.jp/seiga/im8378009)ちゃん、[ミーシェ](https://ponderogen.booth.pm/items/1256087)ちゃん、[ファジー](https://nagatorokoyori.booth.pm/items/1255283)ちゃん、 [たぬ](https://udonfactory.booth.pm/items/1414433)ちゃん、[ラムネ](https://komado.booth.pm/items/1411609)ちゃん、[幽狐](https://armadillon.booth.pm/items/1484117)ちゃん、[VRoid](https://vroid.com/)ちゃん、[コルネット](https://mutachannel.booth.pm/items/1522470)ちゃん、[ノイ](https://ficsnade.booth.pm/items/1572406)ちゃん、[フィリナ](https://nagatorokoyori.booth.pm/items/1577042)、[Differe](https://tyubaki.booth.pm/items/1580267)ちゃん、[I-s(アイズ)](https://atelier-alca.booth.pm/items/1572567)ちゃん、[ブランカ](https://atelier-krull.booth.pm/items/1563233)ちゃん、[カルティ](https://takewaka.booth.pm/items/1555399)ちゃん、[愛奈](https://narazaka.booth.pm/items/1319390)ちゃん、[受付嬢](https://mk22.booth.pm/items/1568317)さん、[クロノス](https://karekitsune.booth.pm/items/1542143)ちゃん、[ももねこ](https://noranjp.booth.pm/items/1630569)ちゃん、[ハティ](https://kokorobouzu.booth.pm/items/1451160)ちゃん、[カロナーフ](https://bbkktn.booth.pm/items/1651921)ちゃん、[量産型のらきゃっと](https://noracat.booth.pm/items/1216498)、[フィリ](https://regs.booth.pm/items/1629301)ちゃん、[いな屋さんのビキニ](https://inani.booth.pm/items/1422414)、[シリウス](https://hyuuganatu.booth.pm/items/1723127)ちゃん、[ろうちゃん](https://wancorp.booth.pm/items/1732127)、[コロナ](https://hirune-vr.booth.pm/items/1700848)ちゃん、[響狐リク](https://kar.booth.pm/items/1148939)ちゃん、[QuQuさんの着物](https://sonovr.booth.pm/items/1745708)、[スピカ](https://wakonoatorie.booth.pm/items/1808374)ちゃん、[みみの](https://lsw.booth.pm/items/1336133)ちゃん、[転生ルナーフ](https://bbkktn.booth.pm/items/2006071)ちゃん、[リーメ&リーバ](https://tomori-hikage.booth.pm/items/972559)ちゃん、[ソルティ](https://steller.booth.pm/items/1672165)ちゃん、[シャオン](https://kutsushita03.booth.pm/items/2048231)ちゃん、[NecoMaid](https://sonovr.booth.pm/items/1843586)ちゃん、[リネィ](https://cocca.booth.pm/items/1665790)ちゃん、[東狐千春](https://yueou.booth.pm/items/1814958)ちゃんです。  
-
+対応アバターは[**キッシュちゃんパンツパッチ対応表**](https://docs.google.com/spreadsheets/d/1z6Kw_KkmiUfvYbeaBYnFoxirTYy4BvlyBG6XmHB00_E/edit?usp=sharing)をご確認ください。  
 対応したいモデラーさんは[**CC0ぱんつ**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)**の利用を検討してください。**  
 
 ## 導入
@@ -82,6 +81,8 @@
 |![test](./sample/salty_pantie.png)|![test](./sample/shaon_pantie.png)|
 |[NecoMaid](https://sonovr.booth.pm/items/1843586)ちゃん|[リネィ](https://cocca.booth.pm/items/1665790)ちゃん|
 |![test](./sample/necomaid_pantie.png)|![test](./sample/reney_pantie.png)|
+|[東狐千春](https://yueou.booth.pm/items/1814958)ちゃん|[ロポリこん](https://mido0021.booth.pm/items/1415037)ちゃん|
+|![test](./sample/chiharu_pantie.png)|![test](./sample/lopolykon_pantie.png)|
 
 
 ## スペシャルサンクス
@@ -178,8 +179,10 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/lunauff_pantie.png)|![test](./sample/leeme_reeva_pantie.png)|
 |[Salty](https://steller.booth.pm/items/1672165)|[Shaon](https://kutsushita03.booth.pm/items/2048231)|
 |![test](./sample/salty_pantie.png)|![test](./sample/shaon_pantie.png)|
-|[NecoMaid](https://sonovr.booth.pm/items/1843586)|[リネィ](https://cocca.booth.pm/items/1665790)ちゃん|
+|[NecoMaid](https://sonovr.booth.pm/items/1843586)|[Reney](https://cocca.booth.pm/items/1665790)|
 |![test](./sample/necomaid_pantie.png)|![test](./sample/reney_pantie.png)|
+|[Touko Chiharu](https://yueou.booth.pm/items/1814958)|[Lopolykon](https://mido0021.booth.pm/items/1415037)|
+|![test](./sample/chiharu_pantie.png)|![test](./sample/lopolykon_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
