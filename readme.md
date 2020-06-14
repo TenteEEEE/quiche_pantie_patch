@@ -83,7 +83,8 @@
 |![test](./sample/necomaid_pantie.png)|![test](./sample/reney_pantie.png)|
 |[東狐千春](https://yueou.booth.pm/items/1814958)ちゃん|[ロポリこん](https://mido0021.booth.pm/items/1415037)ちゃん|
 |![test](./sample/chiharu_pantie.png)|![test](./sample/lopolykon_pantie.png)|
-
+|[マロン](https://booth.pm/ja/items/1105063)ちゃん||
+|![test](./sample/marron_pantie.png)||
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
