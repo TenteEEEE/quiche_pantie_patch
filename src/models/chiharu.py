@@ -52,11 +52,15 @@ class patcher(patcher):
     def convert(self, image):
         pantie = np.array(image)
         ribbon = pantie[19:58, 5:35, :3]
+        mr,mc,d = self.mask.shape
 
         patch = np.copy(pantie[-120:-5, 546:, :])
         [pr, pc, d] = patch.shape
         pantie[130:130 + pr, :pc, :] = patch[::-1, ::-1]
-        pantie = np.uint8(resize(pantie[:280, ::-1], [1.25, 1.25]) * 255)
+        tmp = np.uint8(resize(pantie[:280], [1.84, 1.84]) * 255)[10:mr+10,10:]
+        pantie = np.zeros((mr,mc,d),dtype=np.uint8)
+        pantie[:,:int(mc/2)] = tmp[:,:int(mc/2)]
+        pantie[:,int(mc/2):] = tmp[:,-int(mc/2)-1:]
         pantie = np.bitwise_and(pantie, self.mask)
 
         base_color = self.pick_color(ribbon[5:12, 16:20]) / 255
