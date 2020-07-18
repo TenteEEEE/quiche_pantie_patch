@@ -22,7 +22,7 @@ class patcher(patcher):
         pantie[-100:, 546:, :] = 0
         patch = skt.resize(patch[::-1, ::-1, :], (patch.shape[0] + 25, patch.shape[1]), anti_aliasing=True, mode='reflect')
         [pr, pc, d] = patch.shape
-        pantie_[125:125 + pr, :pc, :] = patch
+        pantie_[125:125 + pr, 3:3+pc, :] = patch
         io.imshow(pantie_[:340])
         pantie = pantie_[:340]
         pantie = np.uint8(resize(pantie, [0.9, 1.25]) * 255)
