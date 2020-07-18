@@ -85,6 +85,8 @@
 |![test](./sample/chiharu_pantie.png)|![test](./sample/lopolykon_pantie.png)|
 |[マロン](https://booth.pm/ja/items/1105063)ちゃん|[リアアリス](https://booth.pm/ja/items/2146588)ちゃん|
 |![test](./sample/marron_pantie.png)|![test](./sample/rearalice_pantie.png)|
+|[式神(零)](https://booth.pm/ja/items/2033949)||
+|![test](./sample/rei_pantie.png)||
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -186,6 +188,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/chiharu_pantie.png)|![test](./sample/lopolykon_pantie.png)|
 |[Marron](https://booth.pm/ja/items/1105063)|[RearAlice](https://booth.pm/ja/items/2146588)|
 |![test](./sample/marron_pantie.png)|![test](./sample/rearalice_pantie.png)|
+|[Rei](https://booth.pm/ja/items/2033949)||
+|![test](./sample/rei_pantie.png)||
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
