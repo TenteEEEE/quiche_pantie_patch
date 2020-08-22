@@ -85,8 +85,10 @@
 |![test](./sample/chiharu_pantie.png)|![test](./sample/lopolykon_pantie.png)|
 |[マロン](https://booth.pm/ja/items/1105063)ちゃん|[リアアリス](https://booth.pm/ja/items/2146588)ちゃん|
 |![test](./sample/marron_pantie.png)|![test](./sample/rearalice_pantie.png)|
-|[式神(零)](https://booth.pm/ja/items/2033949)|[ミラ](https://booth.pm/ja/items/2140459)|
+|[式神(零)](https://booth.pm/ja/items/2033949)ちゃん|[ミラ](https://booth.pm/ja/items/2140459)ちゃん|
 |![test](./sample/rei_pantie.png)|![test](./sample/mira_pantie.png)|
+|[薄荷](https://booth.pm/ja/items/2215270)ちゃん||
+|![test](./sample/hakka_pantie.png)||
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -190,6 +192,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/marron_pantie.png)|![test](./sample/rearalice_pantie.png)|
 |[Rei](https://booth.pm/ja/items/2033949)|[Mira](https://booth.pm/ja/items/2140459)|
 |![test](./sample/rei_pantie.png)|![test](./sample/mira_pantie.png)|
+|[Hakka](https://booth.pm/ja/items/2215270)||
+|![test](./sample/hakka_pantie.png)||
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
