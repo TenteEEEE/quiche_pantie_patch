@@ -39,12 +39,10 @@ class patcher(patcher):
         arrx[30:60] += (np.sin(np.linspace(0, 1 * np.pi, 100) - np.pi / 8) * 45)[30:60]
         arrx[:30] += (np.sin(np.linspace(0, 1 * np.pi, 100) + np.pi / 2) * 65)[:30]
         arrx[:20] += 14
-        # arrx[22] -= 20
         arrx[21] -= 20
         arrx[23] += 100
-        arrx[32] -= 80
-        # arrx[20:22] -= 8
-        arrx[30:45] += 7
+        arrx[32] -= 100
+        arrx[30:55] += 8
         arrx -= 20
         arry = np.sin(np.linspace(0, 1 * np.pi, 100) + np.pi / 2) * 135
         arry[-50:] -= (np.sin(np.linspace(0, 1 * np.pi, 100) - np.pi / 3) * 150)[-50:]
