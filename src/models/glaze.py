@@ -13,7 +13,7 @@ class patcher(patcher):
         self.pantie_edge = io.imread('./material/glaze_pantie_edge.png') / 255.
 
         try:
-            self.with_bra = options['with_bra']
+            self.with_bra = self.options['with_bra']
         except:
             self.with_bra = self.ask(question='With bra?', default=True)
         if self.with_bra:
