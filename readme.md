@@ -89,6 +89,8 @@
 |![test](./sample/rei_pantie.png)|![test](./sample/mira_pantie.png)|
 |[薄荷](https://booth.pm/ja/items/2215270)ちゃん|[メリノ](https://booth.pm/ja/items/2351859)|
 |![test](./sample/hakka_pantie.png)|![test](./sample/merino_pantie.png)|
+|[ユウ](https://booth.pm/ja/items/2417889)||
+|![test](./sample/yuu_pantie.png)||
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -194,6 +196,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/rei_pantie.png)|![test](./sample/mira_pantie.png)|
 |[Hakka](https://booth.pm/ja/items/2215270)|[Merino](https://booth.pm/ja/items/2351859)|
 |![test](./sample/hakka_pantie.png)|![test](./sample/merino_pantie.png)|
+|[Yuu](https://booth.pm/ja/items/2417889)||
+|![test](./sample/yuu_pantie.png)||
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
