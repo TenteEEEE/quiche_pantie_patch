@@ -92,7 +92,7 @@
 |[ユウ](https://booth.pm/ja/items/2417889)|[ぐれーず](https://booth.pm/en/items/2040115)|
 |![test](./sample/yuu_pantie.png)|![test](./sample/glaze_pantie.png)|
 |[オリオン](https://booth.pm/ja/items/2526276)||
-|![test](./sample/yuu_pantie.png)||
+|![test](./sample/orion_pantie.png)||
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -201,7 +201,7 @@ When you want to know the help, please run `python patch.py -h`
 |[Yuu](https://booth.pm/ja/items/2417889)|[Glaze](https://booth.pm/en/items/2040115)|
 |![test](./sample/yuu_pantie.png)|![test](./sample/glaze_pantie.png)|
 |[Orion](https://booth.pm/ja/items/2526276)||
-|![test](./sample/yuu_pantie.png)||
+|![test](./sample/orion_pantie.png)||
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
