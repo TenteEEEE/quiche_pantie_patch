@@ -9,7 +9,7 @@ from skimage.color import rgb2hsv, hsv2rgb
 
 class patcher(patcher):
     def __init__(self, body='./body/body_rainy.png', **options):
-        super().__init__('レイニー', body=body, pantie_position=[1806, 702], **options)
+        super().__init__('レイニィ', body=body, pantie_position=[1806, 702], **options)
 
         self.bra_position = [53, 468]
         self.bra = np.float32(io.imread('./mask/bra_rainy.png') / 255)
