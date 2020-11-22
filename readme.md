@@ -8,7 +8,8 @@
 当リポジトリはキッシュちゃんに限らず、**様々な3Dアバターにパンツを着せることだけが目的のプログラムです。**  
 キッシュちゃんのUVに合わせてパンツを描けば、他のアバター向けに自動変換後、テクスチャに貼り付けます。  
 対応アバターは[**キッシュちゃんパンツパッチ対応表**](https://docs.google.com/spreadsheets/d/1z6Kw_KkmiUfvYbeaBYnFoxirTYy4BvlyBG6XmHB00_E/edit?usp=sharing)をご確認ください。  
-対応したいモデラーさんは[**CC0ぱんつ**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)**の利用を検討してください。**  
+対応したいモデラーさんは[**CC0ぱんつ**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC)**の利用を検討してください。**  
+[**CC0ブラジャー**](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC)**もあります！**  
 
 ## 導入
 透過PNGの作成であれば[らぼてんDiscord](https://discord.gg/ad4Qsfa)のてんてーさんBotに話しかける、もしくは[Joniburn](https://github.com/joniburn)さんの[ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)を使えばこのツールの導入は不要です。  
@@ -28,8 +29,8 @@
 
 ## 対応してほしいアバターがある
 * モデラー(著作者)  
-ぜひ[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)のメッシュまたはUVの利用を検討してください。  
-こちらはすでに変換プログラムがあり、ぱんつ位置は簡単に変更できます。  
+ぜひ[CC0ぱんつ/ブラジャー](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC)のメッシュまたはUVの利用を検討してください。  
+こちらはすでに変換プログラムがあり、ぱんつやブラジャー位置は簡単に変更できます。  
 * モデル利用者  
 [対応モデルの拡充ガイドライン](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/%E5%AF%BE%E5%BF%9C%E3%83%A2%E3%83%87%E3%83%AB%E6%8B%A1%E5%85%85%E3%81%AE%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3)を読んでからお問い合わせください。  
 
@@ -100,7 +101,8 @@
 patch.pyのargparse対応:[4hiziri](https://github.com/4hiziri)さん  
 [ウェブアプリ](https://joniburn.github.io/quiche-pantie-patch-gui/)、シリウスちゃんコンバータの開発者:[Joniburn](https://github.com/joniburn)さん  
 [Unityの拡張エディタ](https://github.com/sansuke05/quiche-pantie-patch-unity-editor)の開発者:[Sansuke](https://github.com/sansuke05)さん  
-[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4)のモデラー: [socho](https://twitter.com/socho_v)  
+[CC0ぱんつ](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC)のモデラー: [socho](https://twitter.com/socho_v)  
+[CC0ブラジャー](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC)のモデラー: [lowteq](https://twitter.com/lowteq_vr)  
 
 ## ライセンス
 複雑になってきたので、[Wikiのライセンス](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)をご確認ください。
@@ -209,7 +211,8 @@ Developer of the Ukon and Differe pantie converter: [thakyuu](https://github.com
 Improvement of patch.py:[4hiziri](https://github.com/4hiziri)  
 Developer of the [web app](https://joniburn.github.io/quiche-pantie-patch-gui/) and Sirius pantie converter: [Joniburn](https://github.com/joniburn)  
 Developer of the [UnityEditor](https://github.com/sansuke05/quiche-pantie-patch-unity-editor): [Sansuke](https://github.com/sansuke05)  
-Modeler of the [CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4): [socho](https://twitter.com/socho_v)  
+Modeler of the [CC0 Pantie](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC): [socho](https://twitter.com/socho_v)  
+Modeler of the [CC0 Bra](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/CC0%E3%81%B1%E3%82%93%E3%81%A4-%E3%83%96%E3%83%A9%E3%82%B8%E3%83%A3%E3%83%BC): [lowteq](https://twitter.com/lowteq_vr)  
 
 ## License
 See [Wiki/License](https://github.com/TenteEEEE/quiche_pantie_patch/wiki/License-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
