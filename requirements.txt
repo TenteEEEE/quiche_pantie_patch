@@ -2,10 +2,12 @@ numpy>=1.17
 pillow
 scikit-image<0.17
 scipy
+httptools
+uvloop
+websockets
 gunicorn
 uvicorn
 tqdm
 fastapi
 email-validator
 aiofiles
-httptools
