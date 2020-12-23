@@ -94,8 +94,8 @@
 |![test](./sample/yuu_pantie.png)|![test](./sample/glaze_pantie.png)|
 |[オリオン](https://booth.pm/ja/items/2526276)|[レイニィ](https://booth.pm/ja/items/2495796)|
 |![test](./sample/orion_pantie.png)|![test](./sample/rainy_pantie.png)|
-|[あまなつ](https://booth.pm/ja/items/2351349)||
-|![test](./sample/amanatsu_pantie.png)||
+|[あまなつ](https://booth.pm/ja/items/2351349)|[フェルト](https://booth.pm/ja/items/2576383)|
+|![test](./sample/amanatsu_pantie.png)|![test](./sample/felt_pantie.png)|
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -206,8 +206,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/yuu_pantie.png)|![test](./sample/glaze_pantie.png)|
 |[Orion](https://booth.pm/ja/items/2526276)|[Rainy](https://booth.pm/ja/items/2495796)|
 |![test](./sample/orion_pantie.png)|![test](./sample/rainy_pantie.png)|
-|[Amanatsu](https://booth.pm/ja/items/2351349)||
-|![test](./sample/amanatsu_pantie.png)||
+|[Amanatsu](https://booth.pm/ja/items/2351349)|[Felt](https://booth.pm/ja/items/2576383)|
+|![test](./sample/amanatsu_pantie.png)|![test](./sample/felt_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
