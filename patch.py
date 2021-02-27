@@ -72,7 +72,7 @@ if args.all:
         outdir = './converted/' + args.directory
     os.makedirs(outdir, exist_ok=True)
 
-    if args.pantie is not 0:
+    if args.pantie != 0:
         pantie_loader.flist = pantie_loader.flist[args.pantie - 1:]
     else:
         if args.force:
