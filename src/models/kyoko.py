@@ -8,7 +8,7 @@ from skimage.color import rgb2hsv, hsv2rgb
 
 class patcher(patcher):
     def __init__(self, body='./body/body_kyoko.png', **options):
-        super().__init__('京子', body=body, pantie_position=[718, 1464], **options)
+        super().__init__('京狐', body=body, pantie_position=[718, 1464], **options)
         self.mask = io.imread('./mask/mask_kyoko.png')
         try:
             self.with_garter = self.options['with_garter']

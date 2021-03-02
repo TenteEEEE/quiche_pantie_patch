@@ -8,7 +8,7 @@ from skimage.color import rgb2hsv, hsv2rgb
 
 class patcher(patcher):
     def __init__(self, body='./body/body_kyoko_alpha.png', **options):
-        super().__init__('京子(Alpha)', body=body, pantie_position=[718, 1464], **options)
+        super().__init__('京狐(Alpha)', body=body, pantie_position=[718, 1464], **options)
         try:
             self.with_garter = self.options['with_garter']
         except:

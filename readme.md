@@ -96,7 +96,7 @@
 |![test](./sample/orion_pantie.png)|![test](./sample/rainy_pantie.png)|
 |[あまなつ](https://booth.pm/ja/items/2351349)|[フェルト](https://booth.pm/ja/items/2576383)|
 |![test](./sample/amanatsu_pantie.png)|![test](./sample/felt_pantie.png)|
-|[狐雪](https://booth.pm/ja/items/2554585)|[京子](https://booth.pm/ja/items/1826902)|
+|[狐雪](https://booth.pm/ja/items/2554585)|[京狐](https://booth.pm/ja/items/1826902)|
 |![test](./sample/koyuki_pantie.png)|![test](./sample/kyoko_pantie.png)|
 
 ## スペシャルサンクス
