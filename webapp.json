@@ -14,7 +14,8 @@
     "is_4k":false,
     "with_skin":true,
     "with_socks":true,
-    "is_knee":true
+    "is_knee":true,
+    "with_garter":true
   },
   "anna":[
     "add_sign"
@@ -51,6 +52,12 @@
   ],
   "i-s":[
     "is_4k"
+  ],
+  "kyoko":[
+    "with_garter"
+  ],
+  "kyoko_alpha":[
+    "with_garter"
   ],
   "leeme":[
     "with_bra"
