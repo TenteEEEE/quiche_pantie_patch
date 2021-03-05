@@ -98,8 +98,8 @@
 |![test](./sample/amanatsu_pantie.png)|![test](./sample/felt_pantie.png)|
 |[狐雪](https://booth.pm/ja/items/2554585)|[京狐](https://booth.pm/ja/items/1826902)|
 |![test](./sample/koyuki_pantie.png)|![test](./sample/kyoko_pantie.png)|
-|[ウルフェリア](https://booth.pm/ja/items/2709610)||
-|![test](./sample/wolferia_pantie.png)||
+|[ウルフェリア](https://booth.pm/ja/items/2709610)|[ここあちゃん用下着](https://booth.pm/ja/items/2796035)|
+|![test](./sample/wolferia_pantie.png)|![test](./sample/inakokoa_pantie.png)|
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -214,8 +214,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/amanatsu_pantie.png)|![test](./sample/felt_pantie.png)|
 |[Koyuki](https://booth.pm/ja/items/2554585)|[Kyoko](https://booth.pm/ja/items/1826902)|
 |![test](./sample/koyuki_pantie.png)|![test](./sample/kyoko_pantie.png)|
-|[Wolferia](https://booth.pm/ja/items/2709610)||
-|![test](./sample/wolferia_pantie.png)||
+|[Wolferia](https://booth.pm/ja/items/2709610)|[Lingerie for Kokoa](https://booth.pm/ja/items/2796035)|
+|![test](./sample/wolferia_pantie.png)|![test](./sample/inakokoa_pantie.png)|
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  
