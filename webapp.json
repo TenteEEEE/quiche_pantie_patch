@@ -41,6 +41,9 @@
   "corona":[
     "use_ribbon_mesh"
   ],
+  "eyo":[
+    "use_ribbon_mesh"
+  ],
   "firina":[
     "is_frill"
   ],
