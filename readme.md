@@ -102,6 +102,8 @@
 |![test](./sample/wolferia_pantie.png)|![test](./sample/inakokoa_pantie.png)|
 |[先呼巣～ホーニーサキュバス](https://booth.pm/ja/items/2294683)|[イヨ](https://booth.pm/ja/items/2630437)|
 |![test](./sample/succubus_pantie.png)|![test](./sample/eyo_pantie.png)|
+|[セフィラ](https://booth.pm/ja/items/2953001)||
+|![test](./sample/sephira_pantie.png)||
 
 ## スペシャルサンクス
 [Booth:キッシュちゃん](https://mutachannel.booth.pm/items/954376)  
@@ -220,6 +222,8 @@ When you want to know the help, please run `python patch.py -h`
 |![test](./sample/wolferia_pantie.png)|![test](./sample/inakokoa_pantie.png)|
 |[Succubus](https://booth.pm/ja/items/2294683)|[Eyo](https://booth.pm/ja/items/2630437)|
 |![test](./sample/succubus_pantie.png)|![test](./sample/eyo_pantie.png)|
+|[Sephira](https://booth.pm/ja/items/2953001)||
+|![test](./sample/sephira_pantie.png)||
 
 ## Special thanks
 [Quiche model](https://mutachannel.booth.pm/items/954376)  

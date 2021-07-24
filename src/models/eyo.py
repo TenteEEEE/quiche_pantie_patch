@@ -10,7 +10,6 @@ class patcher(patcher):
     def __init__(self, body='./body/body_eyo.png', **options):
         super().__init__('イヨ', body=body, pantie_position=[1423, 877], **options)
         self.mask = io.imread('./mask/mask_eyo.png')
-        self.bra_position = [298, 1301]
         try:
             self.use_ribbon_mesh = self.options['use_ribbon_mesh']
         except:
@@ -77,7 +76,7 @@ class patcher(patcher):
         front_color, front_shade_color = self.extract_bra_color(pantie)
         center = pantie[20:170, -200:-15, :3][:, ::-1]
         center = resize(center, [3.7, 3.7])
-        bra_center = np.float32(io.imread('./mask/bra_eyo_center.png') / 255)
+        bra_center = np.copy(self.bra_center)
         bra_center[:center.shape[0], 55:55 + center.shape[1], :3] = center * np.float32(bra_center[:center.shape[0], 55:55 + center.shape[1], :3] > 0)
         bra = self.bra[:, :, :3] * front_color
         bra_shade = (self.bra_shade[:, :, -1])[:, :, None] * front_shade_color
