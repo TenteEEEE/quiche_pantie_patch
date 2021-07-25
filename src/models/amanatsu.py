@@ -16,7 +16,7 @@ class patcher(patcher):
         patch = np.copy(pantie[-110:-5, 546:, :])
         pantie[-110:, 546:, :] = 0
         [pr, pc, d] = patch.shape
-        pantie[105:105 + pr, :pc, :] = patch
+        pantie[105:105 + pr, :pc, :] = patch[::-1, ::-1]
 
         arrx = np.zeros(100) - 40
         arrx += np.cos(np.linspace(0, np.pi, 100)) * -30
