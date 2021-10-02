@@ -1,3 +1,4 @@
+from numpy.matrixlib.defmatrix import matrix
 import skimage.io as io
 import skimage.transform as skt
 import numpy as np
@@ -23,24 +24,30 @@ class patcher(patcher):
         pantie[160:160 + pr, :pc, :] = np.uint8(patch * 255)
         
         # Affine transform matrix
-        src_cols = np.linspace(0, c, 10)
-        src_rows = np.linspace(0, r, 10)
+        matrixCount = 15
+        shifter_row = np.sin(np.linspace(0, np.pi * 2, matrixCount) + np.pi / 4) * 35 - 15 #サイン波1周期分をバイアス込で描いて
+        shifter_row[(matrixCount//5)*4:] = np.sin(np.linspace(0, np.pi, matrixCount - (matrixCount//5)*4)) * 20 + shifter_row[8]  #お尻の部分をサイン波半周期で上げて
+        shifter_row[-(matrixCount//10):] = shifter_row[-(matrixCount//10)-1]  # 最後だけ手入力
+        #shifter_row = [5,15,20,10,10,-10,-30,-40,-50,-40,-35,-30,-30,-10,-10]
+        src_cols = np.linspace(0, c, matrixCount)
+        src_rows = np.linspace(0, r, matrixCount)
         src_rows, src_cols = np.meshgrid(src_rows, src_cols)
         src = np.dstack([src_cols.flat, src_rows.flat])[0]
         dst_rows = src[:, 1]
         dst_cols = src[:, 0]
         dst = np.vstack([dst_cols, dst_rows]).T
-        dst[2:9,1] = dst[1,1] + (dst[2:9,1]-dst[1,1]) * 0.7
-        dst[12:19,1] = dst[11,1] + (dst[12:19,1]-dst[11,1]) * 0.7
-        dst[22:29,1] = dst[21,1] + (dst[22:29,1]-dst[21,1]) * 0.8
-        dst[32:39,1] = dst[31,1] + (dst[32:39,1]-dst[31,1]) * 0.9
-        dst[42:49,1] = dst[41,1] + (dst[42:49,1]-dst[41,1]) * 1.0
-        dst[52:59,1] = dst[51,1] + (dst[52:59,1]-dst[51,1]) * 1.1
-        dst[62:69,1] = dst[61,1] + (dst[62:69,1]-dst[61,1]) * 1.2
-        dst[72:79,1] = dst[71,1] + (dst[72:79,1]-dst[71,1]) * 1.3
-        dst[82:89,1] = dst[81,1] + (dst[82:89,1]-dst[81,1]) * 1.3
-        dst[92:99,1] = dst[91,1] + (dst[92:99,1]-dst[91,1]) * 1.35
-        dst[15:20,0] -= np.linspace(0, 20, 5)
+        row = int((dst[1,1]-dst[0,1]) * 0.95) #1マスの最大幅
+        for i in range(matrixCount):
+            if shifter_row[i] > 0 :
+                dst[i*matrixCount+2: (i+1)*matrixCount,1] -= shifter_row[i]
+            for j in range(matrixCount - 2):
+                if shifter_row[i] < 0 :
+                    k = j + 2
+                    v = min(-shifter_row[i],row)
+                    dst[i*matrixCount+k: (i+1)*matrixCount,1] += v
+                    shifter_row[i] += v
+        # transform front uv
+        dst[2*matrixCount-matrixCount//5:2*matrixCount,0] -= np.linspace(0, 15, matrixCount//5)
 
         affin = skt.PiecewiseAffineTransform()
         affin.estimate(src, dst)
