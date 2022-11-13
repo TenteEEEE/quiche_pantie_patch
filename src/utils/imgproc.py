@@ -60,6 +60,12 @@ def affine_transform_by_arr(img, arrx, arry, smoothx=False, smoothy=False, mvx=1
     return skt.warp(img, affin)
 
 
+def affine_linear_transform_by_arr(img, arrx, arry, smoothx=False, smoothy=False, mvx=10, mvy=10):
+    arrx = np.tile(arrx, [len(arrx), 1]).reshape(-1)
+    arry = np.tile(arry, [len(arry), 1]).transpose().reshape(-1)
+    return affine_transform_by_arr(img, arrx, arry, smoothx, smoothy, mvx, mvy)
+
+
 def ribbon_inpaint(image):
     mask = io.imread('./mask/ribbon4inpaint.png')
     ribbon = image[19:58, 5:35, :3]
