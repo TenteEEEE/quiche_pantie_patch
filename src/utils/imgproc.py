@@ -12,7 +12,7 @@ def perspective_transform(img, matrix):
 
 def resize(img, mag):
     return skt.resize(
-        img, (np.int(img.shape[0] * mag[0]), np.int(img.shape[1] * mag[1])), anti_aliasing=True, mode="reflect"
+        img, (int(img.shape[0] * mag[0]), int(img.shape[1] * mag[1])), anti_aliasing=True, mode="reflect"
     )
 
 

@@ -7,13 +7,13 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_fuzzy.png', **options):
-        super().__init__('ファジー', body=body, pantie_position=[845, 1593], **options)
-        self.mask = io.imread('./mask/mask_fuzzy.png')
+    def __init__(self, body="./body/body_fuzzy.png", **options):
+        super().__init__("ファジー", body=body, pantie_position=[845, 1593], **options)
+        self.mask = io.imread("./mask/mask_fuzzy.png")
         try:
-            self.is_frill = self.options['is_frill']
+            self.is_frill = self.options["is_frill"]
         except:
-            self.is_frill = self.ask(question='Is there a frill on the hip?', default=False)
+            self.is_frill = self.ask(question="Is there a frill on the hip?", default=False)
 
     def convert(self, image):
         pantie = np.array(image)
@@ -22,11 +22,11 @@ class patcher(patcher):
         # move from hip to front
         if self.is_frill:
             patch = np.copy(pantie[-230:-5, 485:, :])
-            patch = np.pad(patch, [(0, 0), (100, 100), (0, 0)], mode='constant')
+            patch = np.pad(patch, [(0, 0), (100, 100), (0, 0)], mode="constant")
             patch = skt.rotate(patch, 90)
         else:
             patch = np.copy(pantie[-212:-5, 485:, :])
-            patch = np.pad(patch, [(0, 0), (100, 100), (0, 0)], mode='constant')
+            patch = np.pad(patch, [(0, 0), (100, 100), (0, 0)], mode="constant")
             patch = skt.rotate(patch, 90)
         # Affine transform matrix for patch
         [r, c, d] = patch.shape
@@ -46,15 +46,15 @@ class patcher(patcher):
         pantie[-250:, 485:, :] = 0
         if self.is_frill:
             patch = skt.rotate(patch, 90)[:, 59:160]
-            patch = skt.resize(patch[:, :, :], (215, 86), anti_aliasing=True, mode='reflect')
-            pantie[119:119 + 215, :86, :] = np.uint8(patch * 255)
+            patch = skt.resize(patch[:, :, :], (215, 86), anti_aliasing=True, mode="reflect")
+            pantie[119 : 119 + 215, :86, :] = np.uint8(patch * 255)
         else:
             patch = skt.rotate(patch, 90)[:, 68:155]
-            patch = skt.resize(patch[:, :, :], (210, 90), anti_aliasing=True, mode='reflect')
-            pantie[119:119 + 210, :90, :] = np.uint8(patch * 255)
+            patch = skt.resize(patch[:, :, :], (210, 90), anti_aliasing=True, mode="reflect")
+            pantie[119 : 119 + 210, :90, :] = np.uint8(patch * 255)
 
         # Affine transform matrix for whole image
-        pantie = np.pad(pantie, [(50, 0), (50, 0), (0, 0)], mode='constant')
+        pantie = np.pad(pantie, [(50, 0), (50, 0), (0, 0)], mode="constant")
         [r, c, d] = pantie.shape
         src_cols = np.linspace(0, c, 10)
         src_rows = np.linspace(0, r, 10)
@@ -62,7 +62,7 @@ class patcher(patcher):
         src = np.dstack([src_cols.flat, src_rows.flat])[0]
         shifter_row = np.zeros(src.shape[0])
         shifter_col = np.zeros(src.shape[0])
-        shifter_row = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 2) * 80)
+        shifter_row = np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 2) * 80
         shifter_row[30:60] += (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 8) * 40)[30:60]
         shifter_row[:30] += (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) + np.pi / 2) * 60)[:30]
 
@@ -70,10 +70,10 @@ class patcher(patcher):
         shifter_col[-50:] -= (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 3) * 260)[-50:]
         shifter_col = abs(shifter_col)
 
-        shifter_row = np.convolve(shifter_row, np.ones(30) / 30, mode='valid')
-        shifter_col = np.convolve(shifter_col, np.ones(10) / 10, mode='valid')
-        shifter_row = skt.resize(shifter_row, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
-        shifter_col = skt.resize(shifter_col, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
+        shifter_row = np.convolve(shifter_row, np.ones(30) / 30, mode="valid")
+        shifter_col = np.convolve(shifter_col, np.ones(10) / 10, mode="valid")
+        shifter_row = skt.resize(shifter_row, (100, 1), anti_aliasing=True, mode="reflect")[:, 0]
+        shifter_col = skt.resize(shifter_col, (100, 1), anti_aliasing=True, mode="reflect")[:, 0]
         shifter_row[0:20] = -17
 
         dst_rows = src[:, 1] + shifter_row - 20
@@ -88,6 +88,11 @@ class patcher(patcher):
         npantie[:, :c, :] = pantie[:, ::-1, :]
 
         # Finalize
-        npantie = skt.resize(npantie, (np.int(npantie.shape[0] * 2.51 * 1.04), np.int(npantie.shape[1] * 2.51)), anti_aliasing=True, mode='reflect')
+        npantie = skt.resize(
+            npantie,
+            (int(npantie.shape[0] * 2.51 * 1.04), int(npantie.shape[1] * 2.51)),
+            anti_aliasing=True,
+            mode="reflect",
+        )
         npantie = np.uint8(npantie * 255)
         return Image.fromarray(npantie)
