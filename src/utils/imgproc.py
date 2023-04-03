@@ -11,7 +11,9 @@ def perspective_transform(img, matrix):
 
 
 def resize(img, mag):
-    return skt.resize(img, (np.int(img.shape[0] * mag[0]), np.int(img.shape[1] * mag[1])), anti_aliasing=True, mode='reflect')
+    return skt.resize(
+        img, (np.int(img.shape[0] * mag[0]), np.int(img.shape[1] * mag[1])), anti_aliasing=True, mode="reflect"
+    )
 
 
 def affine_transform(img, mx, my, phix=0, phiy=0, divx=2, divy=2, inv=False):
@@ -46,12 +48,12 @@ def affine_transform_by_arr(img, arrx, arry, smoothx=False, smoothy=False, mvx=1
     src = np.dstack([src_cols.flat, src_rows.flat])[0]
     if smoothx:
         lx = len(arrx)
-        arrx = np.convolve(arrx, np.ones(mvx) / mvx, mode='valid')
-        arrx = skt.resize(arrx, (lx, 1), anti_aliasing=True, mode='reflect')[:, 0]
+        arrx = np.convolve(arrx, np.ones(mvx) / mvx, mode="valid")
+        arrx = skt.resize(arrx, (lx, 1), anti_aliasing=True, mode="reflect")[:, 0]
     if smoothy:
         ly = len(arry)
-        arry = np.convolve(arry, np.ones(mvy) / mvy, mode='valid')
-        arry = skt.resize(arry, (ly, 1), anti_aliasing=True, mode='reflect')[:, 0]
+        arry = np.convolve(arry, np.ones(mvy) / mvy, mode="valid")
+        arry = skt.resize(arry, (ly, 1), anti_aliasing=True, mode="reflect")[:, 0]
     dst_rows = src[:, 1] + arrx
     dst_cols = src[:, 0] + arry
     dst = np.vstack([dst_cols, dst_rows]).T
@@ -60,28 +62,37 @@ def affine_transform_by_arr(img, arrx, arry, smoothx=False, smoothy=False, mvx=1
     return skt.warp(img, affin)
 
 
+def affine_transform_by_arr2(img, arrx, arry, smoothx=False, smoothy=False, mvx=10, mvy=10):
+    # better expression for arrx and arry
+    arrx = np.tile(arrx, [len(arrx), 1]).transpose().reshape(-1)
+    arry = np.tile(arry, [len(arry), 1]).transpose().reshape(-1)
+    # arry = np.tile(arry, [len(arry), 1]).reshape(-1)
+    return affine_transform_by_arr(img, arrx, arry, smoothx, smoothy, mvx, mvy)
+
+
 def affine_linear_transform_by_arr(img, arrx, arry, smoothx=False, smoothy=False, mvx=10, mvy=10):
+    # stretch on x and y axis
     arrx = np.tile(arrx, [len(arrx), 1]).reshape(-1)
     arry = np.tile(arry, [len(arry), 1]).transpose().reshape(-1)
     return affine_transform_by_arr(img, arrx, arry, smoothx, smoothy, mvx, mvy)
 
 
 def ribbon_inpaint(image):
-    mask = io.imread('./mask/ribbon4inpaint.png')
+    mask = io.imread("./mask/ribbon4inpaint.png")
     ribbon = image[19:58, 5:35, :3]
     ribbon_mask = (mask[19:58, 5:35, 1] > 0)[:, :, None]
     removed = ribbon * (mask[19:58, 5:35, 1] < 1)[:, :, None].astype(np.float)
-    search_area = image[60:100 - 1, :40, :3].astype(np.float)
+    search_area = image[60 : 100 - 1, :40, :3].astype(np.float)
     [r, c, d] = ribbon_mask.shape
     dx = search_area.shape[1] - ribbon.shape[1]
     score = np.zeros(dx)
     for x in range(dx):
-        inpainter = search_area[:, x:x + c, :] * ribbon_mask
+        inpainter = search_area[:, x : x + c, :] * ribbon_mask
         inpainted = removed + inpainter
         for vx in range(dx):
-            score[x] += np.mean((inpainted - search_area[:, vx:vx + c])**2)
+            score[x] += np.mean((inpainted - search_area[:, vx : vx + c]) ** 2)
     optimum = np.argmin(score)
-    inpainter = search_area[:, optimum:optimum + c, :] * ribbon_mask
+    inpainter = search_area[:, optimum : optimum + c, :] * ribbon_mask
     inpainted = removed + inpainter
     image[19:58, 5:35, :3] = np.uint8(inpainted)
     return image
