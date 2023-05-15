@@ -7,20 +7,20 @@ from src.utils.imgproc import *
 
 
 class patcher(patcher):
-    def __init__(self, body='./body/body_mishe.png', **options):
-        super().__init__('ミーシェ', body=body, pantie_position=[910, 1929], **options)
-        self.mask = io.imread('./mask/mask_mishe.png')
+    def __init__(self, body="./body/body_mishe.png", **options):
+        super().__init__("ミーシェ", body=body, pantie_position=[910, 1929], **options)
+        self.mask = io.imread("./mask/mask_mishe.png")
         self.sign_position = [933, 1482]
         try:
-            self.add_sign = self.options['add_sign']
+            self.add_sign = self.options["add_sign"]
         except:
-            self.add_sign = self.ask(question='Add immoral sign?', default=False)
+            self.add_sign = self.ask(question="Add immoral sign?", default=False)
         if self.add_sign:
             try:
-                self.sign = Image.open(self.options['fsign'])
+                self.sign = Image.open(self.options["fsign"])
             except:
-                self.sign = Image.open('./material/anna_sign.png')
-            self.sign = self.sign.resize((369,746))
+                self.sign = Image.open("./material/anna_sign.png")
+            self.sign = self.sign.resize((369, 746))
 
     def convert(self, image):
         pantie = np.array(image)
@@ -30,9 +30,9 @@ class patcher(patcher):
         # move from hip to front
         patch = np.copy(pantie[-140:-5, 546:, :])
         pantie[-115:, 546:, :] = 0
-        patch = skt.resize(patch[::-1, ::-1, :], (patch.shape[0], 63), anti_aliasing=True, mode='reflect')
+        patch = skt.resize(patch[::-1, ::-1, :], (patch.shape[0], 63), anti_aliasing=True, mode="reflect")
         [pr, pc, d] = patch.shape
-        pantie[127 - 5:127 - 5 + pr, :pc, :] = np.uint8(patch * 255)
+        pantie[127 - 5 : 127 - 5 + pr, :pc, :] = np.uint8(patch * 255)
 
         # Affine transform matrix
         src_cols = np.linspace(0, c, 10)
@@ -46,10 +46,10 @@ class patcher(patcher):
         shifter_row[-30:] = (np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) - np.pi / 2) * 80)[-30:]
         shifter_col[13:-30] = -(np.sin(np.linspace(0, 1 * np.pi, src.shape[0]) + np.pi / 8) * 22)[13:-30]
 
-        shifter_row = np.convolve(shifter_row, np.ones(20) / 20, mode='valid')
-        shifter_col = np.convolve(shifter_col, np.ones(10) / 10, mode='valid')
-        shifter_row = skt.resize(shifter_row, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
-        shifter_col = skt.resize(shifter_col, (100, 1), anti_aliasing=True, mode='reflect')[:, 0]
+        shifter_row = np.convolve(shifter_row, np.ones(20) / 20, mode="valid")
+        shifter_col = np.convolve(shifter_col, np.ones(10) / 10, mode="valid")
+        shifter_row = skt.resize(shifter_row, (100, 1), anti_aliasing=True, mode="reflect")[:, 0]
+        shifter_col = skt.resize(shifter_col, (100, 1), anti_aliasing=True, mode="reflect")[:, 0]
 
         dst_rows = src[:, 1] + shifter_row - 110
         dst_cols = src[:, 0] + shifter_col
@@ -59,17 +59,19 @@ class patcher(patcher):
         pantie = np.uint8(skt.warp(pantie, affin) * 255)[:310, :, :]
 
         # Finalize
-        pantie_ = skt.resize(pantie, (np.int(pantie.shape[0] * 2.05), np.int(pantie.shape[1] * 2.05)), anti_aliasing=True, mode='reflect')
+        pantie_ = skt.resize(
+            pantie, (int(pantie.shape[0] * 2.05), int(pantie.shape[1] * 2.05)), anti_aliasing=True, mode="reflect"
+        )
         pantie = np.uint8(pantie_ * 255)
         return Image.fromarray(pantie)
-    
+
     def patch(self, image, transparent=False):
         image = self.convert(image)
         if transparent:
             patched = Image.new("RGBA", self.body_size)
         else:
             patched = self.body.copy()
-        
+
         if self.add_sign:
             self.paste(patched, self.sign, self.sign_position)
         patched = self.paste(patched, image, self.pantie_position)

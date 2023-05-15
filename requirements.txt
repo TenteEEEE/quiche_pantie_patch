@@ -1,6 +1,6 @@
-numpy>=1.17
+numpy
 pillow
-scikit-image<0.17
+scikit-image
 scipy
 httptools
 uvloop
@@ -11,3 +11,4 @@ tqdm
 fastapi
 email-validator
 aiofiles
+matplotlib

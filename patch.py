@@ -63,7 +63,11 @@ else:
         patcher = module.patcher()
 
 print('Starting pantie loader...')
-pantie_loader = image_loader(fdir='./dream/')
+pantie_loader = None
+if hasattr(patcher, "noribbon"):
+    pantie_loader = image_loader(fdir='./dream_noribbon/')
+else:
+    pantie_loader = image_loader(fdir='./dream/')
 
 if args.all:
     if args.directory == 'default':
