@@ -11,3 +11,4 @@ zips
 !mask/*.png
 !material/*.png
 !sample/*.png
+.vscode
