@@ -56,8 +56,8 @@ class patcher(patcher):
         edge = 30
         design_seamless = gaussian(design, sigma=3)
         design_seamless[edge:-edge, edge:-edge] = design[edge:-edge, edge:-edge]
-        y = np.arange(-hr / 2, hr / 2, dtype=int16)
-        x = np.arange(-hc / 2, hc / 2, dtype=int16)
+        y = np.arange(-hr / 2, hr / 2, dtype=np.int16)
+        x = np.arange(-hc / 2, hc / 2, dtype=np.int16)
         design_seamless = (design_seamless[y, :])[:, x]  # rearrange pixels
         design_seamless = np.tile(design_seamless, (3, 3))
 
