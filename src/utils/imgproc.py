@@ -81,8 +81,8 @@ def ribbon_inpaint(image):
     mask = io.imread("./mask/ribbon4inpaint.png")
     ribbon = image[19:58, 5:35, :3]
     ribbon_mask = (mask[19:58, 5:35, 1] > 0)[:, :, None]
-    removed = ribbon * (mask[19:58, 5:35, 1] < 1)[:, :, None].astype(np.float)
-    search_area = image[60 : 100 - 1, :40, :3].astype(np.float)
+    removed = ribbon * (mask[19:58, 5:35, 1] < 1)[:, :, None].astype(np.float32)
+    search_area = image[60 : 100 - 1, :40, :3].astype(np.float32)
     [r, c, d] = ribbon_mask.shape
     dx = search_area.shape[1] - ribbon.shape[1]
     score = np.zeros(dx)
