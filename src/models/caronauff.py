@@ -5,7 +5,6 @@ from PIL import Image
 from src.models.class_patcher import patcher
 from src.utils.imgproc import *
 
-import matplotlib.pyplot as plt
 
 class patcher(patcher):
     def __init__(self, body='./body/body_caronauff.png', **options):

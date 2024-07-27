@@ -1,11 +1,13 @@
+import hashlib
+import importlib
+import json
+import os
+import sys
+from copy import copy
+
 from PIL import Image
 from tqdm import tqdm
-from copy import copy
-import hashlib
-import os
-import json
-import importlib
-import sys
+from tqdm.contrib.concurrent import thread_map
 
 sys.path.append("./src/")
 import models
@@ -66,6 +68,14 @@ def read_hash_dict(fname):
     return hash_dict
 
 
+def process_pantie(pantie):
+    if hasattr(patcher, "noribbon"):
+        patched = patcher.patch(Image.open(pantie_dir[:-1] + "_noribbon/" + pantie), transparent=True)
+    else:
+        patched = patcher.patch(Image.open(pantie_dir + pantie), transparent=True)
+    patcher.save(patched, f"{fdir}{pantie}")
+
+
 checklist = models.models_namelist
 checklist = ["./src/models/" + f for f in checklist]
 checklist.append("./src/utils/imgproc")
@@ -113,12 +123,9 @@ for model in models.models_namelist:
         if option != "default":
             setup[option] = not setup[option]
         patcher = module.patcher(options=setup)
-        for pantie in tqdm(sorted(nonexists)):
-            if hasattr(patcher, "noribbon"):
-                patched = patcher.patch(Image.open(pantie_dir[:-1] + "_noribbon/" + pantie), transparent=True)
-            else:
-                patched = patcher.patch(Image.open(pantie_dir + pantie), transparent=True)
-            patcher.save(patched, f"{fdir}{pantie}")
+        # thread_map(process_pantie, sorted(nonexists), max_workers=os.cpu_count())
+        for fpath in tqdm(sorted(nonexists)):
+            process_pantie(fpath)
 
 # Update hash dictionary
 write_hash_dict(hash_dict_name, latest_hash)
