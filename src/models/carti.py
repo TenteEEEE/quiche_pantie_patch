@@ -1,10 +1,11 @@
+import numpy as np
 import skimage.io as io
 import skimage.transform as skt
-import numpy as np
 from PIL import Image
+from skimage.color import hsv2rgb, rgb2hsv
+
 from src.models.class_patcher import patcher
 from src.utils.imgproc import *
-from skimage.color import rgb2hsv, hsv2rgb
 
 
 class patcher(patcher):
@@ -89,7 +90,6 @@ class patcher(patcher):
 
         # Affine transform matrix
         pantie = np.pad(pantie, [(0, 0), (0, 165), (0, 0)], mode='constant')
-        io.imshow(pantie)
         arrx = np.zeros(100)
         arry = np.zeros(100)
         arry[10:] += np.linspace(0, -170, 90)
