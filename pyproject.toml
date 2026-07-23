@@ -6,10 +6,10 @@ authors = ["TenteEEEE <wander0055@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 numpy = "^2.0.0"
 scikit-image = "^0.24.0"
-pillow = "^10.4.0"
+pillow = "^11.0.0"
 fastapi = "^0.111.1"
 gunicorn = "^22.0.0"
 uvicorn = "^0.30.1"
